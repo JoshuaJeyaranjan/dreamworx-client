@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import "./Nav.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Nav() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="nav">
-      <img className="nav__logo" src="src/assets/images/logo.JPG" alt="" />
+
+        <Link to='/'>
+        <img className="nav__logo" src="src/assets/images/logo.JPG" alt="Dreamworx Logo" />
+        </Link>
+     
 
       <ul className="nav__menu">
         <NavLink to="/" className="nav__link">

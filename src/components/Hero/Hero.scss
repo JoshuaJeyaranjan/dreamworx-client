@@ -1,0 +1,25 @@
+.hero{
+    background-image: url(src/assets/images/white.jpeg);
+    min-height: 60vh;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: black;    
+
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    
+
+    &__sub-heading{
+        color: white;
+    }
+
+    &__heading{
+        color: orange;
+    }
+
+    &__text{
+        margin-top: 6rem;
+        margin-left: 2rem;
+    }
+}
