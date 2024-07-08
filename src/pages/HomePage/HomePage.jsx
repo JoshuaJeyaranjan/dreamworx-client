@@ -7,7 +7,9 @@ import Glitch from '../../components/Glitch/Glitch'
 import ContactForm from '../../components/ContactForm/ContactForm'
 import ContactInfo from '../../components/ContactInfo/ContactInfo'
 import ContactUs from '../../components/ContactUs/ContactUs'
-
+import LinkList from '../../components/LinkList/LinkList'
+import Excellence from '../../components/Excellence/Excellence'
+import ChooseUs from '../../components/ChooseUs/ChooseUs'
 
 
 import './HomePage.scss'
@@ -21,6 +23,12 @@ export default function HomePage() {
         <Hero/>
 
         <Glitch/>
+
+        <LinkList/>
+
+        <Excellence/>
+
+        <ChooseUs/>
 
         <ContactForm/>
 

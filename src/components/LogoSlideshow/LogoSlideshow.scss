@@ -1,0 +1,28 @@
+/* LogoSlideshow.scss */
+.logo-slideshow {
+    overflow: hidden;
+    width: 100%; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    position: relative;
+  
+    &__wrapper {
+      display: flex;
+      animation: slide 38s linear infinite; /* Adjust duration as needed */
+    }
+  
+    &__logo {
+      width: 150px; /* Adjust width as needed */
+      height: 100px; /* Adjust height as needed */
+      margin-right: 20px; /* Adjust spacing as needed */
+      
+    }
+  
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-150px * 41 - 20px * 41)); /* Adjust based on logo width and spacing */
+      }
+    }
+  }

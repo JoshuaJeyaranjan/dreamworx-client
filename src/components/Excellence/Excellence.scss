@@ -1,0 +1,15 @@
+.excellence{
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+
+   &__text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+
+   &__header{
+    color: orange;
+   }
+}
