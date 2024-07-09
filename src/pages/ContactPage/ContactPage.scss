@@ -1,0 +1,13 @@
+.contact-page{
+    background-image: url('src/assets/images/white.jpeg');
+    background-repeat: no-repeat;
+    background-position: right;
+    display: flex;
+    flex-direction: column;
+    
+
+    &__header{
+        color: orange;
+        margin: auto;
+    }
+}
