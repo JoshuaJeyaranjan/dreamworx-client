@@ -1,0 +1,54 @@
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+    &__header{
+        color: white;
+        margin-bottom: 1rem;
+    }
+    
+}
+
+.contact-form{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    min-width: 90vw;
+    border-radius: .5rem;
+    min-height: 20vw;
+
+    &__submit{
+        margin-top: 2rem;
+        padding: .5rem;
+        border-radius: .5rem;
+        color: white;
+        background-color:black;
+        
+    }
+
+    &__input{
+        border: none;
+        border-bottom: 1px solid grey;
+    }
+}
+
+.input-container-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.input-container-row{
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    justify-content: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    
+}

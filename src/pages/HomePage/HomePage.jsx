@@ -10,7 +10,8 @@ import ContactUs from '../../components/ContactUs/ContactUs'
 import LinkList from '../../components/LinkList/LinkList'
 import Excellence from '../../components/Excellence/Excellence'
 import ChooseUs from '../../components/ChooseUs/ChooseUs'
-
+import Socials from '../../components/Socials/Socials'
+import InTouch from '../../components/InTouch/InTouch'
 
 import './HomePage.scss'
 

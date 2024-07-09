@@ -1,8 +1,13 @@
-import React from 'react'
-import './ContactInfo.scss'
+import React from "react";
+import "./ContactInfo.scss";
+import Socials from "../Socials/Socials";
+import InTouch from "../InTouch/InTouch";
 
 export default function ContactInfo() {
   return (
-    <div>ContactInfo</div>
-  )
+    <div className="contact-info">
+      <Socials />
+      <InTouch />
+    </div>
+  );
 }

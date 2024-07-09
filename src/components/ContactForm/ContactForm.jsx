@@ -1,12 +1,14 @@
 // ContactForm.js
-import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import "./ContactForm.scss";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -19,55 +21,81 @@ export default function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    emailjs.send(
-      'service_8hfywxa', // Replace with your service ID
-      'template_990ozcw', // Replace with your template ID
-      formData,
-      'PKnZJZ-ZPIAy6_auu' // Replace with your public API key
-    )
-    .then((response) => {
-      console.log('SUCCESS!', response.status, response.text);
-      alert('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
-    })
-    .catch((err) => {
-      console.log('FAILED...', err);
-      alert('Failed to send message. Please try again later.');
-    });
+    emailjs
+      .send(
+        "service_8hfywxa", // Replace with your service ID
+        "template_990ozcw", // Replace with your template ID
+        formData,
+        "PKnZJZ-ZPIAy6_auu" // Replace with your public API key
+      )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "", phone: "" });
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+        alert("Failed to send message. Please try again later.");
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label>Message:</label>
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        ></textarea>
-      </div>
-      <button type="submit">Send</button>
-    </form>
+    <div className="contact">
+      <h3 className="contact__header">Contact Us</h3>
+
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <div className="input-container-column">
+          <div className="input-container-row">
+            <div>
+              <label className="input-container-column">Name:</label>
+              <input
+              className="contact-form__input"
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="input-container-column">
+              <label>Email:</label>
+              <input
+              className="contact-form__input"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="input-container-column">
+              <label>Phone:</label>
+              <input
+              className="contact-form__input"
+                type="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="input-container-column">Message:</label>
+            <textarea
+            className="contact-form__input"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
+          <button className="contact-form__submit" type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
