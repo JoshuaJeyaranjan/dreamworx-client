@@ -8,7 +8,7 @@ import ContactPage from './pages/ContactPage/ContactPage'
 import CustomizePage from './pages/CustomizePage/CustomizePage'
 import MechanicalPage from './pages/MechanicalPage/MechanicalPage'
 import ServicesPage from './pages/ServicesPage/ServicesPage'
-
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 
 function App() {
 
@@ -24,6 +24,7 @@ function App() {
       <Route path='/customize' element={ <CustomizePage/>} /> 
       <Route path='/mechanical' element={ <MechanicalPage/>} /> 
       <Route path='/services' element={ <ServicesPage/>} />  
+      <Route path='*' element={<NotFoundPage/>} />
       </Routes>  
     </BrowserRouter>
   )
