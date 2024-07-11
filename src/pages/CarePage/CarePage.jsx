@@ -4,6 +4,7 @@ import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
+import GlitchCare from '../../components/GlitchCare/GlitchCare';
 
 export default function CarePage() {
   return (
@@ -21,6 +22,8 @@ export default function CarePage() {
           <h1>Car Care</h1>
         </div>
       </div>
+
+      <GlitchCare/>
 
       <ContactForm/>
       <ContactInfo/>

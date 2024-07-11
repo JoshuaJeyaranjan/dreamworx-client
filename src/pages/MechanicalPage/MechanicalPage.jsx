@@ -4,6 +4,7 @@ import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
+import GlitchMechanical from '../../components/GlitchMechanical/GlitchMechanical';
 
 
 export default function MechanicalPage() {
@@ -22,6 +23,8 @@ export default function MechanicalPage() {
         <h1>Mechanical</h1>
       </div>
     </div>
+
+    <GlitchMechanical/>
 
     <ContactForm/>
     <ContactInfo/>

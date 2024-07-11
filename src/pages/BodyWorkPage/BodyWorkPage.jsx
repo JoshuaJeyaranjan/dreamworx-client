@@ -4,6 +4,7 @@ import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
+import GlitchBody from '../../components/GlitchBody/GlitchBody';
 
 
 export default function BodyWorkPage() {
@@ -22,6 +23,8 @@ export default function BodyWorkPage() {
         <h1>Body Work</h1>
       </div>
     </div>
+
+    <GlitchBody/>
 
     <ContactForm/>
     <ContactInfo/>

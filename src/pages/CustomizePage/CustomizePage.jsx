@@ -4,6 +4,7 @@ import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
+import GlitchCustomization from '../../components/GlitchCustomization/GlitchCustomization';
 
 export default function CustomizePage() {
   return (
@@ -21,6 +22,8 @@ export default function CustomizePage() {
           <h1>Car Customization</h1>
         </div>
       </div>
+
+      <GlitchCustomization/>
 
       <ContactForm/>
       <ContactInfo/>
