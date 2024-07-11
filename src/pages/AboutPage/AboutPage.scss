@@ -1,0 +1,62 @@
+.about {
+    &__hero {
+      position: relative;
+      height: 60vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+  
+      &-video {
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        min-width: 100%;
+        min-height: 70%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+      }
+  
+      &-content {
+        position: relative;
+        z-index: 1;
+        bottom: 30%;
+        right: 30%;
+      }
+    }
+  }
+
+  .subsection{
+    display: flex;
+    flex-direction: row;
+    max-height: 20vh;
+
+    &__text-container{
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    &__header{
+        color: orange;
+    }
+
+    &__paragraph{
+        color: white;
+    }
+  }
+
+  .journey{
+    &__header{
+        color: orange;
+    }
+
+    &__paragraph{
+        color: white;
+    }
+  }
