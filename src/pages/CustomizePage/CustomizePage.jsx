@@ -7,6 +7,7 @@ import ContactInfo from '../../components/ContactInfo/ContactInfo';
 import GlitchCustomization from '../../components/GlitchCustomization/GlitchCustomization';
 import ServiceList from '../../components/ServiceList/ServiceList'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
+import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
 
 export default function CustomizePage() {
 
@@ -57,6 +58,7 @@ export default function CustomizePage() {
       <Footer/>
 
       <BackToTopButton/>
+      <FloatingActionButton/>
     </div>
   )
 }

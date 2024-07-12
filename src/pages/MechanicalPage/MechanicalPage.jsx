@@ -7,6 +7,7 @@ import ContactInfo from '../../components/ContactInfo/ContactInfo';
 import GlitchMechanical from '../../components/GlitchMechanical/GlitchMechanical';
 import ServiceList from '../../components/ServiceList/ServiceList'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
+import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
 
 export default function MechanicalPage() {
 
@@ -85,6 +86,7 @@ export default function MechanicalPage() {
     <ContactInfo/>
     <Footer/>
     <BackToTopButton/>
+    <FloatingActionButton/>
   </div>
   )
 }

@@ -6,6 +6,7 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
 import ImageCarousel from '../../components/ImageCarousel/ImageCarousel';
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
+import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
 
 export default function AboutPage() {
   return (
@@ -45,6 +46,7 @@ export default function AboutPage() {
       <ContactInfo />
       <Footer />
       <BackToTopButton/>
+      <FloatingActionButton/>
     </div>
   );
 }

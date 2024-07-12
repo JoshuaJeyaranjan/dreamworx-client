@@ -7,7 +7,7 @@ import ContactInfo from '../../components/ContactInfo/ContactInfo';
 import GlitchBody from '../../components/GlitchBody/GlitchBody';
 import ServiceList from '../../components/ServiceList/ServiceList'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
-
+import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
 
 export default function BodyWorkPage() {
 
@@ -57,6 +57,7 @@ export default function BodyWorkPage() {
     <ContactInfo/>
     <Footer/>
     <BackToTopButton/>
+    <FloatingActionButton/>
   </div>
   )
 }

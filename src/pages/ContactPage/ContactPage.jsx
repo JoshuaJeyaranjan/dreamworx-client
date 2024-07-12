@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer'
 import ContactForm from '../../components/ContactForm/ContactForm'
 import ContactInfo from '../../components/ContactInfo/ContactInfo'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
-
+import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
 export default function ContactPage() {
   return (
     <div className='contact-page'>
@@ -29,6 +29,7 @@ export default function ContactPage() {
       <Footer/>
 
       <BackToTopButton/>
+      <FloatingActionButton/>
     </div>
   )
 }
