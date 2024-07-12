@@ -5,9 +5,33 @@ import Footer from '../../components/Footer/Footer';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
 import GlitchBody from '../../components/GlitchBody/GlitchBody';
+import ServiceList from '../../components/ServiceList/ServiceList'
 
 
 export default function BodyWorkPage() {
+
+  const bodyServices = [
+    {
+      title: 'Chassis Collision',
+      paragraph: 'Restoration of structural integrity after collisions.'
+    },
+    {
+      title: 'Smart Paint',
+      paragraph: 'Cutting-edge paint technology for dynamic color and effects.'
+    },
+    {
+      title: 'Dent Repair',
+      paragraph: 'Flawless restoration with advanced dent repair techniques.'
+    },
+    {
+      title: 'Body Paint',
+      paragraph: 'Revitalize your vehicle with expert body painting.'
+    },
+    {
+      title: 'Peelable Paint',
+      paragraph: 'Innovative peelable paint for customizable and temporary transformations.'
+    },
+  ]
   return (
     <div className='body-work'>
     <Nav/>
@@ -25,6 +49,8 @@ export default function BodyWorkPage() {
     </div>
 
     <GlitchBody/>
+
+    <ServiceList services={bodyServices}/>
 
     <ContactForm/>
     <ContactInfo/>
