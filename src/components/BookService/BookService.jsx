@@ -1,28 +1,27 @@
-import React from 'react';
-import './BookService.scss';
+import React from "react";
+import "./BookService.scss";
 
-
-const whatsappNumber = '+14378767666'; // Your WhatsApp number with country code
+const whatsappNumber = "+14378767666"; // Your WhatsApp number with country code
 
 export default function BookService() {
   const handleWhatsAppClick = () => {
-    window.location.href = `https://wa.me/${whatsappNumber.replace('+', '')}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber.replace("+", "")}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
     <div className="book-service">
       
-      <button 
-        className="book-service__button" 
-        onClick={handleWhatsAppClick}
-      >
-        <img 
-        src='src/assets/icons/whatsapp.png' 
-        alt="WhatsApp" 
-        className="book-service__icon" 
-      />
-        Book Your Service
+      <button className="book-service__button" onClick={handleWhatsAppClick}>
+        
+        <img
+          src="src/assets/icons/whatsapp.png"
+          alt="WhatsApp"
+          className="book-service__icon"
+        />
+        Book Your Service 
       </button>
+      
     </div>
   );
 }

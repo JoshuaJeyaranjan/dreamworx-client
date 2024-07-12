@@ -1,6 +1,6 @@
 .glitch {
   background-color: black;
-  min-height: 20vh;
+  min-height: 13vh;
   margin-bottom: 0;
 
   &__text-container {
@@ -8,7 +8,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 5rem;
+      
       gap: 1rem;
   }
 
@@ -20,6 +20,7 @@
   &__paragraph {
       max-width: 75vw;
       font-style: italic;
+      margin-bottom: 0;
   }
 
   &__header {

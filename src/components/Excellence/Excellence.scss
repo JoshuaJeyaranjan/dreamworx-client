@@ -8,6 +8,7 @@
     flex-direction: column;
     align-items: center;
     color: white;
+    margin-bottom: 1rem;
    }
 
    &__header{
@@ -18,6 +19,6 @@
    &__sub-header{
     font-size: 2rem;
     font-weight: 200;
-    font-style: italic;
+    
    }
 }

@@ -1,4 +1,5 @@
 .about {
+
     &__hero {
       position: relative;
       height: 60vh;
@@ -35,35 +36,43 @@
     display: flex;
     flex-direction: row;
     max-height: 30vh;
-    padding: 1rem;
+    
 
     &__text-container{
         display: flex;
         flex-direction: column;
+        margin-left: 1rem;
         
     }
 
     &__header{
         color: orange;
         margin-left: 1rem;
+        font-size: 2rem;
     }
 
     &__paragraph{
         color: white;
         padding: 1rem;
+        padding-bottom: 0;
     }
   }
 
   .journey{
     &__header{
         color: orange;
-        font-size: 8rem;
+        font-size: 4rem;
         padding: 1rem;
+        padding-bottom: .5rem;
+        margin-left: 1rem;
+        
     }
 
     &__paragraph{
         color: white;
         padding: 1rem;
+        
         padding-top: 0;
+        margin-left: 1rem;
     }
   }

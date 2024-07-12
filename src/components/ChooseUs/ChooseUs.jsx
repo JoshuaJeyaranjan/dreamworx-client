@@ -15,7 +15,7 @@ export default function ChooseUs() {
         </div>
 
         <div className='choose-us__component'>
-            <p className='choose-us__title'>Personalized approach:</p>
+            <p className='choose-us__title'>Personalized Approach:</p>
             <p className='choose-us__paragraph'>We understand that every vehicle is unique, just like its owner. Our personalized approach ensures that your specific needs are met, delivering a tailored and satisfying experience.</p>
         </div>
 

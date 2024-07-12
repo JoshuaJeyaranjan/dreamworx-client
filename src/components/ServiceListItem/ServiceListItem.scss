@@ -5,16 +5,13 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 33vw;
-    transition: transform 0.3s;
-     
-    &:hover{
-      transform: scale(1.1);
-    }
+
   
     &__title {
       margin: 0 0 10px;
       font-size: 1.5rem;
       color: orange;
+      text-decoration: underline;
 
     }
   

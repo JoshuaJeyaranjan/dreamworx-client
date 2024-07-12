@@ -29,18 +29,20 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
   
       &.fab__main {
-        background-color: #007bff;
+        background-color: orange;
       }
   
       &.fab__phone {
         background-color: #25D366; /* WhatsApp green */
-        top: -60px; // Less spacing
+        top: -50px; // Less spacing
         opacity: 0;
+        margin: 0;
+        padding: 0;
       }
   
       &.fab__whatsapp {
         background-color: #25D366; /* WhatsApp green */
-        top: -120px; // Less spacing
+        top: -100px; // Less spacing
         opacity: 0;
       }
   

@@ -15,11 +15,11 @@ export default function CarePage() {
   const carCareServices = [
     {
       title: 'Car Wash',
-      paragraph: 'Revitalize with our thorough, eco-friendly car washing solutions'
+      paragraph: 'Revitalize with our thorough, eco-friendly car washing solutions.'
     },
     {
       title: 'Paint Protection Film',
-      paragraph: 'Sheild your car"s paint from chips and scratches with PPF'
+      paragraph: 'Shield your car"s paint from chips and scratches with PPF.'
     },
     {
       title: 'Polishing',

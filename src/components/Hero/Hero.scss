@@ -12,14 +12,17 @@
 
     &__sub-heading{
         color: white;
+        font-size: 2rem;
     }
 
     &__heading{
         color: orange;
+        font-size: 4rem;
     }
 
     &__text{
-        margin-top: 6rem;
+        margin-top: 10rem;
         margin-left: 2rem;
+        max-width: 66vw;
     }
 }
