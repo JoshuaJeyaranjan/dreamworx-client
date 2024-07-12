@@ -6,6 +6,7 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
 import GlitchCare from '../../components/GlitchCare/GlitchCare';
 import ServiceList from '../../components/ServiceList/ServiceList';
+import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 
 export default function CarePage() {
 
@@ -71,6 +72,7 @@ export default function CarePage() {
       <ContactForm/>
       <ContactInfo/>
       <Footer/>
+      <BackToTopButton/>
     </div>
   )
 }

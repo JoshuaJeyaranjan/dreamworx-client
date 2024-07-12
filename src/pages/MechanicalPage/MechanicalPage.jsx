@@ -6,6 +6,7 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
 import GlitchMechanical from '../../components/GlitchMechanical/GlitchMechanical';
 import ServiceList from '../../components/ServiceList/ServiceList'
+import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 
 export default function MechanicalPage() {
 
@@ -83,6 +84,7 @@ export default function MechanicalPage() {
     <ContactForm/>
     <ContactInfo/>
     <Footer/>
+    <BackToTopButton/>
   </div>
   )
 }

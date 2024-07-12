@@ -6,6 +6,7 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
 import GlitchCustomization from '../../components/GlitchCustomization/GlitchCustomization';
 import ServiceList from '../../components/ServiceList/ServiceList'
+import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 
 export default function CustomizePage() {
 
@@ -54,6 +55,8 @@ export default function CustomizePage() {
       <ContactForm/>
       <ContactInfo/>
       <Footer/>
+
+      <BackToTopButton/>
     </div>
   )
 }

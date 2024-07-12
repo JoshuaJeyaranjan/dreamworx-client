@@ -5,6 +5,7 @@ import Footer from '../../components/Footer/Footer';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
 import ImageCarousel from '../../components/ImageCarousel/ImageCarousel';
+import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 
 export default function AboutPage() {
   return (
@@ -43,6 +44,7 @@ export default function AboutPage() {
       <ContactForm />
       <ContactInfo />
       <Footer />
+      <BackToTopButton/>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Nav from '../../components/Nav/Nav'
 import Footer from '../../components/Footer/Footer'
 import ContactForm from '../../components/ContactForm/ContactForm'
 import ContactInfo from '../../components/ContactInfo/ContactInfo'
+import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 
 export default function ContactPage() {
   return (
@@ -26,6 +27,8 @@ export default function ContactPage() {
       <ContactForm/>
       <ContactInfo/>
       <Footer/>
+
+      <BackToTopButton/>
     </div>
   )
 }

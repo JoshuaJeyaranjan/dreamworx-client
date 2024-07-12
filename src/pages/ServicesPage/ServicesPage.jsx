@@ -6,6 +6,7 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
 import Glitch from '../../components/Glitch/Glitch';
 import ServiceLinkList from '../../components/ServiceLinkList/ServiceLinkList';
+import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 
 export default function ServicesPage() {
   return (
@@ -32,6 +33,8 @@ export default function ServicesPage() {
       <ContactInfo></ContactInfo>
 
       <Footer></Footer>
+
+      <BackToTopButton/>
 
     </div>
   )
