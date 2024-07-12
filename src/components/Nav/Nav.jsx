@@ -7,45 +7,44 @@ export default function Nav() {
 
   return (
     <div className="nav">
-
-        <Link to='/'>
+      <Link to='/'>
         <img className="nav__logo" src="src/assets/images/logo.JPG" alt="Dreamworx Logo" />
-        </Link>
-     
+      </Link>
 
       <ul className="nav__menu">
-        <NavLink to="/" className="nav__link">
+        <NavLink to="/" className="nav__link" activeClassName='active'>
           Home
         </NavLink>
-        <div
+        
+        <div 
           className="nav__services"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <NavLink to="/services" className="nav__link">
+          <NavLink to="/services" className="nav__link" activeClassName='active'>
             Services
           </NavLink>
-          {isHovered && (
-            <div className="nav__submenu">
-              <NavLink to="/care" className="nav__sub-link">
-                Car Care
-              </NavLink>
-              <NavLink to="/customize" className="nav__sub-link">
-                Customization
-              </NavLink>
-              <NavLink to="/mechanical" className="nav__sub-link">
-                Mechanical
-              </NavLink>
-              <NavLink to="/bodywork" className="nav__sub-link">
-                Body Shop
-              </NavLink>
-            </div>
-          )}
+          
+          <div className={`nav__submenu ${isHovered ? 'visible' : ''}`}>
+            <NavLink to="/care" className="nav__sub-link" activeClassName='active'>
+              Car Care
+            </NavLink>
+            <NavLink to="/customize" className="nav__sub-link" activeClassName='active'>
+              Customization
+            </NavLink>
+            <NavLink to="/mechanical" className="nav__sub-link" activeClassName='active'>
+              Mechanical
+            </NavLink>
+            <NavLink to="/bodywork" className="nav__sub-link" activeClassName='active'>
+              Body Shop
+            </NavLink>
+          </div>
         </div>
-        <NavLink to="/about" className="nav__link">
+
+        <NavLink to="/about" className="nav__link" activeClassName='active'>
           About Us
         </NavLink>
-        <NavLink to="/contact" className="nav__link">
+        <NavLink to="/contact" className="nav__link" activeClassName='active'>
           Contact
         </NavLink>
       </ul>

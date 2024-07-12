@@ -33,7 +33,7 @@ export default function LinkList() {
   return (
     <div className='link-list'>
         {linkData.map((item, index) => (
-            <LinkItem
+            <LinkItem 
             key={index}
             icon={item.icon}
             title={item.title}

@@ -8,6 +8,7 @@ import GlitchBody from '../../components/GlitchBody/GlitchBody';
 import ServiceList from '../../components/ServiceList/ServiceList'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
+import BookService from '../../components/BookService/BookService';
 
 export default function BodyWorkPage() {
 
@@ -52,6 +53,8 @@ export default function BodyWorkPage() {
     <GlitchBody/>
 
     <ServiceList services={bodyServices}/>
+
+    <BookService/>
 
     <ContactForm/>
     <ContactInfo/>

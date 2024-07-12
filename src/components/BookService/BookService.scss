@@ -1,0 +1,29 @@
+.book-service {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  
+    &__icon {
+      width: 30px; /* Adjust size as needed */
+      height: 30px; /* Adjust size as needed */
+      margin-right: 10px; /* Space between icon and button */
+    }
+  
+    &__button {
+      background-color: white;
+      border: none;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+  
+      &:hover {
+        background-color: orange; /* Change background color on hover */
+        color: white; /* Change text color on hover */
+      }
+    }
+  }

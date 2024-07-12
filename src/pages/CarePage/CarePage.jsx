@@ -8,6 +8,7 @@ import GlitchCare from '../../components/GlitchCare/GlitchCare';
 import ServiceList from '../../components/ServiceList/ServiceList';
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
+import BookService from '../../components/BookService/BookService';
 
 export default function CarePage() {
 
@@ -69,6 +70,8 @@ export default function CarePage() {
       <GlitchCare/>
 
       <ServiceList services={carCareServices}/>
+
+      <BookService/>
 
       <ContactForm/>
       <ContactInfo/>

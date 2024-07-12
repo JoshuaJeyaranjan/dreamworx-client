@@ -1,32 +1,33 @@
 .services {
-    &__hero {
+  &__hero {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+
+    &-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 70%;
+      width: auto;
+      height: auto;
+      z-index: -1; // Ensure this is lower than the submenu
+      transform: translate(-50%, -50%);
+    }
+
+    &-content {
       position: relative;
-      height: 60vh;
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-  
-      &-video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 70%;
-        width: auto;
-        height: auto;
-        z-index: -1;
-        transform: translate(-50%, -50%);
-      }
-  
-      &-content {
-        position: relative;
-        z-index: 1;
-        bottom: 30%;
-        right: 30%;
-      }
+      z-index: 1; // Ensure content is above the video
+      bottom: 30%;
+      right: 30%;
     }
   }
+}
+

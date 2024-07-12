@@ -8,6 +8,7 @@ import GlitchMechanical from '../../components/GlitchMechanical/GlitchMechanical
 import ServiceList from '../../components/ServiceList/ServiceList'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
+import BookService from '../../components/BookService/BookService';
 
 export default function MechanicalPage() {
 
@@ -80,7 +81,7 @@ export default function MechanicalPage() {
 
     <ServiceList services={mechanicalServices} />
 
-   
+   <BookService/>
 
     <ContactForm/>
     <ContactInfo/>

@@ -8,6 +8,7 @@ import GlitchCustomization from '../../components/GlitchCustomization/GlitchCust
 import ServiceList from '../../components/ServiceList/ServiceList'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
+import BookService from '../../components/BookService/BookService';
 
 export default function CustomizePage() {
 
@@ -52,6 +53,8 @@ export default function CustomizePage() {
       <GlitchCustomization/>
 
       <ServiceList services={customizeServices}/>
+
+      <BookService/>
 
       <ContactForm/>
       <ContactInfo/>
