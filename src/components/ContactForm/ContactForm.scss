@@ -1,54 +1,65 @@
-.contact{
+.contact {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
 
-    &__header{
+    &__header {
         color: white;
         margin-bottom: 1rem;
     }
-    
 }
 
-.contact-form{
+.contact-form {
     display: flex;
     justify-content: center;
     background-color: white;
     color: black;
-    display: flex;
     flex-direction: row;
     min-width: 90vw;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     min-height: 20vw;
 
-    &__submit{
+    &__submit {
         margin-top: 2rem;
-        padding: .5rem;
-        border-radius: .5rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
         color: white;
-        background-color:black;
-        
+        background-color: black;
+        width: 100%;
+        transition: background-color 0.3s ease; // Smooth transition for color changes
+
+        &:hover {
+            background-color: orange; // Turn orange on hover
+        }
+
+        &:active {
+            background-color: gold; // Turn gold on click
+        }
     }
 
-    &__input{
-        border: none;
-        border-bottom: 1px solid grey;
+    &__input {
+        border: none; // No border
+        border-bottom: 1px solid grey; // Keep the bottom border
+
+        &:focus {
+            outline: none; // Remove default outline on focus
+            border-bottom: 1px solid black; // Optional: Change bottom border color on focus
+        }
     }
 }
 
-.input-container-column{
+.input-container-column {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.input-container-row{
+
+.input-container-row {
     display: flex;
     flex-direction: row;
     width: 80vw;
-    justify-content: center;
     justify-content: space-between;
     margin-bottom: 1rem;
-    
 }

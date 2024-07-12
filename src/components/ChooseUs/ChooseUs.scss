@@ -9,8 +9,8 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        max-width: 70vw;
-        justify-content: flex-end;
+        max-width: 100vw;
+        justify-content: center;
         gap: 1rem;
         
     }
@@ -19,12 +19,21 @@
         border: 1px solid orange;
         max-width: 33vw;
         color: white;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
         
     }
 
     &__title{
         color: orange;
+        padding: .25rem;
         
+    }
+
+    &__paragraph{
+        padding: .25rem;
     }
 
     &__header{
@@ -32,4 +41,9 @@
         color: white;
     }
     
+}
+
+.orange{
+    color: orange;
+    padding: .25rem;
 }

@@ -20,8 +20,9 @@ export default function ServicesPage() {
           <source src="https:\/\/55carcare.ae\/1709749782988\/wp-content\/uploads\/2024\/03\/2260688_Car_Drifting_Parking_1920x1080.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        <div className='overlay'></div>
         <div className='services__hero-content'>
-          <h1>Services</h1>
+          <h1 className='page-hero'>Services</h1>
         </div>
       </div>
 

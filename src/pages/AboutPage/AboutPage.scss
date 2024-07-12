@@ -34,7 +34,8 @@
   .subsection{
     display: flex;
     flex-direction: row;
-    max-height: 20vh;
+    max-height: 30vh;
+    padding: 1rem;
 
     &__text-container{
         display: flex;
@@ -44,19 +45,25 @@
 
     &__header{
         color: orange;
+        margin-left: 1rem;
     }
 
     &__paragraph{
         color: white;
+        padding: 1rem;
     }
   }
 
   .journey{
     &__header{
         color: orange;
+        font-size: 8rem;
+        padding: 1rem;
     }
 
     &__paragraph{
         color: white;
+        padding: 1rem;
+        padding-top: 0;
     }
   }

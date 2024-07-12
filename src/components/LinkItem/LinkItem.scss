@@ -9,6 +9,12 @@
     padding: 1rem 0;
     margin: 1rem;
     align-items: center;
+    width: 33vw;
+    transition: transform 0.3s ease;
+
+    &:hover{
+        transform: scale(1.1);
+    }
 
     &__text-container{
         display: flex;

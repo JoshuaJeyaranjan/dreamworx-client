@@ -17,8 +17,9 @@ export default function ContactPage() {
         <source src="https:\/\/55carcare.ae\/1709749782988\/wp-content\/uploads\/2024\/03\/1242130_Car_Modern_Sportcar_3840x2160.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <div className='overlay'></div>
       <div className='contact-page__hero-content'>
-        <h1>
+        <h1 className='page-hero'>
           Contact Us 
         </h1>
       </div>

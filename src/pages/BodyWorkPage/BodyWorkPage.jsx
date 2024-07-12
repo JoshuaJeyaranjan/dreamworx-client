@@ -45,8 +45,9 @@ export default function BodyWorkPage() {
         <source src="https:\/\/55carcare.ae\/1709749782988\/wp-content\/uploads\/2024\/03\/1994192_Auto_Autobody_Automobile_1920x1080.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <div className='overlay'></div>
       <div className='body-work__hero-content'>
-        <h1>Body Work</h1>
+        <h1 className='page-hero'>Body Work</h1>
       </div>
     </div>
 

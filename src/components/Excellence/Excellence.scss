@@ -12,5 +12,12 @@
 
    &__header{
     color: orange;
+    font-size: 3rem;
+   }
+
+   &__sub-header{
+    font-size: 2rem;
+    font-weight: 200;
+    font-style: italic;
    }
 }

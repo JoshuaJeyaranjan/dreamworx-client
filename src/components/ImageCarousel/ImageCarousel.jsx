@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './ImageCarousel.scss';
 
 const images = [
-  'src/assets/images/white.jpeg',
-  'src/assets/images/volvo-logo.png',
-  'src/assets/images/volkswagon-logo.png',
-  'src/assets/images/toyota-logo.png',
-  'src/assets/images/tesla-logo.png',
-  'src/assets/images/suzuki-logo.png',
-  'src/assets/images/subaru-logo.png',
-  'src/assets/images/porsche-logo.png'
+  'src/assets/images/cool-car-1.jpg',
+  'src/assets/images/cool-car-2.jpg',
+  'src/assets/images/cool-car-3.jpg',
+  'src/assets/images/cool-car-4.jpg',
+  'src/assets/images/cool-car-5.jpg',
+  'src/assets/images/cool-car-6.jpg',
+  'src/assets/images/cool-car-7.jpg',
+  'src/assets/images/cool-car-8.jpg',
 ];
 
 export default function ImageCarousel() {

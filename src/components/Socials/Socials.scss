@@ -1,12 +1,19 @@
-.socials{
-    background-color: grey;
+.socials {
+    background-color:orange;
     display: flex;
     flex-direction: column;
     max-width: 15vw;
     align-items: center;
+    border-radius: .25rem;
 
-    &__icon{
+
+    &__icon {
         max-width: 50px;
-        padding: .5rem;
+        padding: 0.5rem;
+        transition: transform 0.3s ease; // Smooth transition for scaling
+
+        &:hover {
+            transform: scale(1.2); // Scale up the icon on hover
+        }
     }
 }

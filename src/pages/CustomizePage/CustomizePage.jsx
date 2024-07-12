@@ -45,8 +45,9 @@ export default function CustomizePage() {
           <source src="https:\/\/55carcare.ae\/1709749782988\/wp-content\/uploads\/2024\/03\/1288462_Dakar-Rally_Cars_Racing_1920x1080.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        <div className='overlay'></div>
         <div className='customize__hero-content'>
-          <h1>Car Customization</h1>
+          <h1 className='page-hero'>Car Customization</h1>
         </div>
       </div>
 

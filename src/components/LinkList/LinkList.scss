@@ -1,3 +1,8 @@
 .link-list{
     background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: none;
 }
