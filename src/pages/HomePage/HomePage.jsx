@@ -13,6 +13,7 @@ import ChooseUs from '../../components/ChooseUs/ChooseUs'
 import Socials from '../../components/Socials/Socials'
 import InTouch from '../../components/InTouch/InTouch'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
+import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
 
 import './HomePage.scss'
 
@@ -41,6 +42,8 @@ export default function HomePage() {
         <Footer/>
 
         <BackToTopButton/>
+
+        <FloatingActionButton/>
     </>
   )
 }
