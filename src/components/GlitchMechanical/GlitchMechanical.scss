@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .glitch-mechanical {
   background-color: black;
   min-height: 18vh;
@@ -12,7 +15,7 @@
   }
 
   &__sub-header {
-      color: orange;
+      color: $primary-orange;
   }
 
   &__paragraph {

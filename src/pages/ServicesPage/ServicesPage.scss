@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .services {
   &__hero {
     position: relative;
@@ -33,5 +36,5 @@
 
 .page-hero{
   font-size: 4rem;
-  color: orange;
+  color: $primary-orange;
 }

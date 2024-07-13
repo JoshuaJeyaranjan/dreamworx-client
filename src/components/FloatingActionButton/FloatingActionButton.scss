@@ -1,10 +1,13 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .fab {
     position: fixed;
     bottom: 30px;
     left: 30px;
     width: 50px;
     height: 50px;
-    background-color: #007bff;
+    background-color: $primary-orange;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -29,7 +32,7 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
   
       &.fab__main {
-        background-color: orange;
+        background-color: $primary-orange;
       }
   
       &.fab__phone {

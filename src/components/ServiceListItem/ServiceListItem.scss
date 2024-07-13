@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .service-list-item {
     background-color: black;
     padding: 20px;
@@ -10,7 +13,7 @@
     &__title {
       margin: 0 0 10px;
       font-size: 1.5rem;
-      color: orange;
+      color: $primary-orange;
       text-decoration: underline;
 
     }

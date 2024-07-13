@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .choose-us{
     display: flex;
     flex-direction: column;
@@ -17,7 +20,7 @@
     }
 
     &__component{
-        border: 1px solid orange;
+        border: 1px solid $primary-orange;
         max-width: 33vw;
         color: white;
         border-radius: 4px;
@@ -28,7 +31,7 @@
     }
 
     &__title{
-        color: orange;
+        color: $primary-orange;
         padding: .25rem;
 
         

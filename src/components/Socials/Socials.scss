@@ -1,5 +1,8 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .socials {
-    background-color:orange;
+    background-color: $primary-orange;
     display: flex;
     flex-direction: column;
     max-width: 15vw;

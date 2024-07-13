@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .not-found {
     display: flex;
     justify-content: center;
@@ -37,14 +40,14 @@
       padding: 10px 20px;
       font-size: 1rem;
       color: #fff;
-      background-color: #007bff;
+      background-color: $primary-orange;
       border: none;
       border-radius: 5px;
       text-decoration: none;
       transition: background-color 0.3s ease;
   
       &:hover {
-        background-color: #0056b3;
+        background-color: $secondary-orange;
       }
     }
   }

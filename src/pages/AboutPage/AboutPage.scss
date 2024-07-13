@@ -1,27 +1,47 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
+
 .about {
 
     &__hero {
       position: relative;
       height: 60vh;
-      width: 100%;
+      width: 100vw;
       overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
+
       text-align: center;
+
+      @media (orientation: landscape) {
+        height: 80vh;
+        
+      }
+
+      @media (orientation: portrait) {
+        color: red;
+      }
   
       &-video {
         position: absolute;
-        top: 50%;
-        left: 20%;
-        min-width: 100%;
-        min-height: 70%;
-        width: auto;
+        top: 40%;
+        left: 30%;
+        min-width: 150vw;
+        min-height: 80%;
+        width: 150vw;
         height: auto;
         z-index: -1;
         transform: translate(-50%, -50%);
       }
+      
+      @media (orientation: landscape) {
+        &-video {
+          top: 95%; /* Adjust this value to position the video lower */
+        }
+      }
+      
   
       &-content {
         position: relative;
@@ -36,7 +56,13 @@
     display: flex;
     flex-direction: row;
     max-height: 30vh;
-    
+
+    @media (orientation: landscape) {
+      
+      min-height: 30vh;
+      
+    }
+
 
     &__text-container{
         display: flex;
@@ -49,6 +75,7 @@
         color: orange;
         margin-left: 1rem;
         font-size: 2rem;
+        
     }
 
     &__paragraph{

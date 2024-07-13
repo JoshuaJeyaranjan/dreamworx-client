@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .book-service {
     display: flex;
     align-items: center;
@@ -22,7 +25,7 @@
       align-items: center;
   
       &:hover {
-        background-color: orange; /* Change background color on hover */
+        background-color: $primary-orange; /* Change background color on hover */
         color: white; /* Change text color on hover */
       }
     }

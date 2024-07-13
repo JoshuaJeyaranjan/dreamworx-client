@@ -1,5 +1,8 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .footer{
-    background-color: grey;
+    background-color: $primary-dark;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,6 +12,6 @@
     }
     &__link{
         text-decoration: none;
-        color: orange;
+        color: $primary-orange;
     }
 }

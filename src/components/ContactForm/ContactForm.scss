@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .contact {
     display: flex;
     flex-direction: column;
@@ -31,17 +34,17 @@
         transition: background-color 0.3s ease; // Smooth transition for color changes
 
         &:hover {
-            background-color: orange; // Turn orange on hover
+            background-color: $primary-orange; // Turn orange on hover
         }
 
         &:active {
-            background-color: gold; // Turn gold on click
+            background-color: $secondary-orange; // Turn gold on click
         }
     }
 
     &__input {
         border: none; // No border
-        border-bottom: 1px solid grey; // Keep the bottom border
+        border-bottom: 1px solid $primary-dark; // Keep the bottom border
 
         &:focus {
             outline: none; // Remove default outline on focus

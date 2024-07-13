@@ -1,9 +1,14 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 /* LogoSlideshow.scss */
 .logo-slideshow {
     overflow: hidden;
-    width: 100%; /* Adjust width as needed */
+    width: 80%; /* Adjust width as needed */
     height: 100px; /* Adjust height as needed */
     position: relative;
+    background-color: $primary-orange;
+    margin-left: 10%;
   
     &__wrapper {
       display: flex;

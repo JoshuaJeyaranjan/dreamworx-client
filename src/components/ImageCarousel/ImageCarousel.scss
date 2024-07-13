@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .image-carousel {
     position: relative;
     width: 100%;
@@ -6,6 +9,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (orientation: landscape) {
+      height: 25vh;
+      padding: $unit-4;
+    }
   
     &__image {
       width: 100%;

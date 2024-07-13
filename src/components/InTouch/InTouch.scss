@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .in-touch{
     background-color: white;
     border-radius: .25rem;
@@ -13,7 +16,7 @@
 
     &__link{
         text-decoration: none;
-        color: orange;
+        color: $primary-orange;
     }
 
     &__icon{

@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
 .nav {
     display: flex;
     flex-direction: row;
@@ -26,13 +29,13 @@
         transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
 
         &.active {
-            color: orange;
+            color: $primary-orange;
             font-weight: bold;
             text-decoration: underline;
         }
 
         &:hover {
-            color: orange;
+            color: $secondary-orange;
             transform: scale(1.2);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -42,7 +45,7 @@
         position: relative;
 
         &:hover {
-            color: orange; 
+            color: $secondary-orange; 
         }
     }
 
@@ -65,17 +68,17 @@
 
     &__sub-link {
         text-decoration: none;
-        color: aliceblue;
+        color: $primary-light;
         padding: 10px;
 
         &.active {
-            color: orange;
+            color: $primary-orange;
             font-weight: bold;
             text-decoration: underline;
         }
 
         &:hover {
-            color: orange; 
+            color: $secondary-orange; 
             transform: scale(1);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
