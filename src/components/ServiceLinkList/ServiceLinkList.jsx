@@ -12,13 +12,13 @@ export default function ServiceLinkList() {
          link: '/care'  
         },
         {
-            image: 'src/assets/images/painting.jpg',
+            image: 'src/assets/images/drift.jpg',
             title: 'Car Customization',
             paragraph: 'Tailored Auto Enhancements',
             link: '/customize'  
            },
            {
-            image: 'src/assets/images/customization.jpg',
+            image: 'src/assets/images/painting.jpg',
             title: 'Body Shop',
             paragraph: 'Automative Restoration Experts',
             link: '/bodywork'  

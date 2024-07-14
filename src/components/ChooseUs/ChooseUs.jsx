@@ -20,23 +20,23 @@ export default function ChooseUs() {
         </div>
 
         <div className='choose-us__component'>
-            <p className='choose-us__title'>Skilled Craftsmanship</p>
+            <p className='choose-us__title'>Skilled Craftsmanship:</p>
             <p className='choose-us__paragraph'>Our team is comprised of highly skilled professionals who bring a passion for perfection to every job. From car wash to engine repair, expect nothing but the best.</p>
         </div>
 
         <div className='choose-us__component'>
-            <p className='choose-us__title'>Transparancy and Trust</p>
+            <p className='choose-us__title'>Transparancy and Trust:</p>
             <p className='choose-us__paragraph'>We believe in open communication and transparency. From clear explanations of services to fair pricing, you can trust us to keep you informed at every step.</p>
         </div>
 
         <div className='choose-us__component'>
-            <p className='choose-us__title'>Innovation at Every Turn</p>
+            <p className='choose-us__title'>Innovation at Every Turn:</p>
             <p className='choose-us__paragraph'>Stay ahead of the curve with our innovative services, including ceramic coating, PPF, and smart paint. We’re always exploring new techniques and technologies to enhance your vehicle.</p>
         </div>
 
         <div className='choose-us__component'>
-            <p className='choose-us__title'></p>
-            <p className='choose-us__paragraph'>Choose <span className='orange'>Dreamworx</span> for a transformative automotive experience that goes beyond the ordinary. Your journey deserves the best, and we’re here to deliver.</p>
+            <p className='choose-us__title'>Choose Dreamworks:</p>
+            <p className='choose-us__paragraph'> For a transformative automotive experience that goes beyond the ordinary. Your journey deserves the best, and we’re here to deliver.</p>
         </div>
 
         </div>

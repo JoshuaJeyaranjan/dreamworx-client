@@ -35,45 +35,46 @@
       overflow: hidden; // Ensures the glitch is clipped properly
       
 
-      &:before,
-      &:after {
-          content: attr(data-text);
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          white-space: nowrap; // Prevent line breaks
-      }
+//       &:before,
+//       &:after {
+//           content: attr(data-text);
+//           position: absolute;
+//           top: 0;
+//           left: 0;
+//           width: 100%;
+//           height: 100%;
+//           white-space: nowrap; // Prevent line breaks
+//       }
 
-      &:before {
-          left: 2px;
-          text-shadow: -2px 0 red;
-          animation: glitchTop 1.5s infinite linear alternate-reverse;
-      }
+//       &:before {
+//           left: 2px;
+//           text-shadow: -2px 0 red;
+//           animation: glitchTop 1.5s infinite linear alternate-reverse;
+//       }
 
-      &:after {
-          left: -2px;
-          text-shadow: -2px 0 blue;
-          animation: glitchBottom 1.5s infinite linear alternate-reverse;
-      }
-  }
+//       &:after {
+//           left: -2px;
+//           text-shadow: -2px 0 blue;
+//           animation: glitchBottom 1.5s infinite linear alternate-reverse;
+//       }
+//   }
 
-  @keyframes glitchTop {
-      0% { clip: rect(0, 9999px, 20px, 0); }
-      20% { clip: rect(20px, 9999px, 40px, 0); }
-      40% { clip: rect(40px, 9999px, 60px, 0); }
-      60% { clip: rect(60px, 9999px, 80px, 0); }
-      80% { clip: rect(80px, 9999px, 100px, 0); }
-      100% { clip: rect(0, 9999px, 20px, 0); }
-  }
+//   @keyframes glitchTop {
+//       0% { clip: rect(0, 9999px, 20px, 0); }
+//       20% { clip: rect(20px, 9999px, 40px, 0); }
+//       40% { clip: rect(40px, 9999px, 60px, 0); }
+//       60% { clip: rect(60px, 9999px, 80px, 0); }
+//       80% { clip: rect(80px, 9999px, 100px, 0); }
+//       100% { clip: rect(0, 9999px, 20px, 0); }
+//   }
 
-  @keyframes glitchBottom {
-      0% { clip: rect(0, 9999px, 20px, 0); }
-      20% { clip: rect(20px, 9999px, 40px, 0); }
-      40% { clip: rect(40px, 9999px, 60px, 0); }
-      60% { clip: rect(60px, 9999px, 80px, 0); }
-      80% { clip: rect(80px, 9999px, 100px, 0); }
-      100% { clip: rect(0, 9999px, 20px, 0); }
+//   @keyframes glitchBottom {
+//       0% { clip: rect(0, 9999px, 20px, 0); }
+//       20% { clip: rect(20px, 9999px, 40px, 0); }
+//       40% { clip: rect(40px, 9999px, 60px, 0); }
+//       60% { clip: rect(60px, 9999px, 80px, 0); }
+//       80% { clip: rect(80px, 9999px, 100px, 0); }
+//       100% { clip: rect(0, 9999px, 20px, 0); }
+//   }
   }
 }

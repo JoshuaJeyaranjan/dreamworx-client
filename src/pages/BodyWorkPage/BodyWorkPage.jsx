@@ -18,8 +18,8 @@ export default function BodyWorkPage() {
       paragraph: 'Restoration of structural integrity after collisions.'
     },
     {
-      title: 'Smart Paint',
-      paragraph: 'Cutting-edge paint technology for dynamic color and effects.'
+      title: 'Frame Repair',
+      paragraph: "Ensure your vehicle's structural integrity and safety."
     },
     {
       title: 'Dent Repair',

@@ -51,6 +51,7 @@ export default function ContactForm() {
               <input
               className="contact-form__input"
                 type="text"
+                placeholder="Your Name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -60,8 +61,9 @@ export default function ContactForm() {
             <div className="input-container-column">
               <label>Email:</label>
               <input
-              className="contact-form__input"
+              className="contact-form__input email-input"
                 type="email"
+                placeholder="Your Email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -73,6 +75,7 @@ export default function ContactForm() {
               <input
               className="contact-form__input"
                 type="phone"
+                placeholder="Your Phone Number"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
@@ -84,8 +87,9 @@ export default function ContactForm() {
           <div>
             <label className="input-container-column">Message:</label>
             <textarea
-            className="contact-form__input"
+            className="contact-form__input message-input"
               name="message"
+              placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
               required
