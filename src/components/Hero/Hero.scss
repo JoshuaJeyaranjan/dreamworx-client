@@ -16,6 +16,8 @@
     &__sub-heading{
         color: white;
         font-size: 2rem;
+        
+padding: 2rem;
     }
 
     &__heading{
@@ -24,8 +26,14 @@
     }
 
     &__text{
-        margin-top: 10rem;
+        text-align: center;
+        
+
+        @include tablet{
+            margin-top: 10rem;
         margin-left: 2rem;
         max-width: 66vw;
+        }
+        
     }
 }

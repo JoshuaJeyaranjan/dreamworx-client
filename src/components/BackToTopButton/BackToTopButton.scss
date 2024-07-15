@@ -4,7 +4,7 @@
 .back-to-top {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 90px;
     width: 50px;
     height: 50px;
     background-color: $primary-orange;
@@ -18,6 +18,10 @@
     visibility: hidden;
     transform: translateY(50px);
     transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+
+    @include tablet {
+      right: 30px;
+    }
   
     &.visible {
       opacity: 1;

@@ -2,86 +2,174 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background for navbar
+  width: 100%;
+  z-index: 1002; // Ensure it stays above other content
+  border-bottom: 2px solid $primary-orange;
+
+  &__logo {
+    min-width: 5rem;
+    max-width: 10rem;
+    margin-left: 2rem;
+  }
+
+  &__mobile-toggle {
+    display: none;
+    cursor: pointer;
+    margin-right: 2rem;
+
+    &-icon {
+      font-size: 2rem;
+      color: white;
+    }
+  }
+
+  &__menu {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background for navbar
-    width: 100%;
-    z-index: 1000; // Ensure it stays above other content
-    border-bottom: 2px solid $primary-orange;
+    gap: 1rem;
+    margin-right: 2rem;
 
-    &__logo {
-        min-width: 5rem;
-        max-width: 10rem;
-        margin-left: 2rem;
+    &--open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 15%; // Position right below the navbar
+      right: 10;
+      background-color: rgba(0, 0, 0, 0.8); // Semi-transparent background for mobile menu
+      width: 100%;
+      padding: 1rem;
+      z-index: 1000;
+      align-items: flex-end;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: aliceblue;
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+
+    &.active {
+      color: $primary-orange;
+      font-weight: bold;
+      text-decoration: underline;
     }
 
-    &__menu {
+    &:hover {
+      color: $secondary-orange;
+      transform: scale(1.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__services {
+    position: relative;
+
+    &:hover {
+      color: $secondary-orange;
+    }
+
+    .nav__submenu-toggle {
+      cursor: pointer;
+      margin-left: 0.5rem;
+      color: $primary-orange;
+    }
+
+    .nav__submenu {
+      display: none;
+      background-color: rgba(0, 0, 0, 0.8); // Semi-transparent background for submenu
+      padding: 1rem;
+      flex-direction: column;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      &.visible {
         display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        margin-right: 2rem;
-    }
+        opacity: 1;
+      }
 
-    &__link {
-        text-decoration: none;
-        color: aliceblue;
-        transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
-
-        &.active {
-            color: $primary-orange;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
-        &:hover {
-            color: $secondary-orange;
-            transform: scale(1.2);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    }
-
-    &__services {
-        position: relative;
-
-        &:hover {
-            color: $secondary-orange; 
-        }
-    }
-
-    &__submenu {
-        position: absolute;
-        top: 100%; 
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.8); // Semi-transparent background for submenu
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        z-index: 1000; 
-        opacity: 0;
-        transition: opacity 0.3s ease;
-
-        &.visible {
-            opacity: 1; 
-        }
-    }
-
-    &__sub-link {
+      .nav__sub-link {
         text-decoration: none;
         color: $primary-light;
         padding: 10px;
 
         &.active {
-            color: $primary-orange;
-            font-weight: bold;
-            text-decoration: underline;
+          color: $primary-orange;
+          font-weight: bold;
+          text-decoration: underline;
         }
 
         &:hover {
-            color: $secondary-orange; 
-            transform: scale(1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          color: $secondary-orange;
+          transform: scale(1);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+      }
     }
+  }
+}
+
+@include tablet {
+  .nav__mobile-toggle {
+    display: none;
+  }
+
+  .nav__menu {
+    display: flex;
+    flex-direction: row;
+
+    &--open {
+      display: flex;
+      flex-direction: row;
+      position: static;
+      width: auto;
+      padding: 0;
+    }
+  }
+
+  .nav__services {
+    .nav__submenu {
+      position: absolute;
+      display: none;
+      top: 100%;
+      left: 0;
+
+      &.visible {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .nav__mobile-toggle {
+    display: block;
+  }
+
+  .nav__menu {
+    display: none;
+    flex-direction: column;
+
+    &--open {
+      display: flex;
+    }
+  }
+
+  .nav__services {
+    .nav__submenu {
+      display: none;
+
+      &.visible {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
 }

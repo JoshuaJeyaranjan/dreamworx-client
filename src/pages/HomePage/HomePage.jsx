@@ -14,6 +14,8 @@ import Socials from '../../components/Socials/Socials'
 import InTouch from '../../components/InTouch/InTouch'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
+import ServiceLinkList from '../../components/ServiceLinkList/ServiceLinkList'
+import ServiceLinkItem from '../../components/ServiceLinkItem/ServiceLinkItem'
 
 import './HomePage.scss'
 
@@ -27,7 +29,7 @@ export default function HomePage() {
 
         <Glitch/>
 
-        <LinkList/>
+        <ServiceLinkList/>
 
         <Excellence/>
 

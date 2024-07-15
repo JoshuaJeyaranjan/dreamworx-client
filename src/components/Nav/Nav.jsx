@@ -3,7 +3,16 @@ import "./Nav.scss";
 import { NavLink, Link } from "react-router-dom";
 
 export default function Nav() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSubmenuVisible, setIsSubmenuVisible] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleSubmenu = () => {
+    setIsSubmenuVisible(!isSubmenuVisible);
+  };
 
   return (
     <div className="nav">
@@ -11,21 +20,21 @@ export default function Nav() {
         <img className="nav__logo" src="src/assets/images/logo.JPG" alt="Dreamworx Logo" />
       </Link>
 
-      <ul className="nav__menu">
+      <div className="nav__mobile-toggle" onClick={toggleMenu}>
+        <span className="nav__mobile-toggle-icon">&#9776;</span>
+      </div>
+
+      <ul className={`nav__menu ${isMenuOpen ? 'nav__menu--open' : ''}`}>
         <NavLink to="/" className="nav__link" activeClassName='active'>
           Home
         </NavLink>
-        
-        <div 
-          className="nav__services"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+
+        <div className="nav__services">
           <NavLink to="/services" className="nav__link" activeClassName='active'>
             Services
           </NavLink>
-          
-          <div className={`nav__submenu ${isHovered ? 'visible' : ''}`}>
+          <span className="nav__submenu-toggle" onClick={toggleSubmenu}>&#9660;</span>
+          <div className={`nav__submenu ${isSubmenuVisible ? 'visible' : ''}`}>
             <NavLink to="/care" className="nav__sub-link" activeClassName='active'>
               Car Care
             </NavLink>

@@ -1,32 +1,62 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
 
-.in-touch{
+.in-touch {
     background-color: white;
-    border-radius: .25rem;
-    width: 40vw;
+    border-radius: 0.25rem;
+    width: 65vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    padding: 1rem; // Added padding for better spacing
+    box-sizing: border-box;
 
-    &__header{
-        margin-left: 1rem;
+    @include tablet {
+        width: 40vw;
     }
 
-    &__link{
+    &__header {
+        margin-left: 1rem;
+        margin-bottom: 1rem; // Added margin-bottom for spacing
+    }
+
+    &__link {
         text-decoration: none;
         color: $primary-orange;
+        word-wrap: break-word; // Ensure long text wraps
+        word-break: break-all; // Ensure long text breaks
     }
 
-    &__icon{
+    &__icon {
         max-width: 50px;
-        padding: .5rem;
-        margin: .5rem ;
+        padding: 0.5rem;
+        margin: 0.5rem;
     }
 
-    &__container{
+    &__container {
         display: flex;
         flex-direction: row;
+        align-items: center; // Align items center
+        width: 100%; // Ensure the container takes full width
+        margin-bottom: 1rem; // Added margin-bottom for spacing
+        background-color: #f8f8f8; // Added background color for better visibility
+        border-radius: 0.25rem;
+        padding: 0.5rem; // Added padding for better spacing
+        box-sizing: border-box;
+        flex-wrap: wrap; // Allow wrapping
+
+        &:last-child {
+            margin-bottom: 0; // Remove margin-bottom from the last child
+        }
+    }
+
+    &__text-container {
+        display: flex;
+        flex-direction: column; // Ensure text items stack vertically
+        flex: 1; // Ensure the text container takes remaining space
+        word-wrap: break-word; // Ensure long text wraps
+        word-break: break-all; // Ensure long text breaks
+        overflow-wrap: break-word; // Ensure long text wraps within the container
     }
 }
