@@ -2,70 +2,79 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .service-link-item {
-    display: block;
-    width: 40vw;
-    height: 200px;
-    text-decoration: none;
-    color: white;
+  display: block;
+  width: 40vw;
+  height: 200px;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  &__background {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    overflow: hidden;
-  
-    &__background {
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-  
-    &__content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-      text-align: center;
-      z-index: 2;
-    }
-  
-    &__title,
-    &__paragraph {
-      margin: 0;
-    }
-  
-    &__gradient {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, $secondary-orange, $primary-orange);
-      z-index: 1;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease-in-out;
-    }
-  
-    &:hover .service-link-item__content {
-      opacity: 1;
-    }
-  
-    &:hover .service-link-item__gradient {
-      transform: translateX(0);
-      transition: transform 0.3s ease-in-out;
-    }
-  
-    &:not(:hover) .service-link-item__gradient {
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-    }
   }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // Adjust the overlay color and opacity as needed
+    z-index: 1;
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2; // Ensure the content is above the overlay
+    color: white; // Ensure the text is visible against the overlay
+  }
+
+  &__title,
+  &__paragraph {
+    margin: 0;
+  }
+
+  &__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, $secondary-orange, $primary-orange);
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover .service-link-item__gradient {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &:not(:hover) .service-link-item__gradient {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+}

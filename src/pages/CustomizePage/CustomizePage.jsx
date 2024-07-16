@@ -33,6 +33,10 @@ export default function CustomizePage() {
       paragraph: 'Enhance comfort and aesthetics with tailored seat and belt customization.'
     },
     {
+      title: 'Exterior Customization',
+      paragraph: 'Transform your ride with sleek wide body kits and modern facelift upgrades.'
+    },
+    {
       title: 'Full Customization',
       paragraph: 'Elevate your ride with comprehensive interior and exterior transformations.'
     },

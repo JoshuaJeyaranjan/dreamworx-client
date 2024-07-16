@@ -1,4 +1,3 @@
-// ContactForm.js
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import "./ContactForm.scss";
@@ -11,6 +10,13 @@ export default function ContactForm() {
     message: "",
   });
 
+  const [formStatus, setFormStatus] = useState({
+    success: false,
+    error: false,
+    validationError: false,
+    message: ""
+  });
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -18,8 +24,23 @@ export default function ContactForm() {
     });
   };
 
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!validateEmail(formData.email)) {
+      setFormStatus({
+        success: false,
+        error: false,
+        validationError: true,
+        message: "Please enter a valid email address."
+      });
+      return;
+    }
 
     emailjs
       .send(
@@ -30,12 +51,22 @@ export default function ContactForm() {
       )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
-        alert("Message sent successfully!");
+        setFormStatus({
+          success: true,
+          error: false,
+          validationError: false,
+          message: "Message sent successfully!"
+        });
         setFormData({ name: "", email: "", message: "", phone: "" });
       })
       .catch((err) => {
         console.log("FAILED...", err);
-        alert("Failed to send message. Please try again later.");
+        setFormStatus({
+          success: false,
+          error: true,
+          validationError: false,
+          message: "Failed to send message. Please try again later."
+        });
       });
   };
 
@@ -49,7 +80,7 @@ export default function ContactForm() {
             <div className="input-container-column">
               <label className="input-container-column">Name:</label>
               <input
-              className="contact-form__input"
+                className="contact-form__input"
                 type="text"
                 placeholder="Your Name"
                 name="name"
@@ -61,7 +92,7 @@ export default function ContactForm() {
             <div className="input-container-column">
               <label>Email:</label>
               <input
-              className="contact-form__input email-input"
+                className="contact-form__input email-input"
                 type="email"
                 placeholder="Your Email"
                 name="email"
@@ -73,7 +104,7 @@ export default function ContactForm() {
             <div className="input-container-column">
               <label>Phone:</label>
               <input
-              className="contact-form__input"
+                className="contact-form__input"
                 type="phone"
                 placeholder="Your Phone Number"
                 name="phone"
@@ -87,7 +118,7 @@ export default function ContactForm() {
           <div>
             <label className="input-container-column">Message:</label>
             <textarea
-            className="contact-form__input message-input"
+              className="contact-form__input message-input"
               name="message"
               placeholder="Your Message"
               value={formData.message}
@@ -100,6 +131,17 @@ export default function ContactForm() {
           </button>
         </div>
       </form>
+      {formStatus.message && (
+        <div
+          className={`contact-form__status ${
+            formStatus.success
+              ? "contact-form__status--success"
+              : "contact-form__status--error"
+          }`}
+        >
+          {formStatus.message}
+        </div>
+      )}
     </div>
   );
 }

@@ -1,105 +1,115 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
 
+.nav {
+  margin: 0;
+  padding: 0;
+}
 
 .about {
+  text-align: center;
 
-    &__hero {
-      position: relative;
-      height: 60vh;
-      width: 100vw;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      text-align: center;
-
-      @media (orientation: landscape) {
-        height: 80vh;
-        
-      }
-
-      @media (orientation: portrait) {
-        color: red;
-      }
-  
-      &-video {
-        position: absolute;
-        top: 40%;
-        left: 30%;
-        min-width: 150vw;
-        min-height: 80%;
-        width: 150vw;
-        height: auto;
-        z-index: -1;
-        transform: translate(-50%, -50%);
-      }
-      
-      @media (orientation: landscape) {
-        &-video {
-          top: 95%; /* Adjust this value to position the video lower */
-        }
-      }
-      
-  
-      &-content {
-        position: relative;
-        z-index: 1;
-        bottom: 30%;
-        right: 30%;
-      }
-    }
-  }
-
-  .subsection{
+  &__hero {
+    text-align: center;
+    position: relative;
+    height: 100vw;
+    width: 100vw;
+    overflow: hidden;
     display: flex;
-    flex-direction: row;
-    max-height: 30vh;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0; // Ensure no margin
+    padding: 0; // Ensure no padding
 
     @media (orientation: landscape) {
-      
-      min-height: 30vh;
-      
+      height: 80vh;
     }
 
-
-    &__text-container{
-        display: flex;
-        flex-direction: column;
-        margin-left: 1rem;
-        
+    @media (orientation: portrait) {
+      height: 58vw;
     }
 
-    &__header{
-        color: orange;
-        margin-left: 1rem;
-        font-size: 2rem;
-        
+    &-video {
+      position: absolute;
+      top: 0;
+      left: 30%;
+      min-width: 150vw;
+      min-height: 80%;
+      width: 150vw;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
     }
 
-    &__paragraph{
-        color: white;
-        padding: 1rem;
-        padding-bottom: 0;
-    }
-  }
-
-  .journey{
-    &__header{
-        color: orange;
-        font-size: 4rem;
-        padding: 1rem;
-        padding-bottom: .5rem;
-        margin-left: 1rem;
-        
+    @media (orientation: landscape) {
+      &-video {
+        top: 66%; // Adjust this value to position the video lower
+      }
     }
 
-    &__paragraph{
-        color: white;
-        padding: 1rem;
-        
-        padding-top: 0;
-        margin-left: 1rem;
+    @media (orientation: portrait) {
+      &-video {
+        top: 50%; // Adjust this value to position the video lower
+        height: 69vw;
+        left: 39%;
+      }
+    }
+
+    &-content {
+      position: relative;
+      z-index: 1;
+      margin: auto;
     }
   }
+}
+
+.subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  margin: 0; // Ensure no margin
+  padding: 0; // Ensure no padding
+
+  @media (orientation: landscape) {}
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+
+  &__header {
+    color: orange;
+    margin-left: 1rem;
+    font-size: 2rem;
+  }
+
+  &__paragraph {
+    color: white;
+    padding: 1rem;
+    padding-bottom: 0;
+  }
+}
+
+.journey {
+  text-align: center;
+  margin: auto;
+  margin: 0; // Ensure no margin
+  padding: 0; // Ensure no padding
+
+  &__header {
+    color: orange;
+    font-size: 4rem;
+    padding: 1rem;
+    padding-bottom: .5rem;
+    margin-left: 1rem;
+  }
+
+  &__paragraph {
+    color: white;
+    padding: 1rem;
+    padding-top: 0;
+    margin-left: 1rem;
+  }
+}

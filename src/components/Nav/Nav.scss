@@ -38,8 +38,8 @@
       display: flex;
       flex-direction: column;
       position: absolute;
-      top: 15%; // Position right below the navbar
-      right: 10;
+      top: 100%; // Position right below the navbar
+      right: 0;
       background-color: rgba(0, 0, 0, 0.8); // Semi-transparent background for mobile menu
       width: 100%;
       padding: 1rem;
@@ -67,7 +67,7 @@
   }
 
   &__services {
-    position: relative;
+    position: relative; // Ensure submenu is positioned relative to this element
 
     &:hover {
       color: $secondary-orange;
@@ -81,6 +81,9 @@
 
     .nav__submenu {
       display: none;
+      position: absolute; // Absolutely position submenu relative to parent
+      top: 100%; // Align to the bottom of the parent
+      left: -50%;
       background-color: rgba(0, 0, 0, 0.8); // Semi-transparent background for submenu
       padding: 1rem;
       flex-direction: column;
@@ -98,6 +101,7 @@
         text-decoration: none;
         color: $primary-light;
         padding: 10px;
+        
 
         &.active {
           color: $primary-orange;
@@ -159,6 +163,11 @@
 
     &--open {
       display: flex;
+      position: absolute;
+      top: 8%; // Ensure it appears right below the navbar
+      right: -6%;
+      width: 100%;
+      padding: 1rem;
     }
   }
 
@@ -169,6 +178,7 @@
       &.visible {
         display: flex;
         flex-direction: column;
+        
       }
     }
   }

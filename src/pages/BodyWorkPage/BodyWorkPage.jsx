@@ -30,8 +30,8 @@ export default function BodyWorkPage() {
       paragraph: 'Revitalize your vehicle with expert body painting.'
     },
     {
-      title: 'Peelable Paint',
-      paragraph: 'Innovative peelable paint for customizable and temporary transformations.'
+      title: 'Wrapping',
+      paragraph: 'Innovative peelable wrapping for customizable and temporary transformations.'
     },
   ]
   return (

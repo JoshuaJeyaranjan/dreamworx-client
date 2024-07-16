@@ -18,7 +18,7 @@ export default function AboutPage() {
           <source src="https://55carcare.ae//1709749782988//wp-content//uploads//2024//03//4766652_A-Helping-Hand_Adult_Agreement_1920x1080.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className='overlay'></div>
+        <div className='about__overlay'></div>
         <div className='about__hero-content'>
           <h1 className='page-hero'>About Us</h1>
         </div>
@@ -28,10 +28,14 @@ export default function AboutPage() {
 
         <div className='subsection__text-container'>
             <h3 className='subsection__header'>At Dreamworx Car Care & Auto Services</h3>
+
+            
             <p className='subsection__paragraph'>We stand as your foremost choice for comprehensive automotive solutions. Our extremely qualified team epitomizes meticulous design, fostering an ideal environment for our dedicated team and discerning clientele alike. commited to delivering unparalleled solutions, we empower our clients to make informed choices tailored to their distinct needs.</p>
         </div>
 
         <ImageCarousel/>
+
+        
 
       </div>
 
