@@ -30,10 +30,29 @@ padding: 2rem;
         
 
         @include tablet{
-            margin-top: 10rem;
+            margin-top: 4rem;
         margin-left: 2rem;
         max-width: 66vw;
         }
         
     }
+
+    &__promo {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s forwards; // Adjust duration as needed
+      
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      
+        // Optional: Add some styling
+        font-size: 1.5rem; // Adjust size as needed
+        text-align: center;
+        color: $secondary-orange; // Use your theme color
+      }
+      
 }
