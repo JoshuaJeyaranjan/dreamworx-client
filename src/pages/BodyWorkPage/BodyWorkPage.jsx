@@ -41,7 +41,7 @@ export default function BodyWorkPage() {
 
     <div className='body-work__hero'>
       
-      <video className='body-work__hero-video' autoPlay muted loop>
+      <video className='body-work__hero-video' autoPlay muted loop playsInline>
         <source src="https:\/\/55carcare.ae\/1709749782988\/wp-content\/uploads\/2024\/03\/1994192_Auto_Autobody_Automobile_1920x1080.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>

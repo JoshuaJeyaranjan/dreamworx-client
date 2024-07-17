@@ -13,7 +13,7 @@ export default function ContactPage() {
       
     <div className='contact-page__hero'>
       
-      <video className='contact-page__hero-video' autoPlay muted loop>
+      <video className='contact-page__hero-video' autoPlay muted loop playsInline>
         <source src="https:\/\/55carcare.ae\/1709749782988\/wp-content\/uploads\/2024\/03\/1242130_Car_Modern_Sportcar_3840x2160.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
