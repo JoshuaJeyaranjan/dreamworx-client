@@ -1,0 +1,33 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
+.service-list-item {
+    background-color: black;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 66vw;
+    text-align: center;
+
+    @include tablet {
+        max-width: 33vw;
+    }
+
+  
+    &__title {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+      color: $primary-orange;
+      text-decoration: underline;
+
+    }
+  
+    &__paragraph {
+      margin: auto;
+      font-size: 1rem;
+      color: white;
+      width: 75%;
+      text-align: center;
+    }
+  }
