@@ -30,6 +30,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); // Adjust the overlay color and opacity as needed
     z-index: 1;
+    transition: background-color 0.3s ease-in-out;
   }
 
   &__content {
@@ -57,7 +58,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, $secondary-orange, $primary-orange);
+    background: linear-gradient(to right, rgba($secondary-orange, 0.5), rgba($primary-orange, 0.5)); // More transparent gradient
     z-index: 1;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
@@ -66,11 +67,15 @@
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
 
-  &:hover .service-link-item__gradient {
-    transform: translateX(0);
-    transition: transform 0.3s ease-in-out;
+    .service-link-item__overlay {
+      background-color: rgba(0, 0, 0, 0.3); // More transparent overlay on hover
+    }
+    
+    .service-link-item__gradient {
+      transform: translateX(0);
+      transition: transform 0.3s ease-in-out;
+    }
   }
 
   &:not(:hover) .service-link-item__gradient {

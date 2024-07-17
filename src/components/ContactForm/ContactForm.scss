@@ -83,6 +83,12 @@
     }
 }
 
+.name-input {
+    @include mobile {
+        margin-top: 1rem;
+    }
+}
+
 .message-input{
     width: 50vw;
     height: 4rem;

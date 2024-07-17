@@ -77,7 +77,7 @@ export default function ContactForm() {
       <form className="contact-form" onSubmit={handleSubmit}>
         <div className="input-container-column">
           <div className="input-container-row">
-            <div className="input-container-column">
+            <div className="input-container-column name-input">
               <label className="input-container-column">Name:</label>
               <input
                 className="contact-form__input"

@@ -48,7 +48,7 @@ export default function CustomizePage() {
 
       <div className='customize__hero'>
         <video className='customize__hero-video' autoPlay muted loop playsInline ref={videoRef}>
-          <source src="src/assets/videos/spoiler.mp4" type="video/mp4" />
+          <source src="https:\/\/55carcare.ae\/1709749782988\/wp-content\/uploads\/2024\/03\/1288462_Dakar-Rally_Cars_Racing_1920x1080.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className='overlay'></div>
