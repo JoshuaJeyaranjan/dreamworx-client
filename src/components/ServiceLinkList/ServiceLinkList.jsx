@@ -6,25 +6,25 @@ import ServiceLinkItem from '../ServiceLinkItem/ServiceLinkItem'
 export default function ServiceLinkList() {
     const serviceLinkData = [
         {
-         image: 'src/assets/images/waxing.jpg',
+         image: '/assets/images/waxing.jpg',
          title: 'Car Care',
          paragraph: 'Comprehensive Auto Wellness',
          link: '/care'  
         },
         {
-            image: 'src/assets/images/drift.jpg',
+            image: '/assets/images/drift.jpg',
             title: 'Car Customization',
             paragraph: 'Tailored Auto Enhancements',
             link: '/customize'  
            },
            {
-            image: 'src/assets/images/painting.jpg',
+            image: '/assets/images/painting.jpg',
             title: 'Body Shop',
             paragraph: 'Automative Restoration Experts',
             link: '/bodywork'  
            },
            {
-            image: 'src/assets/images/mechanic.jpg',
+            image: '/assets/images/mechanic.jpg',
             title: 'Mechanical',
             paragraph: 'Precision Auto Repairs',
             link: '/mechanical'  

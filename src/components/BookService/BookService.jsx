@@ -14,7 +14,7 @@ export default function BookService() {
     <div className="book-service">
       <button className="book-service__button" onClick={handleWhatsAppClick}>
         <img
-          src="src/assets/icons/whatsapp.png"
+          src="/assets/icons/whatsapp.png"
           alt="WhatsApp"
           className="book-service__icon"
         />

@@ -2,7 +2,7 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .hero{
-    background-image: url(src/assets/images/white.jpeg);
+    background-image: url(/assets/images/white.jpeg);
     min-height: 60vh;
     background-repeat: no-repeat;
     background-position: right;

@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './ImageCarousel.scss';
 
 const images = [
-  '/assets/images/cool-car-1.jpg',
-  '/assets/images/cool-car-2.jpg',
-  '/assets/images/cool-car-3.jpg',
-  '/assets/images/cool-car-4.jpg',
-  '/assets/images/cool-car-5.jpg',
-  '/assets/images/cool-car-6.jpg',
-  '/assets/images/cool-car-7.jpg',
-  '/assets/images/cool-car-8.jpg',
+  'src/assets/images/cool-car-1.jpg',
+  'src/assets/images/cool-car-2.jpg',
+  'src/assets/images/cool-car-3.jpg',
+  'src/assets/images/cool-car-4.jpg',
+  'src/assets/images/cool-car-5.jpg',
+  'src/assets/images/cool-car-6.jpg',
+  'src/assets/images/cool-car-7.jpg',
+  'src/assets/images/cool-car-8.jpg',
 ];
 
 export default function ImageCarousel() {

@@ -1,0 +1,112 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+.fab {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: $primary-orange;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+
+  &.open {
+    transform: rotate(0deg); // Less rotation
+  }
+
+  &__icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    &.fab__main {
+      background-color: $primary-orange;
+    }
+
+    &.fab__phone {
+      background-color: #007bff; // Default blue color for phone
+      top: -60px; // Adjust spacing for phone
+      opacity: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    &.fab__whatsapp {
+      background-color: #25D366; /* WhatsApp green */
+      top: -120px; // Adjust spacing for WhatsApp
+      opacity: 0;
+    }
+
+    &.fab__instagram {
+      background-color: #E4405F; /* Instagram color */
+      top: -180px; // Adjust spacing for Instagram
+      opacity: 0;
+    }
+
+    &.fab__tiktok {
+      background-color: white; /* TikTok color */
+      top: -240px; // Adjust spacing for TikTok
+      opacity: 0;
+    }
+
+    &.fab__facebook {
+      background-color: #3b5998; /* Facebook color */
+      top: -300px; // Adjust spacing for Facebook
+      opacity: 0;
+    }
+
+    img {
+      width: 24px; /* Adjust size as needed */
+      height: 24px; /* Adjust size as needed */
+    }
+
+    .tooltip {
+      position: absolute;
+      left: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 5px 10px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      border-radius: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+  }
+
+  &.open .fab__phone {
+    transform: translateY(-60px); // Adjust spacing for phone
+    opacity: 1;
+  }
+
+  &.open .fab__whatsapp {
+    transform: translateY(-120px); // Adjust spacing for WhatsApp
+    opacity: 1;
+  }
+
+  &.open .fab__instagram {
+    transform: translateY(-180px); // Adjust spacing for Instagram
+    opacity: 1;
+  }
+
+  &.open .fab__tiktok {
+    transform: translateY(-240px); // Adjust spacing for TikTok
+    opacity: 1;
+  }
+
+  &.open .fab__facebook {
+    transform: translateY(-300px); // Adjust spacing for Facebook
+    opacity: 1;
+  }
+}

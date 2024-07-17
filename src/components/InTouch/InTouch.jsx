@@ -15,7 +15,7 @@ export default function InTouch() {
       <h3 className="in-touch__header">Get In Touch</h3>
 
       <div className="in-touch__container">
-        <img className="in-touch__icon" src="src/assets/icons/telephone.png" alt="telephone Symbol" />
+        <img className="in-touch__icon" src="/assets/icons/telephone.png" alt="telephone Symbol" />
 
         <div className="in-touch__text-container">
           <p className="in-touch__link-title">Call Us</p>
@@ -24,7 +24,7 @@ export default function InTouch() {
       </div>
 
       <div className="in-touch__container">
-        <img className="in-touch__icon" src="src/assets/icons/typing.png" alt="Email Symbol" />
+        <img className="in-touch__icon" src="/assets/icons/typing.png" alt="Email Symbol" />
 
         <div className="in-touch__text-container">
           <p className="in-touch__link-title">Text Us</p>
@@ -35,7 +35,7 @@ export default function InTouch() {
       </div>
 
       <div className="in-touch__container">
-        <img className="in-touch__icon" src="src/assets/icons/email.png" alt="Email Symbol" />
+        <img className="in-touch__icon" src="/assets/icons/email.png" alt="Email Symbol" />
 
         <div className="in-touch__text-container">
           <p className="in-touch__link-title">Email Us</p>

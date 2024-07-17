@@ -17,7 +17,7 @@ export default function Nav() {
   return (
     <div className="nav">
       <Link to='/'>
-        <img className="nav__logo" src="src/assets/images/logo.JPG" alt="Dreamworx Logo" />
+        <img className="nav__logo" src="/assets/images/logo.JPG" alt="Dreamworx Logo" />
       </Link>
 
       <div className="nav__mobile-toggle" onClick={toggleMenu}>

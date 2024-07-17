@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './BackToTopButton.scss';
-import upArrowIcon from '../../assets/icons/up-chevron.png'; // Make sure this path points to your PNG icon
+import upArrowIcon from '/assets/icons/up-chevron.png'; // Make sure this path points to your PNG icon
 
 export default function BackToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
