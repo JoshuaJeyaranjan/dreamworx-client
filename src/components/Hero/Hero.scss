@@ -1,40 +1,53 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
 
-.hero{
+.hero {
     background-image: url(/assets/images/white.jpeg);
     min-height: 60vh;
     background-repeat: no-repeat;
     background-position: right;
     background-color: black;    
-
     background-size: contain;
     display: flex;
     flex-direction: column;
-    
+    position: relative; // Ensure the hero is positioned relative for the overlay
 
-    &__sub-heading{
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); // Adjust the opacity as needed
+        z-index: 1; // Ensure the overlay is above the background but below the text
+    }
+
+    &__text {
+        text-align: center;
+        z-index: 2; // Ensure the text is above the overlay
+        position: relative; // To make sure z-index works properly
+
+        @include tablet {
+            margin-top: 4rem;
+            margin-left: 2rem;
+            max-width: 66vw;
+        }
+    }
+
+    &__sub-heading {
         color: white;
         font-size: 2rem;
-        
-padding: 2rem;
+        padding: 2rem;
+
+        @include mobile {
+            padding-bottom: 0.5rem;
+        }
     }
 
-    &__heading{
+    &__heading {
         color: $primary-orange;
         font-size: 4rem;
-    }
-
-    &__text{
-        text-align: center;
-        
-
-        @include tablet{
-            margin-top: 4rem;
-        margin-left: 2rem;
-        max-width: 66vw;
-        }
-        
+        z-index: 9999;
     }
 
     &__promo {
@@ -42,18 +55,16 @@ padding: 2rem;
         transform: translateY(20px);
         animation: fadeInUp 0.6s forwards; // Adjust duration as needed
         margin-top: 1rem;
-      
+
         @keyframes fadeInUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-      
-        // Optional: Add some styling
+
         font-size: 1.5rem; // Adjust size as needed
         text-align: center;
         color: $secondary-orange; // Use your theme color
-      }
-      
+    }
 }

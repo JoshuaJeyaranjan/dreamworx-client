@@ -45,7 +45,7 @@ export default function Nav() {
               Mechanical
             </NavLink>
             <NavLink to="/bodywork" className="nav__sub-link" activeClassName='active'>
-              Body Shop
+              Body Work
             </NavLink>
           </div>
         </div>

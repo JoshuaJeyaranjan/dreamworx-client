@@ -60,6 +60,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 
 .input-container-row {
@@ -77,9 +78,17 @@
 
 .email-input{
     width: 50vw;
+    
+   
 
     @include tablet {
         width: 200%;
+    }
+}
+
+.email-container {
+    @include mobile {
+        margin: 1rem 0rem;
     }
 }
 

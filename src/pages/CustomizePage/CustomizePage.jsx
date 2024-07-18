@@ -53,7 +53,7 @@ export default function CustomizePage() {
         </video>
         <div className='overlay'></div>
         <div className='customize__hero-content'>
-          <h1 className='page-hero'>Car Customization</h1>
+          <h1 className='page-hero customize__text'>Customization</h1>
         </div>
       </div>
 

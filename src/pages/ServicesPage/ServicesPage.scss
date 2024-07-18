@@ -37,4 +37,8 @@
 .page-hero{
   font-size: 4rem;
   color: $primary-orange;
+
+  @include mobile {
+    font-size: 3.5rem;
+  }
 }

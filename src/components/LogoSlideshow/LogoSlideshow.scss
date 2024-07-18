@@ -3,31 +3,30 @@
 
 /* LogoSlideshow.scss */
 .logo-slideshow {
-    overflow: hidden;
-    width: 80%; /* Adjust width as needed */
+  overflow: hidden;
+  width: 80%; /* Adjust width as needed */
+  height: 100px; /* Adjust height as needed */
+  position: relative;
+  background-color: $primary-orange;
+
+  &__wrapper {
+    display: flex;
+    animation: slide 38s linear infinite; /* Adjust duration as needed */
+    width: calc(2 * (125px * 41 + 20px * 41)); /* Adjust based on logo width and spacing, double the original width */
+  }
+
+  &__logo {
+    width: 125px; /* Adjust width as needed */
     height: 100px; /* Adjust height as needed */
-    position: relative;
-    background-color: $primary-orange;
-    
-  
-    &__wrapper {
-      display: flex;
-      animation: slide 38s linear infinite; /* Adjust duration as needed */
+    margin-right: 20px; /* Adjust spacing as needed */
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
     }
-  
-    &__logo {
-      width: 150px; /* Adjust width as needed */
-      height: 100px; /* Adjust height as needed */
-      margin-right: 20px; /* Adjust spacing as needed */
-      
-    }
-  
-    @keyframes slide {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-150px * 41 - 20px * 41)); /* Adjust based on logo width and spacing */
-      }
+    100% {
+      transform: translateX(calc(-125px * 41 - 20px * 41)); /* Adjust based on logo width and spacing */
     }
   }
+}

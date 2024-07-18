@@ -19,6 +19,10 @@
     color: $primary-orange;
     font-size: 3rem;
     text-align: center;
+
+    @include mobile {
+        margin-top: .5rem;
+    }
    }
 
    &__sub-header{

@@ -89,7 +89,7 @@ export default function ContactForm() {
                 required
               />
             </div>
-            <div className="input-container-column">
+            <div className="input-container-column email-container">
               <label>Email:</label>
               <input
                 className="contact-form__input email-input"

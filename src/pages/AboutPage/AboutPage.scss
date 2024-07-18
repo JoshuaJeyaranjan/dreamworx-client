@@ -80,7 +80,7 @@
   }
 
   &__header {
-    color: orange;
+    color: $primary-orange;
     margin-left: 1rem;
     font-size: 2rem;
   }
@@ -89,21 +89,25 @@
     color: white;
     padding: 1rem;
     padding-bottom: 0;
+    font-style: italic;
   }
 }
 
 .journey {
   text-align: center;
-  margin: auto;
   margin: 0; // Ensure no margin
   padding: 0; // Ensure no padding
 
   &__header {
-    color: orange;
+    color: $primary-orange;
     font-size: 4rem;
     padding: 1rem;
     padding-bottom: .5rem;
     margin-left: 1rem;
+
+    @include mobile {
+      padding-top: 0;
+    }
   }
 
   &__paragraph {
@@ -111,5 +115,6 @@
     padding: 1rem;
     padding-top: 0;
     margin-left: 1rem;
+    font-style: italic;
   }
 }
