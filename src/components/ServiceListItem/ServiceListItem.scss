@@ -3,15 +3,31 @@
 
 .service-list-item {
     background-color: black;
-    padding: 20px;
+    padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 66vw;
     text-align: center;
+    transition: transform 0.5s ease-in-out;
 
+    &.animate-service {
+      animation: fade-in 0.5s ease-out forwards;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
     @include tablet {
         max-width: 33vw;
+        padding: 20px;
     }
 
   

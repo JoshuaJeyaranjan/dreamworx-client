@@ -1,6 +1,7 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
 
+/* ContactForm.scss */
 .contact {
     display: flex;
     flex-direction: column;
@@ -23,7 +24,14 @@
     min-width: 90vw;
     border-radius: 0.5rem;
     min-height: 20vw;
-    
+    transform: translateX(-100%); /* Start off-screen */
+    opacity: 0; /* Start transparent */
+    transition: transform 1s ease-out, opacity 1s ease-out; /* Smooth transition */
+
+    &.slide-in {
+        transform: translateX(0); /* Slide in to position */
+        opacity: 1; /* Fade in */
+    }
 
     &__submit {
         margin: 1.5rem;
@@ -60,7 +68,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
 }
 
 .input-container-row {
@@ -76,10 +83,8 @@
     }
 }
 
-.email-input{
+.email-input {
     width: 50vw;
-    
-   
 
     @include tablet {
         width: 200%;
@@ -98,11 +103,10 @@
     }
 }
 
-.message-input{
+.message-input {
     width: 50vw;
     height: 4rem;
     margin: auto;
-    
 }
 
 .contact-form__status {
@@ -110,15 +114,14 @@
     padding: 1rem;
     border-radius: 5px;
     text-align: center;
-  
+
     &--success {
-      color: green;
-      border: 1px solid green;
+        color: green;
+        border: 1px solid green;
     }
-  
+
     &--error {
-      color: red;
-      border: 1px solid red;
+        color: red;
+        border: 1px solid red;
     }
-  }
-  
+}

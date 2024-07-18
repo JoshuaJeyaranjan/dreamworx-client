@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
 import "./ContactForm.scss";
 
@@ -14,8 +14,30 @@ export default function ContactForm() {
     success: false,
     error: false,
     validationError: false,
-    message: ""
+    message: "",
   });
+
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (formRef.current) {
+        const formTop = formRef.current.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (formTop < windowHeight) {
+          formRef.current.classList.add("slide-in");
+          window.removeEventListener("scroll", handleScroll); // Remove listener after animation triggers
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -37,7 +59,7 @@ export default function ContactForm() {
         success: false,
         error: false,
         validationError: true,
-        message: "Please enter a valid email address."
+        message: "Please enter a valid email address.",
       });
       return;
     }
@@ -55,7 +77,7 @@ export default function ContactForm() {
           success: true,
           error: false,
           validationError: false,
-          message: "Message sent successfully!"
+          message: "Message sent successfully!",
         });
         setFormData({ name: "", email: "", message: "", phone: "" });
       })
@@ -65,7 +87,7 @@ export default function ContactForm() {
           success: false,
           error: true,
           validationError: false,
-          message: "Failed to send message. Please try again later."
+          message: "Failed to send message. Please try again later.",
         });
       });
   };
@@ -74,7 +96,7 @@ export default function ContactForm() {
     <div className="contact">
       <h3 className="contact__header">Contact Us</h3>
 
-      <form className="contact-form" onSubmit={handleSubmit}>
+      <form className="contact-form" onSubmit={handleSubmit} ref={formRef}>
         <div className="input-container-column">
           <div className="input-container-row">
             <div className="input-container-column name-input">

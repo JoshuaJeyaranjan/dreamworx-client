@@ -1,14 +1,24 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
 
-.contact-info{
+.contact-info {
     display: flex;
     flex-direction: column-reverse;
     padding: 1rem;
     align-items: center;
-    
+  
     @include tablet {
-        flex-direction: row;
-        justify-content: center;
+      flex-direction: row;
+      justify-content: center;
     }
-}
+  
+    &.slide-up {
+      transform: translateY(0); // Slide up to position
+      opacity: 1; // Fade in
+      transition: transform 1s ease-out, opacity 1s ease-out; // Smooth transition
+    }
+  
+    transform: translateY(100%); // Start off-screen
+    opacity: 0; // Start transparent
+  }
+  
