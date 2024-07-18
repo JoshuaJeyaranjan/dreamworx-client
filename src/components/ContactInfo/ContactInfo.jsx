@@ -11,7 +11,7 @@ export default function ContactInfo() {
       if (contactInfoRef.current) {
         const contactInfoTop = contactInfoRef.current.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-        const triggerOffset = windowHeight * 1.3; // Adjust this value (e.g., 0.8 means 80% of the viewport height)
+        const triggerOffset = windowHeight * 1.8; // Adjust this value (e.g., 0.8 means 80% of the viewport height)
 
         if (contactInfoTop < triggerOffset) {
           contactInfoRef.current.classList.add("slide-up");
