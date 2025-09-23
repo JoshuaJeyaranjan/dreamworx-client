@@ -1,112 +1,237 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
 .fab {
   position: fixed;
-  bottom: 30px;
-  left: 30px;
-  width: 50px;
-  height: 50px;
-  background-color: $primary-orange;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  bottom: 6rem;
+  right: 2rem;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
 
-  &.open {
-    transform: rotate(0deg); // Less rotation
+  @include mobile {
+    bottom: 1.5rem;
+    right: 1.5rem;
   }
 
-  &__icon {
-    position: absolute;
+  &__menu {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__main-button {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, $primary-orange, #ff6b35);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(213, 94, 21, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #ff6b35, $primary-orange);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(213, 94, 21, 0.6);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__main-icon {
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    
+  }
+
+  &__actions {
+    display: none;
+    
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &--open {
+    .fab__actions {
+      display: flex;
+      flex-direction: column;
+    gap: 0.75rem;
+    opacity: 0;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .fab__main-button {
+      transform: rotate(45deg);
+    }
+  }
+
+  &__action {
     width: 50px;
     height: 50px;
+    background: white;
+    border: 2px solid var(--action-color, $primary-orange);
     border-radius: 50%;
-    background-color: #007bff;
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.3s ease var(--delay, 0s) both;
 
-    &.fab__main {
-      background-color: $primary-orange;
-    }
-
-    &.fab__phone {
-      background-color: #007bff; // Default blue color for phone
-      top: -60px; // Adjust spacing for phone
-      opacity: 0;
-      margin: 0;
-      padding: 0;
-    }
-
-    &.fab__whatsapp {
-      background-color: #25D366; /* WhatsApp green */
-      top: -120px; // Adjust spacing for WhatsApp
-      opacity: 0;
-    }
-
-    &.fab__instagram {
-      background-color: #E4405F; /* Instagram color */
-      top: -180px; // Adjust spacing for Instagram
-      opacity: 0;
-    }
-
-    &.fab__tiktok {
-      background-color: white; /* TikTok color */
-      top: -240px; // Adjust spacing for TikTok
-      opacity: 0;
-    }
-
-    &.fab__facebook {
-      background-color: #3b5998; /* Facebook color */
-      top: -300px; // Adjust spacing for Facebook
-      opacity: 0;
-    }
-
-    img {
-      width: 24px; /* Adjust size as needed */
-      height: 24px; /* Adjust size as needed */
-    }
-
-    .tooltip {
+    &::before {
+      content: "";
       position: absolute;
-      left: 60px;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 5px 10px;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      border-radius: 5px;
-      font-size: 12px;
-      white-space: nowrap;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--action-color, $primary-orange);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      background: var(--action-color, $primary-orange);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        opacity: 0.1;
+      }
+
+      .fab__action-icon {
+        color: white;
+        transform: scale(1.2);
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
     }
   }
 
-  &.open .fab__phone {
-    transform: translateY(-60px); // Adjust spacing for phone
-    opacity: 1;
+  &__action-icon {
+    font-size: 1.25rem;
+    color: var(--action-color, $primary-orange);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
   }
 
-  &.open .fab__whatsapp {
-    transform: translateY(-120px); // Adjust spacing for WhatsApp
-    opacity: 1;
+  &__tooltip {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: $mid-weight;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -4px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 4px solid rgba(0, 0, 0, 0.9);
+    }
+
+    &--main {
+      right: 80px;
+    }
   }
 
-  &.open .fab__instagram {
-    transform: translateY(-180px); // Adjust spacing for Instagram
+  &__menu:hover &__tooltip--main,
+  &__action:hover &__tooltip--action {
     opacity: 1;
+    visibility: visible;
   }
+}
 
-  &.open .fab__tiktok {
-    transform: translateY(-240px); // Adjust spacing for TikTok
-    opacity: 1;
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  &.open .fab__facebook {
-    transform: translateY(-300px); // Adjust spacing for Facebook
-    opacity: 1;
+// Responsive adjustments
+@include mobile {
+  .fab {
+    &__main-button {
+      width: 55px;
+      height: 55px;
+    }
+
+    &__action {
+      width: 45px;
+      height: 45px;
+    }
+
+    &__action-icon {
+      font-size: 1.1rem;
+    }
+
+    &__main-icon {
+      font-size: 1.25rem;
+    }
+
+    &__tooltip {
+      font-size: 0.7rem;
+      padding: 0.4rem 0.6rem;
+    }
   }
+}
+
+// Focus styles for accessibility
+.fab__main-button:focus,
+.fab__action:focus {
+  outline: 2px solid $primary-orange;
+  outline-offset: 2px;
 }

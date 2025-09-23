@@ -1,0 +1,73 @@
+.service-link-item {
+  display: block;
+  width: 40vw;
+  height: 200px;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 4px;
+}
+.service-link-item__background {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.service-link-item__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  transition: background-color 0.3s ease-in-out;
+}
+.service-link-item__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  color: white;
+}
+.service-link-item__title, .service-link-item__paragraph {
+  margin: 0;
+}
+.service-link-item__gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(248, 234, 198, 0.5), rgba(213, 94, 21, 0.5));
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+.service-link-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.service-link-item:hover .service-link-item__overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.service-link-item:hover .service-link-item__gradient {
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.service-link-item:not(:hover) .service-link-item__gradient {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}/*# sourceMappingURL=ServiceLinkItem.css.map */

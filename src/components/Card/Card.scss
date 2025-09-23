@@ -1,0 +1,274 @@
+@use "../../styles/design-system" as *;
+
+// =============================================================================
+// CARD COMPONENT
+// =============================================================================
+
+.card {
+  @include card-base;
+  position: relative;
+
+  // Variants
+  &--elevated {
+    box-shadow: $shadow-lg;
+  }
+
+  &--outlined {
+    border: $border-1 solid $neutral-300;
+    box-shadow: none;
+  }
+
+  &--glass {
+    @include glassmorphism(0.1, 10px);
+    border: $border-1 solid rgba($neutral-0, 0.2);
+  }
+
+  &--dark {
+    background: $neutral-800;
+    color: $neutral-0;
+  }
+
+  &--hover {
+    cursor: pointer;
+
+    &:hover {
+      @include hover-lift;
+    }
+  }
+
+  // Card sections
+  &__header {
+    padding: $space-6 $space-6 $space-0;
+    border-bottom: $border-1 solid $neutral-200;
+
+    .card--dark & {
+      border-bottom-color: $neutral-700;
+    }
+  }
+
+  &__body {
+    padding: $space-6;
+  }
+
+  &__footer {
+    padding: $space-0 $space-6 $space-6;
+    border-top: $border-1 solid $neutral-200;
+    margin-top: auto;
+
+    .card--dark & {
+      border-top-color: $neutral-700;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $neutral-900;
+    margin: 0 0 $space-2;
+    line-height: $line-height-tight;
+
+    .card--dark & {
+      color: $neutral-0;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    color: $neutral-600;
+    line-height: $line-height-relaxed;
+    margin: 0;
+
+    .card--dark & {
+      color: $neutral-300;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-default;
+
+    .card--hover:hover & {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// =============================================================================
+// CARD GRID LAYOUTS
+// =============================================================================
+
+.card-grid {
+  display: grid;
+  gap: $space-6;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  @include mobile-only {
+    grid-template-columns: 1fr;
+    gap: $space-4;
+  }
+
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mobile-only {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--3 {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile-only {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--4 {
+    grid-template-columns: repeat(4, 1fr);
+
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile-only {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// =============================================================================
+// SERVICE CARD SPECIFIC STYLING
+// =============================================================================
+
+.service-card {
+  @include card-base;
+  text-align: center;
+  padding: $space-8;
+  background: linear-gradient(135deg, $neutral-50 0%, $neutral-0 100%);
+  border: $border-1 solid rgba($brand-primary, 0.1);
+  transition: $transition-all;
+
+  &:hover {
+    @include hover-lift(8px);
+    box-shadow: $shadow-xl;
+    border-color: $brand-primary;
+  }
+
+  &__icon {
+    font-size: $font-size-5xl;
+    margin-bottom: $space-4;
+    display: block;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $neutral-900;
+    margin-bottom: $space-4;
+  }
+
+  &__description {
+    color: $neutral-600;
+    line-height: $line-height-relaxed;
+    margin-bottom: $space-6;
+  }
+}
+
+// =============================================================================
+// FEATURE CARD
+// =============================================================================
+
+.feature-card {
+  @include card-base;
+  padding: $space-6;
+  text-align: center;
+  background: $neutral-0;
+  border: $border-1 solid $neutral-200;
+
+  &:hover {
+    @include hover-lift;
+    border-color: $brand-primary;
+  }
+
+  &__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto $space-4;
+    background: linear-gradient(135deg, $brand-primary, $brand-primary-light);
+    border-radius: $radius-full;
+    @include flex-center;
+    font-size: $font-size-2xl;
+    color: $neutral-0;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $neutral-900;
+    margin-bottom: $space-2;
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: $neutral-600;
+    line-height: $line-height-relaxed;
+  }
+}
+
+// =============================================================================
+// TESTIMONIAL CARD
+// =============================================================================
+
+.testimonial-card {
+  @include card-base;
+  padding: $space-6;
+  background: $neutral-50;
+  border-left: $border-4 solid $brand-primary;
+
+  &__quote {
+    font-size: $font-size-lg;
+    font-style: italic;
+    color: $neutral-700;
+    line-height: $line-height-relaxed;
+    margin-bottom: $space-4;
+  }
+
+  &__author {
+    @include flex-center;
+    gap: $space-3;
+
+    &-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: $radius-full;
+      object-fit: cover;
+    }
+
+    &-info {
+      text-align: left;
+    }
+
+    &-name {
+      font-weight: $font-weight-semibold;
+      color: $neutral-900;
+      margin-bottom: $space-1;
+    }
+
+    &-title {
+      font-size: $font-size-sm;
+      color: $neutral-600;
+    }
+  }
+}

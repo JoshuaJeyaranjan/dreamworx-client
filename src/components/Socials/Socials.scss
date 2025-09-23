@@ -1,26 +1,123 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .socials {
-    background-color: $primary-orange;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+
+  &__title {
+    font-size: 1rem;
+    font-weight: $bold-weight;
+    color: white;
+    margin: 0;
+    text-align: center;
+
+    @include mobile {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__links {
     display: flex;
-    flex-direction: row;
-
+    gap: 2rem;
+    justify-content: center;
     align-items: center;
-    border-radius: .25rem;
+  }
 
-    @include tablet {
-        flex-direction: column;
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%; // rounder for modern look
+    background: linear-gradient(135deg, $primary-orange, $secondary-orange);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, $primary-orange, white);
+      border-color: var(--social-color, $primary-orange);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+
+      .socials__icon {
+        transform: scale(1.1);
+        filter: brightness(1.2);
+      }
+
+      .socials__tooltip {
+        opacity: 0;
+        transform: translateY(-45px) scale(1);
+      }
     }
+  }
 
+  &__icon {
+    width: 24px;
+    height: 24px;
+    filter: grayscale(1) brightness(1.2);
+    transition: all 0.3s ease;
+  }
 
-    &__icon {
-        max-width: 50px;
-        padding: 0.5rem;
-        transition: transform 0.3s ease; // Smooth transition for scaling
+  &__tooltip {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0) scale(0.95);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: $mid-weight;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    z-index: 10;
 
-        &:hover {
-            transform: scale(1.2); // Scale up the icon on hover
-        }
+    &::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 4px solid rgba(0, 0, 0, 0.85);
     }
+  }
+}
+
+// Special styling when used in footer
+.footer .socials {
+  &__title {
+    display: none;
+  }
+
+  &__links {
+    gap: 0.75rem;
+  }
+
+  &__link {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, $primary-orange, $secondary-orange);;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:hover {
+      background: linear-gradient(135deg, $primary-orange, white);;
+      border-color: var(--social-color, $primary-orange);
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
 }

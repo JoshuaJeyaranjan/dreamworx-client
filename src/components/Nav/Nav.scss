@@ -1,195 +1,370 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/design-system" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+// =============================================================================
+// NAVIGATION COMPONENT
+// =============================================================================
 
 .nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background for navbar
-  width: 100%;
-  z-index: 1002; // Ensure it stays above other content
-  border-bottom: 2px solid $primary-orange;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  z-index: $z-index-fixed;
+ 
+  border-bottom: $border-1 solid rgba($neutral-0, 0.1);
+  transition: $transition-all;
+
+  &--scrolled {
+    background: rgba($neutral-900, 0.98);
+    box-shadow: $shadow-lg;
+  }
+
+  &__container {
+    @include container;
+    @include flex-between;
+    height: 70px;
+
+
+    @include mobile-only {
+      height: 60px;
+    }
+  }
+
+  &__brand {
+    @include flex-center;
+    gap: $space-3;
+    text-decoration: none;
+    transition: transform $transition-default;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 
   &__logo {
-    min-width: 5rem;
-    max-width: 10rem;
-    margin-left: 2rem;
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    border-radius: $radius-lg;
+    transition: $transition-all;
 
-    @include mobile {
-      margin-left: .5rem;
+    @include mobile-only {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  &__brand-text {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    background: linear-gradient(
+      135deg,
+      $primary-orange,
+      $secondary-orange,
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    @include mobile-only {
+      font-size: $font-size-xl;
     }
   }
 
   &__mobile-toggle {
     display: none;
+    @include flex-center;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
-    margin-right: 2rem;
+    transition: transform $transition-default;
 
-    &-icon {
-      font-size: 2rem;
-      color: white;
+    @include mobile-only {
+      display: flex;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__hamburger {
+    @include flex-column;
+    gap: $space-1;
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: none;
+
+    span {
+      display: block;
+      height: $border-2;
+      background: $neutral-0;
+      border-radius: $radius-sm;
+      transition: $transition-all;
+      transform-origin: center;
+    }
+
+    &--active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+        display: block;
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+        display: block;
+      }
+
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+        display: block;
+      }
+    }
+
+    @include mobile {
+      @include flex-column;
+      gap: $space-1;
+      width: 24px;
+      height: 18px;
+      position: relative;
+      
     }
   }
 
   &__menu {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    margin-right: 2rem;
+    @include flex-center;
+    gap: $space-8;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include mobile-only {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      @include glassmorphism(0.98, 20px);
+      @include flex-column;
+      padding: $space-8 $space-4;
+      gap: $space-4;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: $transition-all;
+      border-top: $border-1 solid rgba($neutral-0, 0.1);
+    }
 
     &--open {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 100%; // Position right below the navbar
-      right: 0;
-      background-color: rgba(0, 0, 0, 0.8); // Semi-transparent background for mobile menu
-      width: 100%;
-      padding: 1rem;
-      z-index: 1000;
-      align-items: flex-end;
+      @include mobile-only {
+        background-color: black;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 
   &__link {
+    position: relative;
+    @include flex-center;
+    padding: $space-3 $space-4;
+    color: $neutral-0;
     text-decoration: none;
-    color: aliceblue;
-    transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    border-radius: $radius-lg;
+    transition: $transition-all;
+    overflow: hidden;
 
-    &.active {
-      color: $primary-orange;
-      font-weight: bold;
-      text-decoration: underline;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba($neutral-0, 0.1),
+        transparent
+      );
+      transition: left $duration-500;
+    }
+
+    &:hover::before {
+      left: 100%;
     }
 
     &:hover {
-      color: $secondary-orange;
-      transform: scale(1.2);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      color: $brand-primary;
+      background: rgba($brand-primary, 0.1);
+      @include hover-lift;
+    }
+
+    &.active {
+      color: $brand-primary;
+      background: rgba($brand-primary, 0.15);
+      box-shadow: $shadow-md;
+    }
+
+    &--cta {
+      background: linear-gradient(
+        135deg,
+        $primary-orange,
+        $secondary-orange,
+      );
+      color: $neutral-0;
+      font-weight: $font-weight-bold;
+      box-shadow: $shadow-md;
+
+      &:hover {
+        background: linear-gradient(
+          135deg,
+          $brand-primary-light,
+          $brand-primary
+        );
+        @include hover-lift;
+        box-shadow: $shadow-lg;
+        color: $neutral-0;
+      }
+    }
+
+    @include mobile-only {
+      width: 100%;
+      justify-content: center;
+      padding: $space-4;
+      font-size: $font-size-lg;
     }
   }
 
   &__services {
-    position: relative; // Ensure submenu is positioned relative to this element
+    position: relative;
+    @include flex-center;
+    gap: $space-2;
+
+    @include mobile-only {
+      @include flex-column;
+      width: 100%;
+    }
+  }
+
+  &__submenu-toggle {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    color: $neutral-0;
+    cursor: pointer;
+    border-radius: $radius-md;
+    transition: $transition-all;
 
     &:hover {
-      color: $secondary-orange;
+      background: rgba($neutral-0, 0.1);
+      color: $brand-primary;
     }
 
-    .nav__submenu-toggle {
-      cursor: pointer;
-      margin-left: 0.5rem;
-      color: $primary-orange;
+    &[aria-expanded="true"] {
+      transform: rotate(180deg);
+      color: $brand-primary;
     }
 
-    .nav__submenu {
-      display: none;
-      position: absolute; // Absolutely position submenu relative to parent
-      top: 100%; // Align to the bottom of the parent
-      left: -50%;
-      background-color: rgba(0, 0, 0, 0.8); // Semi-transparent background for submenu
-      padding: 1rem;
-      flex-direction: column;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      
-
-      &.visible {
-        display: flex;
-        opacity: 1;
-      }
-
-      .nav__sub-link {
-        text-decoration: none;
-        color: $primary-light;
-        padding: 10px;
-        padding-left: 0;
-
-
-        
-
-        &.active {
-          color: $primary-orange;
-          font-weight: bold;
-          text-decoration: underline;
-        }
-
-        &:hover {
-          color: $secondary-orange;
-          transform: scale(1);
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-      }
+    @include mobile-only {
+      position: absolute;
+      right: $space-4;
+      top: $space-3;
     }
   }
-}
 
-@include tablet {
-  .nav__mobile-toggle {
-    display: none;
-  }
+  &__submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    @include glassmorphism(0.95, 20px);
+    border: $border-1 solid rgba($neutral-0, 0.1);
+    border-radius: $radius-xl;
+    padding: $space-2;
+    margin-top: $space-2;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: $transition-all;
+    box-shadow: $shadow-xl;
 
-  .nav__menu {
-    display: flex;
-    flex-direction: row;
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
 
-    &--open {
-      display: flex;
-      flex-direction: row;
+    @include mobile-only {
       position: static;
-      width: auto;
-      padding: 0;
+      min-width: auto;
+      width: 100%;
+      margin-top: 0;
+      background: rgba($neutral-0, 0.05);
+      border: $border-1 solid rgba($neutral-0, 0.1);
     }
   }
 
-  .nav__services {
-    .nav__submenu {
-      position: absolute;
-      display: none;
-      top: 100%;
-      left: 0;
+  &__sub-link {
+    @include flex-center;
+    gap: $space-3;
+    padding: $space-3 $space-4;
+    color: $neutral-0;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    border-radius: $radius-lg;
+    transition: $transition-all;
 
-      &.visible {
-        display: flex;
-        flex-direction: column;
-      }
+    &:hover {
+      background: rgba($brand-primary, 0.1);
+      color: $brand-primary;
+      transform: translateX($space-1);
+    }
+
+    &.active {
+      background: rgba($brand-primary, 0.15);
+      color: $brand-primary;
+    }
+
+    @include mobile-only {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+
+  &__sub-icon {
+    font-size: $font-size-lg;
+    filter: grayscale(1);
+    transition: filter $transition-default;
+
+    .nav__sub-link:hover & {
+      filter: grayscale(0);
     }
   }
 }
 
-@include mobile {
-  .nav__mobile-toggle {
-    display: block;
-  }
+// =============================================================================
+// SMOOTH SCROLL BEHAVIOR
+// =============================================================================
 
-  .nav__menu {
-    display: none;
-    flex-direction: column;
+html {
+  scroll-behavior: smooth;
+}
 
-    &--open {
-      display: flex;
-      position: absolute;
-      top: 18%; // Ensure it appears right below the navbar
-      right: -8%;
-      width: 101%;
-      padding: 1rem;
-      
-    }
-  }
+// =============================================================================
+// FOCUS STYLES FOR ACCESSIBILITY
+// =============================================================================
 
-  .nav__services {
-    .nav__submenu {
-      display: none;
-
-      &.visible {
-        display: flex;
-        flex-direction: column;
-        margin-right: 1rem;
-        
-      }
-    }
-  }
+.nav__link:focus,
+.nav__sub-link:focus,
+.nav__submenu-toggle:focus {
+  @include focus-ring($brand-primary);
 }

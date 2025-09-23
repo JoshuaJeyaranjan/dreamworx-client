@@ -1,0 +1,204 @@
+@use "../../styles/design-system" as *;
+
+// =============================================================================
+// BUTTON COMPONENT
+// =============================================================================
+
+.btn {
+  @include button-base;
+  position: relative;
+  overflow: hidden;
+
+  // Shimmer effect
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left $duration-500 $ease-out;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  @include focus-ring;
+
+  // Size variants
+  &--sm {
+    padding: $space-2 $space-4;
+    font-size: $font-size-sm;
+    min-height: 36px;
+  }
+
+  &--md {
+    padding: $space-3 $space-6;
+    font-size: $font-size-base;
+    min-height: 44px;
+  }
+
+  &--lg {
+    padding: $space-4 $space-8;
+    font-size: $font-size-lg;
+    min-height: 52px;
+  }
+
+  // Color variants
+  &--primary {
+    background: linear-gradient(135deg, $brand-primary, $brand-primary-light);
+    color: $neutral-0;
+    box-shadow: $shadow-md;
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, $brand-primary-light, $brand-primary);
+      @include hover-lift;
+      box-shadow: $shadow-lg;
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: $shadow-md;
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: $brand-primary;
+    border: $border-2 solid $brand-primary;
+
+    &:hover:not(:disabled) {
+      background: $brand-primary;
+      color: $neutral-0;
+      @include hover-lift;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: $neutral-0;
+    border: $border-2 solid $neutral-0;
+
+    &:hover:not(:disabled) {
+      background: $neutral-0;
+      color: $neutral-900;
+      @include hover-lift;
+    }
+  }
+
+  &--ghost {
+    background: rgba($neutral-0, 0.1);
+    color: $neutral-0;
+    border: $border-1 solid rgba($neutral-0, 0.2);
+
+    &:hover:not(:disabled) {
+      background: rgba($neutral-0, 0.2);
+      @include hover-lift;
+    }
+  }
+
+  &--success {
+    background: linear-gradient(135deg, $success, $success-dark);
+    color: $neutral-0;
+    box-shadow: $shadow-md;
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, $success-dark, $success);
+      @include hover-lift;
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &--danger {
+    background: linear-gradient(135deg, $error, $error-dark);
+    color: $neutral-0;
+    box-shadow: $shadow-md;
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, $error-dark, $error);
+      @include hover-lift;
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  // Loading state
+  &--loading {
+    cursor: not-allowed;
+    color: transparent;
+
+    .btn__content {
+      opacity: 0;
+    }
+  }
+
+  // Icon variants
+  &--icon-only {
+    aspect-ratio: 1;
+    padding: $space-3;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+// Button sub-elements
+.btn__spinner {
+  @include absolute-center;
+  width: 20px;
+  height: 20px;
+  border: $border-2 solid transparent;
+  border-top: $border-2 solid currentColor;
+  border-radius: $radius-full;
+  animation: spin $duration-1000 $ease-linear infinite;
+}
+
+.btn__content {
+  @include flex-center;
+  gap: $space-2;
+  transition: opacity $transition-default;
+}
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+
+  &--left {
+    margin-right: $space-1;
+  }
+
+  &--right {
+    margin-left: $space-1;
+  }
+}
+
+// Responsive adjustments
+@include mobile-only {
+  .btn {
+    &--sm {
+      padding: $space-1_5 $space-3;
+      font-size: $font-size-xs;
+      min-height: 32px;
+    }
+
+    &--md {
+      padding: $space-2_5 $space-5;
+      font-size: $font-size-sm;
+      min-height: 40px;
+    }
+
+    &--lg {
+      padding: $space-3 $space-6;
+      font-size: $font-size-base;
+      min-height: 48px;
+    }
+  }
+}

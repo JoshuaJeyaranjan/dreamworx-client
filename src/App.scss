@@ -1,13 +1,118 @@
-@import './styles/partials/typography';
+@use "./styles/design-system" as *;
 
-*{
+// =============================================================================
+// GLOBAL RESET & BASE STYLES
+// =============================================================================
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-    
 }
 
-body{
-  background-color: black;
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
 
+body {
+  background: $neutral-900;
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $neutral-900;
+  @include font-smoothing;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// =============================================================================
+// PAGE LOADER
+// =============================================================================
+
+.page-loader {
+  @include flex-center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $neutral-800 0%, $neutral-900 100%);
+
+  &__content {
+    text-align: center;
+    color: $neutral-0;
+  }
+
+  &__spinner {
+    width: 50px;
+    height: 50px;
+    border: $border-4 solid rgba($neutral-0, 0.3);
+    border-top: $border-4 solid $brand-primary;
+    border-radius: $radius-full;
+    animation: spin $duration-1000 $ease-linear infinite;
+    margin: 0 auto $space-4;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    opacity: 0.9;
+  }
+}
+
+// =============================================================================
+// GLOBAL UTILITIES
+// =============================================================================
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus-visible {
+  @include focus-ring;
+}
+
+// =============================================================================
+// SCROLLBAR STYLING
+// =============================================================================
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $neutral-200;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $neutral-400;
+  border-radius: $radius-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $neutral-500;
+}
+
+// =============================================================================
+// SELECTION STYLING
+// =============================================================================
+
+::selection {
+  background: rgba($brand-primary, 0.2);
+  color: $neutral-900;
+}
+
+::-moz-selection {
+  background: rgba($brand-primary, 0.2);
+  color: $neutral-900;
 }

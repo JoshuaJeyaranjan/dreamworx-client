@@ -1,0 +1,37 @@
+.services__hero {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+.services__hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 70%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+.services__hero-content {
+  position: relative;
+  z-index: 1;
+  bottom: 30%;
+}
+
+.page-hero {
+  font-size: 4rem;
+  color: #d55e15;
+}
+@media screen and (max-width: 767px) {
+  .page-hero {
+    font-size: 3.5rem;
+  }
+}/*# sourceMappingURL=ServicesPage.css.map */

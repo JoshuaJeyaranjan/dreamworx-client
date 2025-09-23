@@ -1,0 +1,28 @@
+{
+  "imageOptimization": {
+    "formats": [
+      "webp",
+      "avif"
+    ],
+    "qualities": {
+      "webp": 80,
+      "avif": 70,
+      "jpeg": 85,
+      "png": 90
+    },
+    "sizes": {
+      "thumbnail": 200,
+      "small": 400,
+      "medium": 800,
+      "large": 1200,
+      "xlarge": 1920
+    },
+    "lazyLoading": true,
+    "placeholder": "blur"
+  },
+  "performance": {
+    "preloadCriticalImages": true,
+    "imageCompression": true,
+    "responsiveImages": true
+  }
+}

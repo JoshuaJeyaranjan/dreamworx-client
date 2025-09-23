@@ -91,68 +91,67 @@ export default function ContactForm() {
         });
       });
   };
-
   return (
     <div className="contact">
       <h3 className="contact__header">Contact Us</h3>
-
+  
       <form className="contact-form" onSubmit={handleSubmit} ref={formRef}>
-        <div className="input-container-column">
-          <div className="input-container-row">
-            <div className="input-container-column name-input">
-              <label className="input-container-column">Name:</label>
-              <input
-                className="contact-form__input"
-                type="text"
-                placeholder="Your Name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="input-container-column email-container">
-              <label>Email:</label>
-              <input
-                className="contact-form__input email-input"
-                type="email"
-                placeholder="Your Email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="input-container-column">
-              <label>Phone:</label>
-              <input
-                className="contact-form__input"
-                type="phone"
-                placeholder="Your Phone Number"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="input-container-column">Message:</label>
-            <textarea
-              className="contact-form__input message-input"
-              name="message"
-              placeholder="Your Message"
-              value={formData.message}
+        <div className="contact-form__group-row">
+          <div className="contact-form__group">
+            <label className="contact-form__label">Name:</label>
+            <input
+              className="contact-form__input"
+              type="text"
+              placeholder="Your Name"
+              name="name"
+              value={formData.name}
               onChange={handleChange}
               required
-            ></textarea>
+            />
           </div>
-          <button className="contact-form__submit" type="submit">
-            Submit
-          </button>
+          <div className="contact-form__group">
+            <label className="contact-form__label">Email:</label>
+            <input
+              className="contact-form__input email-input"
+              type="email"
+              placeholder="Your Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="contact-form__group">
+            <label className="contact-form__label">Phone:</label>
+            <input
+              className="contact-form__input"
+              type="tel"
+              placeholder="Your Phone Number"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
         </div>
+  
+        <div className="contact-form__group">
+          <label className="contact-form__label">Message:</label>
+          <textarea
+            className="contact-form__input message-input"
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          ></textarea>
+        </div>
+  
+        <button className="contact-form__submit" type="submit">
+          Submit
+        </button>
       </form>
+  
       {formStatus.message && (
         <div
           className={`contact-form__status ${

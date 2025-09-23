@@ -1,0 +1,40 @@
+.glitch {
+  background-color: black;
+  min-height: 13vh;
+  margin-bottom: 0;
+}
+.glitch__text-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+.glitch__sub-header {
+  color: #d55e15;
+  font-size: 2rem;
+}
+@media screen and (max-width: 767px) {
+  .glitch__sub-header {
+    margin-top: 2rem;
+  }
+}
+.glitch__paragraph {
+  max-width: 75vw;
+  font-style: italic;
+  margin-bottom: 0;
+}
+.glitch__header {
+  position: relative;
+  color: aliceblue;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  .glitch__header {
+    font-size: 2.5rem;
+  }
+}/*# sourceMappingURL=Glitch.css.map */

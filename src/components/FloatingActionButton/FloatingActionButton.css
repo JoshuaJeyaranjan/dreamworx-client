@@ -1,0 +1,198 @@
+.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+@media screen and (max-width: 767px) {
+  .fab {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+.fab__menu {
+  position: relative;
+  cursor: pointer;
+}
+.fab__main-button {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #d55e15, #ff6b35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(213, 94, 21, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.fab__main-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #ff6b35, #d55e15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.fab__main-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(213, 94, 21, 0.6);
+}
+.fab__main-button:hover::before {
+  opacity: 1;
+}
+.fab__main-button:active {
+  transform: scale(0.95);
+}
+.fab__main-icon {
+  font-size: 1.5rem;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+.fab__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fab--open .fab__actions {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.fab--open .fab__main-button {
+  transform: rotate(45deg);
+}
+.fab__action {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 2px solid var(--action-color, #d55e15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.3s ease var(--delay, 0s) both;
+}
+.fab__action::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--action-color, #d55e15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.fab__action:hover {
+  transform: scale(1.1);
+  background: var(--action-color, #d55e15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.fab__action:hover::before {
+  opacity: 0.1;
+}
+.fab__action:hover .fab__action-icon {
+  color: white;
+  transform: scale(1.2);
+}
+.fab__action:active {
+  transform: scale(0.95);
+}
+.fab__action-icon {
+  font-size: 1.25rem;
+  color: var(--action-color, #d55e15);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+.fab__tooltip {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.fab__tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid rgba(0, 0, 0, 0.9);
+}
+.fab__tooltip--main {
+  right: 80px;
+}
+.fab__menu:hover .fab__tooltip--main, .fab__action:hover .fab__tooltip--action {
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media screen and (max-width: 767px) {
+  .fab__main-button {
+    width: 55px;
+    height: 55px;
+  }
+  .fab__action {
+    width: 45px;
+    height: 45px;
+  }
+  .fab__action-icon {
+    font-size: 1.1rem;
+  }
+  .fab__main-icon {
+    font-size: 1.25rem;
+  }
+  .fab__tooltip {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+.fab__main-button:focus,
+.fab__action:focus {
+  outline: 2px solid #d55e15;
+  outline-offset: 2px;
+}/*# sourceMappingURL=FloatingActionButton.css.map */

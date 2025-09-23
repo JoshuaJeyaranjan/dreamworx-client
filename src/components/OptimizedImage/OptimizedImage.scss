@@ -1,0 +1,130 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.optimized-image {
+  position: relative;
+  overflow: hidden;
+  background-color: $secondary-mid;
+  border-radius: 8px;
+
+  &__placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      90deg,
+      $secondary-mid 25%,
+      $secondary-light 50%,
+      $secondary-mid 75%
+    );
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  &__skeleton {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 25%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+
+  &.loaded {
+    .optimized-image__placeholder {
+      display: none;
+    }
+  }
+
+  &.error {
+    .optimized-image__placeholder {
+      background: $secondary-mid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::after {
+        content: "⚠️";
+        font-size: 2rem;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// Responsive image sizing
+.optimized-image {
+  &--hero {
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  &--carousel {
+    width: 100%;
+    height: 400px;
+
+    @include mobile {
+      height: 250px;
+    }
+  }
+
+  &--logo {
+    width: 120px;
+    height: 60px;
+    object-fit: contain;
+  }
+
+  &--icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &--thumbnail {
+    width: 100%;
+    height: 200px;
+
+    @include mobile {
+      height: 150px;
+    }
+  }
+}

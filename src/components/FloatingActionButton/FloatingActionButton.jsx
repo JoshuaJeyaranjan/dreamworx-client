@@ -1,24 +1,57 @@
-import React, { useState } from 'react';
-import './FloatingActionButton.scss';
-import phoneIcon from '/assets/icons/telephone.png';
-import whatsappIcon from '/assets/icons/whatsapp.png';
-import instagramIcon from '/assets/icons/instagram.png';
-import tiktokIcon from '/assets/icons/tiktok.png';
-import facebookIcon from '/assets/icons/facebook.png';
-import mainIcon from '/assets/icons/typing.png';
-import closeIcon from '/assets/icons/close.png';
+import React, { useState, useEffect } from "react";
+import "./FloatingActionButton.scss";
 
 const links = [
-  { name: 'phone', icon: phoneIcon, tooltip: 'Telephone', href: 'tel:+16472978707' },
-  { name: 'whatsapp', icon: whatsappIcon, tooltip: 'WhatsApp', href: 'https://wa.me/14378767666' },
-  { name: 'instagram', icon: instagramIcon, tooltip: 'Instagram', href: 'https://www.instagram.com/dreamworxautobody/' },
-  { name: 'tiktok', icon: tiktokIcon, tooltip: 'TikTok', href: 'https://www.tiktok.com/@dr34mwrx.auto.body' },
-  { name: 'facebook', icon: facebookIcon, tooltip: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61558666457522' },
+  {
+    name: "phone",
+    icon: "📞",
+    tooltip: "Call Us",
+    href: "tel:+16472978707",
+    color: "#25D366",
+  },
+  {
+    name: "whatsapp",
+    icon: "💬",
+    tooltip: "WhatsApp",
+    href: "https://wa.me/14378767666",
+    color: "#25D366",
+  },
+  {
+    name: "instagram",
+    icon: "📷",
+    tooltip: "Instagram",
+    href: "https://www.instagram.com/dreamworxautobody/",
+    color: "#E4405F",
+  },
+  {
+    name: "tiktok",
+    icon: "🎵",
+    tooltip: "TikTok",
+    href: "https://www.tiktok.com/@dr34mwrx.auto.body",
+    color: "#000000",
+  },
+  {
+    name: "facebook",
+    icon: "👥",
+    tooltip: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61558666457522",
+    color: "#1877F2",
+  },
 ];
 
 export default function FloatingActionButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredIcon, setHoveredIcon] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsVisible(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -26,26 +59,47 @@ export default function FloatingActionButton() {
 
   const handleClick = (e, href) => {
     e.stopPropagation();
-    window.open(href, '_blank');
+    if (href.startsWith("tel:")) {
+      window.location.href = href;
+    } else {
+      window.open(href, "_blank", "noopener,noreferrer");
+    }
   };
 
+  if (!isVisible) return null;
+
   return (
-    <div className={`fab ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
-      <div className="fab__icon fab__main">
-        <img src={isOpen ? closeIcon : mainIcon} alt="Menu" />
-      </div>
-      {links.map(link => (
-        <div
-          key={link.name}
-          className={`fab__icon fab__${link.name}`}
-          onClick={(e) => handleClick(e, link.href)}
-          onMouseEnter={() => setHoveredIcon(link.name)}
-          onMouseLeave={() => setHoveredIcon(null)}
-        >
-          <img src={link.icon} alt={link.name} />
-          {hoveredIcon === link.name && <div className="tooltip">{link.tooltip}</div>}
+    <div className={`fab ${isOpen ? "fab--open" : ""}`}>
+      <div className="fab__menu" onClick={toggleMenu}>
+        <div className="fab__main-button">
+          <span className="fab__main-icon">{isOpen ? "✕" : "💬"}</span>
         </div>
-      ))}
+
+        <div className="fab__tooltip fab__tooltip--main">
+          {isOpen ? "Close Menu" : "Get in Touch"}
+        </div>
+      </div>
+
+      <div className="fab__actions">
+        {links.map((link, index) => (
+          <div
+            key={link.name}
+            className={`fab__action fab__action--${link.name}`}
+            onClick={(e) => handleClick(e, link.href)}
+            onMouseEnter={() => setHoveredIcon(link.name)}
+            onMouseLeave={() => setHoveredIcon(null)}
+            style={{
+              "--action-color": link.color,
+              "--delay": `${index * 0.1}s`,
+            }}
+          >
+            <span className="fab__action-icon">{link.icon}</span>
+            <div className="fab__tooltip fab__tooltip--action">
+              {link.tooltip}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

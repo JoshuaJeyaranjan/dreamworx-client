@@ -1,127 +1,80 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
-
-/* ContactForm.scss */
 .contact {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
-
+    padding: 2rem;
+  
     &__header {
-        color: white;
-        margin-bottom: 1rem;
-        font-size: 3rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, $primary-orange, $secondary-orange);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
+      text-align: center;
     }
-}
-
-.contact-form {
+  }
+  
+  .contact-form {
     display: flex;
-    justify-content: center;
-    background-color: white;
-    color: black;
-    flex-direction: row;
-    min-width: 90vw;
-    border-radius: 0.5rem;
-    min-height: 20vw;
-    transform: translateX(-100%); /* Start off-screen */
-    opacity: 0; /* Start transparent */
-    transition: transform 1s ease-out, opacity 1s ease-out; /* Smooth transition */
-
+    flex-direction: column;
+    background-color: #f9f9f9;
+    color: #333;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.8s ease;
+  
     &.slide-in {
-        transform: translateX(0); /* Slide in to position */
-        opacity: 1; /* Fade in */
+      transform: translateY(0);
+      opacity: 1;
     }
-
-    &__submit {
-        margin: 1.5rem;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        color: white;
-        background-color: black;
-        width: 100%;
-        transition: background-color 0.3s ease; // Smooth transition for color changes
-
-        &:hover {
-            background-color: $primary-orange; // Turn orange on hover
-        }
-
-        &:active {
-            background-color: $secondary-orange; // Turn gold on click
-        }
-    }
-
+  
     &__input {
-        border: none; // No border
-        border-bottom: 1px solid $primary-dark; // Keep the bottom border
-        padding: .5rem;
-
-        &:focus {
-            outline: none; // Remove default outline on focus
-            border-bottom: 1px solid black; // Optional: Change bottom border color on focus
-        }
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        margin-left: 1rem;
+      &:focus {
+        outline: none;
+        border-color: $primary-orange;
+        box-shadow: 0 0 0 3px rgba($primary-orange, 0.2);
+      }
     }
-}
-
-.input-container-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.input-container-row {
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-
-    @include tablet {
-        margin-top: 1rem;
-        flex-direction: row;
+  
+    &__submit {
+      padding: 0.75rem 1rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg, $primary-orange, $secondary-orange);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+  
+      &:active {
+        transform: translateY(0);
+        box-shadow: none;
+      }
     }
-}
-
-.email-input {
-    width: 50vw;
-
-    @include tablet {
-        width: 200%;
-    }
-}
-
-.email-container {
-    @include mobile {
-        margin: 1rem 0rem;
-    }
-}
-
-.name-input {
-    @include mobile {
-        margin-top: 1rem;
-    }
-}
-
-.message-input {
-    width: 50vw;
-    height: 4rem;
-    margin: auto;
-}
-
-.contact-form__status {
-    margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 5px;
-    text-align: center;
-
-    &--success {
-        color: green;
-        border: 1px solid green;
-    }
-
-    &--error {
-        color: red;
-        border: 1px solid red;
-    }
-}
+  }
+  
+  .message-input {
+    resize: vertical; // allow expanding message box
+    min-height: 120px;
+  }

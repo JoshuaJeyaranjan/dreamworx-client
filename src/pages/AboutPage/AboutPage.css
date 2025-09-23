@@ -1,0 +1,108 @@
+.nav {
+  margin: 0;
+  padding: 0;
+}
+
+.about {
+  text-align: center;
+}
+.about__hero {
+  text-align: center;
+  position: relative;
+  height: 100vw;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+@media (orientation: landscape) {
+  .about__hero {
+    height: 80vh;
+  }
+}
+@media (orientation: portrait) {
+  .about__hero {
+    height: 58vw;
+  }
+}
+.about__hero-video {
+  position: absolute;
+  top: 0;
+  left: 30%;
+  min-width: 150vw;
+  min-height: 80%;
+  width: 150vw;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+@media (orientation: landscape) {
+  .about__hero-video {
+    top: 66%;
+  }
+}
+@media (orientation: portrait) {
+  .about__hero-video {
+    top: 50%;
+    height: 69vw;
+    left: 39%;
+  }
+}
+.about__hero-content {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+}
+
+.subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  margin: 0;
+  padding: 2rem;
+}
+.subsection__text-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+.subsection__header {
+  color: #d55e15;
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+.subsection__paragraph {
+  color: white;
+  padding: 1rem;
+  padding-bottom: 0;
+  font-style: italic;
+}
+
+.journey {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.journey__header {
+  color: #d55e15;
+  font-size: 4rem;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  margin-left: 1rem;
+}
+@media screen and (max-width: 767px) {
+  .journey__header {
+    padding-top: 0;
+  }
+}
+.journey__paragraph {
+  color: white;
+  padding: 1rem;
+  padding-top: 0;
+  margin-left: 1rem;
+  font-style: italic;
+}/*# sourceMappingURL=AboutPage.css.map */

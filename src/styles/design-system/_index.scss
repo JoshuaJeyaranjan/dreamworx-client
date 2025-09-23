@@ -1,0 +1,16 @@
+// Design System - Main Entry Point
+// This file imports all design system components in the correct order
+
+// 1. Design Tokens (must be first)
+@forward "tokens";
+
+// 2. Mixins and Functions
+@forward "mixins";
+
+// 3. Utility Classes
+@forward "utilities";
+
+// 4. Component Styles (will be imported by individual components)
+// @forward "components/button";
+// @forward "components/card";
+// etc.

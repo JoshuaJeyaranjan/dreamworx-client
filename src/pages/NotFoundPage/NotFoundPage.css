@@ -1,0 +1,45 @@
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0a0a0a;
+  color: #fff;
+  text-align: center;
+}
+.not-found__content {
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.not-found__image {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+}
+.not-found__title {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+.not-found__text {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.not-found__button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #d55e15;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.not-found__button:hover {
+  background-color: #f8eac6;
+  color: #0a0a0a;
+}/*# sourceMappingURL=NotFoundPage.css.map */

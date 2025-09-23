@@ -1,70 +1,265 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/design-system" as *;
+
+// =============================================================================
+// HERO COMPONENT
+// =============================================================================
 
 .hero {
-    background-image: url(/assets/images/white.jpeg);
-    min-height: 60vh;
-    background-repeat: no-repeat;
-    background-position: right;
-    background-color: black;    
-    background-size: contain;
-    display: flex;
-    flex-direction: column;
-    position: relative; // Ensure the hero is positioned relative for the overlay
+  position: relative;
+  min-height: 100vh;
+  @include flex-center;
+  overflow: hidden;
+  background: linear-gradient(135deg, $neutral-800 0%, $neutral-900 100%);
 
-    &__overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); // Adjust the opacity as needed
-        z-index: 1; // Ensure the overlay is above the background but below the text
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba($neutral-900, 0.7) 0%,
+      rgba($neutral-900, 0.4) 50%,
+      rgba($neutral-900, 0.6) 100%
+    );
+    z-index: 2;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1200px;
+    padding: $space-8;
+    text-align: center;
+  }
+
+  &__text {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: $transition-all;
+
+    .loaded & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__sub-heading {
+    color: $neutral-0;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-light;
+    margin-bottom: $space-4;
+    line-height: $line-height-snug;
+
+    &--line1 {
+      display: block;
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideInLeft $duration-300 $ease-out 200ms forwards;
     }
 
-    &__text {
-        text-align: center;
-        z-index: 2; // Ensure the text is above the overlay
-        position: relative; // To make sure z-index works properly
-
-        @include tablet {
-            margin-top: 4rem;
-            margin-left: 2rem;
-            max-width: 66vw;
-        }
+    &--line2 {
+      display: block;
+      opacity: 0;
+      transform: translateX(20px);
+      animation: slideInRight $duration-300 $ease-out 400ms forwards;
     }
 
-    &__sub-heading {
-        color: white;
-        font-size: 2rem;
-        padding: 2rem;
+    @include md {
+      font-size: $font-size-3xl;
+    }
+  }
 
-        @include mobile {
-            padding-bottom: 0.5rem;
-        }
+  &__heading {
+    @include text-gradient($brand-primary, $brand-primary-light);
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    margin-bottom: $space-8;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp $duration-500 $ease-out 600ms forwards;
+    text-shadow: 0 4px 20px rgba($brand-primary, 0.3);
+
+    @include md {
+      font-size: $font-size-6xl;
     }
 
-    &__heading {
-        color: $primary-orange;
-        font-size: 4rem;
-        z-index: 9999;
+    @include mobile-only {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__promos {
+    @include flex-column;
+    gap: $space-4;
+    margin-bottom: $space-12;
+    align-items: center;
+
+    @include md {
+      flex-direction: row;
+      justify-content: center;
+      gap: $space-8;
+    }
+  }
+
+  &__promo {
+    @include flex-center;
+    gap: $space-3;
+    padding: $space-4 $space-6;
+    border-radius: $radius-full;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: $transition-all;
+
+    &:hover {
+      @include hover-lift;
     }
 
-    &__promo {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 0.6s forwards; // Adjust duration as needed
-        margin-top: 1rem;
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        font-size: 1.5rem; // Adjust size as needed
-        text-align: center;
-        color: $secondary-orange; // Use your theme color
+    &--primary {
+      background: rgba($brand-primary, 0.2);
+      color: $brand-primary;
+      border: $border-2 solid rgba($brand-primary, 0.3);
+      animation: fadeInUp $duration-300 $ease-out 800ms forwards;
     }
+
+    &--secondary {
+      background: rgba($brand-secondary, 0.2);
+      color: $brand-secondary;
+      border: $border-2 solid rgba($brand-secondary, 0.3);
+      animation: fadeInUp $duration-300 $ease-out 1000ms forwards;
+    }
+
+    @include mobile-only {
+      font-size: $font-size-base;
+      padding: $space-3 $space-5;
+    }
+  }
+
+  &__promo-icon {
+    font-size: $font-size-2xl;
+    filter: drop-shadow(0 2px 4px rgba($neutral-900, 0.3));
+  }
+
+  &__cta {
+    @include flex-column;
+    gap: $space-4;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp $duration-500 $ease-out 1200ms forwards;
+    justify-self: center;
+
+    @include md {
+      flex-direction: row;
+      gap: $space-6;
+    }
+  }
+
+  &__scroll-indicator {
+    position: absolute;
+    bottom: $space-8;
+    left: 50%;
+    transform: translateX(-50%);
+    @include flex-column;
+    align-items: center;
+    gap: $space-2;
+    color: $neutral-0;
+    opacity: 0;
+    animation: fadeIn $duration-700 $ease-out 2000ms forwards;
+    z-index: 3;
+  }
+
+  &__scroll-arrow {
+    width: $border-2;
+    height: 30px;
+    background: $neutral-0;
+    position: relative;
+    animation: bounce 2s infinite;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -4px;
+      width: 10px;
+      height: 10px;
+      border-right: $border-2 solid $neutral-0;
+      border-bottom: $border-2 solid $neutral-0;
+      transform: rotate(45deg);
+    }
+  }
+
+  &__scroll-text {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-light;
+    letter-spacing: $letter-spacing-wide;
+  }
+}
+
+// =============================================================================
+// ANIMATIONS
+// =============================================================================
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }

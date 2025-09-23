@@ -1,0 +1,117 @@
+/* ContactForm.scss */
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+.contact__header {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.contact-form {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  flex-direction: row;
+  min-width: 90vw;
+  border-radius: 0.5rem;
+  min-height: 20vw;
+  transform: translateX(-100%); /* Start off-screen */
+  opacity: 0; /* Start transparent */
+  transition: transform 1s ease-out, opacity 1s ease-out; /* Smooth transition */
+}
+.contact-form.slide-in {
+  transform: translateX(0); /* Slide in to position */
+  opacity: 1; /* Fade in */
+}
+.contact-form__submit {
+  margin: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: black;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+.contact-form__submit:hover {
+  background-color: #d55e15;
+}
+.contact-form__submit:active {
+  background-color: #f8eac6;
+}
+.contact-form__input {
+  border: none;
+  border-bottom: 1px solid #323232;
+  padding: 0.5rem;
+}
+.contact-form__input:focus {
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+.input-container-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container-row {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .input-container-row {
+    margin-top: 1rem;
+    flex-direction: row;
+  }
+}
+
+.email-input {
+  width: 50vw;
+}
+@media screen and (min-width: 768px) {
+  .email-input {
+    width: 200%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .email-container {
+    margin: 1rem 0rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .name-input {
+    margin-top: 1rem;
+  }
+}
+
+.message-input {
+  width: 50vw;
+  height: 4rem;
+  margin: auto;
+}
+
+.contact-form__status {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+.contact-form__status--success {
+  color: green;
+  border: 1px solid green;
+}
+.contact-form__status--error {
+  color: red;
+  border: 1px solid red;
+}/*# sourceMappingURL=ContactForm.css.map */
