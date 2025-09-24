@@ -44,23 +44,7 @@ export default function Footer() {
                     Body Work
                   </Link>
                 </li>
-              </ul>
-            </div>
-
-            <div className="footer__section">
-              <h4 className="footer__section-title">Company</h4>
-              <ul className="footer__list">
-                <li>
-                  <Link to="/about" className="footer__link">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="footer__link">
-                    Contact
-                  </Link>
-                </li>
-                <li>
+                      <li>
                   <Link to="/services" className="footer__link">
                     All Services
                   </Link>
@@ -69,18 +53,35 @@ export default function Footer() {
             </div>
 
             <div className="footer__section">
-              <h4 className="footer__section-title">Contact Info</h4>
+              <h4 className="footer__section-title">Connect</h4>
+              <ul className="footer__list">
+                <li>
+                  <Link to="/about" className="footer__link">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="footer__link">
+                    Contact Us
+                  </Link>
+                </li>
+          
+              </ul>
+            </div>
+
+            <div className="footer__section">
+              <h4 className="footer__section-title">More Info</h4>
               <div className="footer__contact">
                 <p className="footer__contact-item">
-                  <span className="footer__contact-icon">📍</span>
+                  
                   Greater Toronto Area, ON
                 </p>
                 <p className="footer__contact-item">
-                  <span className="footer__contact-icon">📞</span>
+                  
                   Call for Free Quote
                 </p>
                 <p className="footer__contact-item">
-                  <span className="footer__contact-icon">🚗</span>
+                  
                   Free Pickup & Dropoff
                 </p>
               </div>

@@ -84,7 +84,7 @@
     margin-bottom: 1.25rem;
     margin-left: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-
+    font-family: inherit;
     &:focus {
       outline: none;
       border-color: $primary-orange;

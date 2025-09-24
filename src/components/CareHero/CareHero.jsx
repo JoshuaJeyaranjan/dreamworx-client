@@ -12,6 +12,7 @@ export default function CareHero({ videoSrc, title }) {
         muted
         loop
         playsInline
+        preload='auto'
       >
         Your browser does not support the video tag.
       </video>
