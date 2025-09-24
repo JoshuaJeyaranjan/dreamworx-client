@@ -2,29 +2,32 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .service-list-item {
-  background-color: $primary-dark;
+  background-color: $primary-dark; // force background from the start
   padding: $unit-4;
   margin: $unit-3 0;
   border-radius: $unit-2;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   max-width: 66vw;
   text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  // removed background from transition so it doesn’t “flash”
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
-    background-color: rgba($primary-dark, 0.95);
+    background-color: rgba($primary-dark, 0.95); // subtle hover change
   }
 
   &.animate-service {
     animation: fade-in 0.6s ease-out forwards;
+    will-change: opacity, transform; // GPU hint, prevents flicker
   }
 
   @keyframes fade-in {
     from {
       opacity: 0;
       transform: translateY(20px);
+      // keep background consistent, don’t touch it here
     }
     to {
       opacity: 1;
@@ -45,6 +48,10 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
+
+    @include mobile {
+      font-size: 1.25rem;
+    }
 
     &::after {
       content: '';
