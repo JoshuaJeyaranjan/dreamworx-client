@@ -29,8 +29,7 @@ export default function ContactInfo() {
 
   return (
     <div className="contact-info" ref={contactInfoRef}>
-      <Socials />
-      
+      <Socials />      
     </div>
   );
 }

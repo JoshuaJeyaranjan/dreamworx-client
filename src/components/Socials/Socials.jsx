@@ -90,31 +90,31 @@ export default function Socials() {
             aria-hidden="true"
             loading="lazy"
           />
-          <span className="socials__tooltip">{social.name}</span>
+          
         </a>
       ))}
     </div>
 
-        <section className="in-touch">
+        <section className="socials">
 
 
-      <address className="in-touch__list">
+      <address className="socials__links">
         {contacts.map(({ id, icon, alt, title, value, link, onClick }) => (
           <div key={id} className="in-touch__item">
             
 
-            <div className="in-touch__links">
+            
             
               <a
-                className="in-touch__link"
+                className="socials__link"
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClick}
               >
-              <img className="in-touch__icon" src={icon} alt={alt} />
+              <img className="socials__icon" src={icon} alt={alt} />
               </a>
-            </div>
+            
           </div>
         ))}
       </address>

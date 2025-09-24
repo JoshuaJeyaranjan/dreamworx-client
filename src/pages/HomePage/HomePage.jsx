@@ -3,15 +3,10 @@ import "./HomePage.scss";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import Hero from "../../components/Hero/Hero";
-import OptimizedImageCarousel from "../../components/OptimizedImageCarousel/OptimizedImageCarousel";
 import OptimizedLogoSlideshow from "../../components/OptimizedLogoSlideshow/OptimizedLogoSlideshow";
 import ContactForm from "../../components/ContactForm/ContactForm";
-import ContactInfo from "../../components/ContactInfo/ContactInfo";
-import ContactUs from "../../components/ContactUs/ContactUs";
-import Excellence from "../../components/Excellence/Excellence";
 import ChooseUs from "../../components/ChooseUs/ChooseUs";
 import Socials from "../../components/Socials/Socials";
-import InTouch from "../../components/InTouch/InTouch";
 import BackToTopButton from "../../components/BackToTopButton/BackToTopButton";
 import FloatingActionButton from "../../components/FloatingActionButton/FloatingActionButton";
 import ServiceLinkList from "../../components/ServiceLinkList/ServiceLinkList";
@@ -19,7 +14,6 @@ import ServiceLinkList from "../../components/ServiceLinkList/ServiceLinkList";
 // Lazy load heavy components
 const Glitch = lazy(() => import("../../components/Glitch/Glitch"));
 
-// Carousel images - optimized for performance
 
 // Brand logos for slideshow
 const brandLogos = [
@@ -72,7 +66,6 @@ const subHeader = "Discover our Expert Services";
 const paragraph =
   "At Dreamworx Auto Body, we redefine automotive care with precision and passion. From top-teir car care and customization to expert mechanical and body shop services, we cater to your vehicle's every need. Choose excellence, choose Dreamworx Auto Body.";
 
-
 // Loading component for Suspense
 const LoadingSpinner = () => (
   <div className="loading-spinner">
@@ -94,11 +87,8 @@ export default function HomePage() {
         <Glitch {...{ subHeader, header, paragraph }} />
       </Suspense>
 
-
-
       <ServiceLinkList />
 
-      {/* <Excellence /> */}
 
       <ChooseUs />
 
@@ -117,9 +107,7 @@ export default function HomePage() {
 
       <ContactForm />
 
-      <ContactInfo />
-
-      
+      <Socials />
 
       <Footer />
 

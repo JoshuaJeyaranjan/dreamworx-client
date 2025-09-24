@@ -7,6 +7,7 @@
   padding: 4rem 0 2rem;
   position: relative;
   overflow: hidden;
+  width: 100%;
 
   &::before {
     content: "";
@@ -29,7 +30,7 @@
     padding: 0 2rem;
 
     @include mobile {
-      padding: 0 1rem;
+      padding: 0 1.25rem; // more breathing room
     }
   }
 
@@ -41,7 +42,11 @@
 
     @include tablet {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2rem;
+    }
+
+    @include mobile {
+      gap: 1.5rem;
     }
   }
 
@@ -65,7 +70,7 @@
     background: linear-gradient(
       135deg,
       $primary-orange,
-      $secondary-orange,
+      $secondary-orange
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -89,7 +94,7 @@
 
     @include mobile {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.25rem;
     }
   }
 
@@ -116,36 +121,49 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+
+    // @include mobile {
+    //  text-align: center;
+    // }
   }
 
-  &__link {
-    color: $primary-mid;
-    text-decoration: none;
-    font-weight: $mid-weight;
+&__link {
+  color: $primary-mid;
+  text-decoration: none;
+  font-weight: $mid-weight;
+  transition: all 0.3s ease;
+  position: relative;
+  word-break: break-word;
+
+  // 🔹 remove permanent padding
+  padding-left: 0;
+
+  &::before {
+    content: "→";
+    position: absolute;
+    left: -1rem; // shift arrow outside normal text flow
+    color: $primary-orange;
+    opacity: 0;
+    transform: translateX(-5px);
     transition: all 0.3s ease;
-    position: relative;
-    padding-left: 1rem;
+  }
+
+  &:hover {
+    color: $primary-orange;
+    transform: translateX(5px);
 
     &::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: $primary-orange;
-      opacity: 0;
-      transform: translateX(-5px);
-      transition: all 0.3s ease;
-    }
-
-    &:hover {
-      color: $primary-orange;
-      transform: translateX(5px);
-
-      &::before {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      opacity: 1;
+      transform: translateX(0);
     }
   }
+
+  @include mobile {
+    &::before {
+      display: none; // hide arrow completely on mobile
+    }
+  }
+}
 
   &__contact {
     display: flex;
@@ -160,6 +178,11 @@
     margin: 0;
     font-weight: $mid-weight;
     color: $primary-mid;
+
+    @include mobile {
+      flex-wrap: wrap; // allows text wrap instead of cutoff
+      gap: 0.5rem;
+    }
   }
 
   &__contact-icon {
@@ -191,6 +214,11 @@
   &__social {
     display: flex;
     align-items: center;
+    gap: 1rem;
+
+    @include mobile {
+      justify-content: center;
+    }
   }
 
   &__copyright {
@@ -214,30 +242,5 @@
       font-size: 0.75rem;
       opacity: 0.8;
     }
-  }
-}
-
-// Enhanced Socials component styling when used in footer
-.footer .socials {
-  &__link {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-
-    &:hover {
-      background: $primary-orange;
-      border-color: $primary-orange;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(213, 94, 21, 0.3);
-    }
-  }
-
-  &__icon {
-    filter: grayscale(1) brightness(1.2);
-    transition: filter 0.3s ease;
-  }
-
-  &__link:hover &__icon {
-    filter: grayscale(0) brightness(1);
   }
 }

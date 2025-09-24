@@ -17,6 +17,8 @@
   overflow: hidden;
   background: linear-gradient(135deg, $neutral-800 0%, $neutral-900 100%);
 
+
+
   &__background {
     position: absolute;
     top: 0;
@@ -204,6 +206,10 @@
     opacity: 0;
     animation: fadeIn $duration-700 $ease-out 2000ms forwards;
     z-index: 3;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   &__scroll-arrow {

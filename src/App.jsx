@@ -2,6 +2,7 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+import ScrollToTop from "./utils/ScrolltoTop";
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -31,6 +32,7 @@ function App() {
     <ErrorBoundary>
       <BrowserRouter>
         <Suspense fallback={<PageLoader />}>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
@@ -43,6 +45,7 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
+          
         </Suspense>
       </BrowserRouter>
     </ErrorBoundary>
