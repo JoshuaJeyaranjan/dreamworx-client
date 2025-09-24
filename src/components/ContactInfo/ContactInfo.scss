@@ -2,10 +2,26 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .contact-info {
+    
     display: flex;
     flex-direction: column-reverse;
     padding: 1rem;
     align-items: center;
+
+    &::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    $primary-orange,
+    transparent
+  );
+}
   
     @include tablet {
       flex-direction: column-reverse;

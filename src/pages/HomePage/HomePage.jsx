@@ -67,6 +67,12 @@ const brandLogos = [
   "/assets/images/new-volvo-logo.png",
 ];
 
+const header = "For Your Vehicle's Every Need";
+const subHeader = "Discover our Expert Services";
+const paragraph =
+  "At Dreamworx Auto Body, we redefine automotive care with precision and passion. From top-teir car care and customization to expert mechanical and body shop services, we cater to your vehicle's every need. Choose excellence, choose Dreamworx Auto Body.";
+
+
 // Loading component for Suspense
 const LoadingSpinner = () => (
   <div className="loading-spinner">
@@ -85,7 +91,7 @@ export default function HomePage() {
       <Hero />
 
       <Suspense fallback={<LoadingSpinner />}>
-        <Glitch />
+        <Glitch {...{ subHeader, header, paragraph }} />
       </Suspense>
 
 
@@ -113,7 +119,7 @@ export default function HomePage() {
 
       <ContactInfo />
 
-      <ContactUs />
+      
 
       <Footer />
 

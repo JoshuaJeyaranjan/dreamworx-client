@@ -1,80 +1,128 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
+
 .contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-  
-    &__header {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, $primary-orange, $secondary-orange);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 2rem;
-      text-align: center;
+  background: linear-gradient(135deg, $secondary-dark 0%, $primary-dark 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $primary-orange, transparent);
+  }
+
+  &::before {
+    top: 0;
+  }
+  &::after {
+    bottom: 0;
+  }
+
+  &__header {
+    font-size: 2.5rem;
+    font-weight: 200;
+    background: linear-gradient(135deg, $primary-orange, $secondary-orange);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    line-height: 1.2;
+
+    @include md {
+      font-size: 3rem;
     }
   }
-  
-  .contact-form {
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.08); // glassmorphism background
+  backdrop-filter: blur(12px);
+  color: $primary-light;
+  width: 100%;
+  max-width: 650px;
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  transform: translateY(30px);
+  opacity: 0;
+  transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.9s ease;
+
+  &__group {
     display: flex;
     flex-direction: column;
-    background-color: #f9f9f9;
-    color: #333;
-    width: 100%;
-    max-width: 600px;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    transform: translateY(20px);
-    opacity: 0;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-                opacity 0.8s ease;
-  
-    &.slide-in {
+    margin-bottom: 1.5rem;
+  }
+
+  &__label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  &.slide-in {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &__input {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: $primary-light;
+    margin-bottom: 1.25rem;
+    margin-left: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-orange;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 0 4px rgba($primary-orange, 0.25);
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  &__submit {
+    padding: 0.85rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    background: linear-gradient(135deg, $primary-orange, $secondary-orange);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
       transform: translateY(0);
-      opacity: 1;
-    }
-  
-    &__input {
-      border: 1px solid #ddd;
-      border-radius: 0.5rem;
-      padding: 0.75rem 1rem;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        margin-left: 1rem;
-      &:focus {
-        outline: none;
-        border-color: $primary-orange;
-        box-shadow: 0 0 0 3px rgba($primary-orange, 0.2);
-      }
-    }
-  
-    &__submit {
-      padding: 0.75rem 1rem;
-      border-radius: 2rem;
-      font-weight: 600;
-      color: white;
-      background: linear-gradient(135deg, $primary-orange, $secondary-orange);
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-      }
-  
-      &:active {
-        transform: translateY(0);
-        box-shadow: none;
-      }
+      box-shadow: none;
     }
   }
-  
-  .message-input {
-    resize: vertical; // allow expanding message box
-    min-height: 120px;
-  }
+}
+
+.message-input {
+  resize: vertical;
+  min-height: 140px;
+  font-family: inherit;
+}
+

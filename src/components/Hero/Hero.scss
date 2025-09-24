@@ -1,4 +1,10 @@
-@use "../../styles/design-system" as *;
+@use "../../styles/partials/index" as *;
+
+
+// =============================================================================
+// HERO COMPONENT
+// =============================================================================
+
 
 // =============================================================================
 // HERO COMPONENT
@@ -24,7 +30,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: right center;
+    object-position: center center;
   }
 
   &__overlay {
@@ -35,9 +41,12 @@
     height: 100%;
     background: linear-gradient(
       135deg,
-      rgba($neutral-900, 0.7) 0%,
-      rgba($neutral-900, 0.4) 50%,
-      rgba($neutral-900, 0.6) 100%
+    rgba($secondary-dark, 0.4) 0%,
+    rgba($secondary-dark, 0.6) 20%,
+    rgba($secondary-dark, 0.75) 40%,
+    rgba($secondary-dark, 0.85) 60%,
+    rgba($secondary-dark, 0.7) 80%,
+    rgba($primary-dark, 0.5) 100%
     );
     z-index: 2;
   }
@@ -53,7 +62,7 @@
 
   &__text {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY($space-8);
     transition: $transition-all;
 
     .loaded & {
@@ -72,14 +81,14 @@
     &--line1 {
       display: block;
       opacity: 0;
-      transform: translateX(-20px);
+      transform: translateX(-$space-5);
       animation: slideInLeft $duration-300 $ease-out 200ms forwards;
     }
 
     &--line2 {
       display: block;
       opacity: 0;
-      transform: translateX(20px);
+      transform: translateX($space-5);
       animation: slideInRight $duration-300 $ease-out 400ms forwards;
     }
 
@@ -91,14 +100,21 @@
   &__heading {
     @include text-gradient($brand-primary, $brand-primary-light);
     font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
+    font-weight: 300;
     line-height: $line-height-tight;
     margin-bottom: $space-8;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY($space-5);
     animation: fadeInUp $duration-500 $ease-out 600ms forwards;
     text-shadow: 0 4px 20px rgba($brand-primary, 0.3);
-
+    background: linear-gradient(
+      135deg,
+      $primary-orange,
+      $secondary-orange,
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     @include md {
       font-size: $font-size-6xl;
     }
@@ -129,7 +145,7 @@
     font-size: $font-size-lg;
     font-weight: $font-weight-medium;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY($space-5);
     transition: $transition-all;
 
     &:hover {
@@ -166,7 +182,7 @@
     gap: $space-4;
     align-items: center;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY($space-5);
     animation: fadeInUp $duration-500 $ease-out 1200ms forwards;
     justify-self: center;
 
@@ -249,11 +265,7 @@
 }
 
 @keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
+  0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
   }
   40% {

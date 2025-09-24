@@ -2,19 +2,29 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .service-list {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: $unit-4; // Adds space between items
+  text-align: center;
+  padding: $unit-4;
+
+  @include tablet {
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    @include tablet {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+    align-items: stretch; // Stretch items to same height for card consistency
+    gap: $unit-5;
   }
+
+  // Optional: make the service list a grid for better control on larger screens
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $unit-6;
+    justify-items: center;
+    padding: $unit-5;
+  }
+}

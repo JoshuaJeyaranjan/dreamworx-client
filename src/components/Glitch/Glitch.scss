@@ -1,46 +1,84 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
-
 .glitch {
-  background-color: black;
-  min-height: 13vh;
+  position: relative;
+  background: linear-gradient(135deg, #000000 0%, #323232 100%);
   margin-bottom: 0;
-  
+  overflow: hidden;
+
+  // Top gradient line
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 20%,
+      #d55e15 50%,
+      transparent 80%
+    );
+    z-index: 1;
+  }
+
+  // Bottom gradient line
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 20%,
+      #d55e15 50%,
+      transparent 80%
+    );
+    z-index: 1;
+  }
 
   &__text-container {
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1rem;
+    position: relative;
+    z-index: 2; // ensures content sits above the borders
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 3rem 2rem;
   }
 
   &__sub-header {
-      color: $primary-orange;
-      font-size: 2rem;
+    color: #d55e15;
+    font-size: 2rem;
+    font-weight: 200;
 
-      @include mobile {
-        margin-top: 2rem;
-      }
+    @include mobile {
+      margin-top: 2rem;
+    }
   }
 
   &__paragraph {
-      max-width: 75vw;
-      font-style: italic;
-      margin-bottom: 0;
+    max-width: 75vw;
+    font-style: italic;
+    margin-bottom: 0;
   }
 
   &__header {
-      position: relative;
-      color: aliceblue;
-      font-size: 4rem;
-      font-weight: bold;
-      text-align: center;
-      overflow: hidden; // Ensures the glitch is clipped properly
+    position: relative;
+    color: aliceblue;
+    font-size: 4rem;
+    font-weight: 200;
+    ;
+    text-align: center;
+    overflow: hidden;
 
-      @include mobile {
-        font-size: 2.5rem;
-      }
+    @include mobile {
+      font-size: 2.5rem;
+    }
   }
 }

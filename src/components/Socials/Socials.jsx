@@ -1,8 +1,45 @@
 import React from "react";
 import "./Socials.scss";
 
-export default function Socials() {
-  const socialLinks = [
+  export  const handleWhatsAppClick = (e) => {
+    e.preventDefault();
+    const whatsappUrl = `https://wa.me/${whatsappNumber.replace("+", "")}?text=${encodeURIComponent(
+      preWrittenMessage
+    )}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
+
+
+   export const contacts = [
+    {
+      id: "call",
+      icon: "/assets/icons/telephone.png",
+      alt: "Telephone Symbol",
+      title: "Call Us",
+      value: "647-297-8707",
+      link: "tel:6472978707",
+    },
+    {
+      id: "whatsapp",
+      icon: "/assets/icons/typing.png",
+      alt: "Text/WhatsApp Symbol",
+      title: "Text Us",
+      value: "437-876-7666",
+      link: "#",
+      onClick: handleWhatsAppClick,
+    },
+    {
+      id: "email",
+      icon: "/assets/icons/email.png",
+      alt: "Email Symbol",
+      title: "Email Us",
+      value: "dreamworxautobody@gmail.com",
+      link: "mailto:dreamworxautobody@gmail.com",
+    },
+  ];
+
+  export const socialLinks = [
     {
       name: "Instagram",
       url: "https://www.instagram.com/dreamworxautobody/",
@@ -22,6 +59,15 @@ export default function Socials() {
       color: "#1877F2",
     },
   ];
+
+export default function Socials() {
+
+
+
+
+
+
+  
 
   return (
     <div className="socials">
@@ -48,6 +94,33 @@ export default function Socials() {
         </a>
       ))}
     </div>
+
+        <section className="in-touch">
+
+
+      <address className="in-touch__list">
+        {contacts.map(({ id, icon, alt, title, value, link, onClick }) => (
+          <div key={id} className="in-touch__item">
+            
+
+            <div className="in-touch__links">
+            
+              <a
+                className="in-touch__link"
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClick}
+              >
+              <img className="in-touch__icon" src={icon} alt={alt} />
+              </a>
+            </div>
+          </div>
+        ))}
+      </address>
+    </section>
+
+
   </div>
   );
 }

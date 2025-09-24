@@ -1,6 +1,5 @@
-@use "../../styles/design-system" as *;
-@use "../../styles/partials/variables" as *;
-@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/index" as *;
+
 
 // =============================================================================
 // NAVIGATION COMPONENT
@@ -50,6 +49,7 @@
     object-fit: contain;
     border-radius: $radius-lg;
     transition: $transition-all;
+    box-shadow: 0 4px 15px rgba(213, 94, 21, 0.3);
 
     @include mobile-only {
       width: 35px;
@@ -59,7 +59,7 @@
 
   &__brand-text {
     font-size: $font-size-2xl;
-    font-weight: $font-weight-bold;
+    font-weight: 200;
     background: linear-gradient(
       135deg,
       $primary-orange,
@@ -73,68 +73,40 @@
     }
   }
 
-  &__mobile-toggle {
+&__hamburger {
     display: none;
-    @include flex-center;
-    width: 40px;
-    height: 40px;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    transition: transform $transition-default;
-
-    @include mobile-only {
-      display: flex;
-    }
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  &__hamburger {
-    @include flex-column;
-    gap: $space-1;
-    width: 24px;
-    height: 18px;
-    position: relative;
-    display: none;
-
+    padding: 0;
+    z-index: 998;
+    
     span {
-      display: block;
-      height: $border-2;
-      background: $neutral-0;
-      border-radius: $radius-sm;
-      transition: $transition-all;
-      transform-origin: center;
+      width: 2rem;
+      height: 3px;
+           background: linear-gradient(
+        135deg,
+        $primary-orange,
+        $secondary-orange,
+      );
+      border-radius: 10px;
+      transition: all 0.3s linear;
+      transform-origin: 1px;
+      z-index: 999;
     }
 
-    &--active {
-      span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-        display: block;
-      }
-
-      span:nth-child(2) {
-        opacity: 0;
-        transform: scaleX(0);
-        display: block;
-      }
-
-      span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-        display: block;
-      }
+    &[aria-expanded="true"] {
+      span:first-child { transform: rotate(45deg); }
+      span:nth-child(2) { opacity: 0; transform: translateX(20px); }
+      span:last-child  { transform: rotate(-45deg); }
     }
 
-    @include mobile {
-      @include flex-column;
-      gap: $space-1;
-      width: 24px;
-      height: 18px;
-      position: relative;
-      
-    }
+    @media (max-width: $mobile-breakpoint) { display: flex; }
   }
-
   &__menu {
     @include flex-center;
     gap: $space-8;
@@ -153,6 +125,7 @@
       gap: $space-4;
       transform: translateY(-100%);
       opacity: 0;
+   
       visibility: hidden;
       transition: $transition-all;
       border-top: $border-1 solid rgba($neutral-0, 0.1);
@@ -213,14 +186,15 @@
     }
 
     &--cta {
+      
       background: linear-gradient(
         135deg,
         $primary-orange,
         $secondary-orange,
       );
       color: $neutral-0;
-      font-weight: $font-weight-bold;
-      box-shadow: $shadow-md;
+      font-weight: $font-weight-medium;
+      box-shadow: 0 4px 15px rgba(213, 94, 21, 0.3);
 
       &:hover {
         background: linear-gradient(
@@ -286,7 +260,7 @@
     top: 100%;
     left: 0;
     min-width: 200px;
-    @include glassmorphism(0.95, 20px);
+    background-color: black;
     border: $border-1 solid rgba($neutral-0, 0.1);
     border-radius: $radius-xl;
     padding: $space-2;

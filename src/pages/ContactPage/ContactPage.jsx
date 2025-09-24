@@ -6,24 +6,15 @@ import ContactForm from '../../components/ContactForm/ContactForm'
 import ContactInfo from '../../components/ContactInfo/ContactInfo'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
+import careHero from '../../components/CareHero/CareHero'
+import CareHero from '../../components/CareHero/CareHero'
 export default function ContactPage() {
   return (
     <div className='contact-page'>
       <Nav/>
-      
-    <div className='contact-page__hero'>
-      
-      <video className='contact-page__hero-video' autoPlay muted loop playsInline>
-        <source src="https:\/\/55carcare.ae\/1709749782988\/wp-content\/uploads\/2024\/03\/1242130_Car_Modern_Sportcar_3840x2160.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className='overlay'></div>
-      <div className='contact-page__hero-content'>
-        <h1 className='page-hero'>
-          Contact Us 
-        </h1>
-      </div>
-    </div>
+
+      <CareHero videoSrc="https://55carcare.ae/1709749782988/wp-content/uploads/2024/03/1242130_Car_Modern_Sportcar_3840x2160.mp4" title="Contact Us Today"/> 
+  
 
       <ContactForm/>
       <ContactInfo/>

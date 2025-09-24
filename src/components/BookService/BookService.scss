@@ -2,31 +2,52 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .book-service {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 0.75rem;
+  margin: 1rem;
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  &__button {
+    background: linear-gradient(135deg, $primary-orange, $primary-light);
+    border: none;
+    color: $primary-dark;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px; // pill shape
+    font-weight: 200;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     cursor: pointer;
-  
-    &__icon {
-      width: 30px; /* Adjust size as needed */
-      height: 30px; /* Adjust size as needed */
-      margin-right: 10px; /* Space between icon and button */
-    }
-  
-    &__button {
-      background-color: white;
-      border: none;
-      color: black;
-      padding: 10px 20px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-  
-      &:hover {
-        background-color: $primary-orange; /* Change background color on hover */
-        color: white; /* Change text color on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease,
+                background 0.4s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, $secondary-orange, $primary-orange);
+
+      .book-service__icon {
+        transform: scale(1.1);
+        filter: brightness(1.2);
       }
     }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    }
   }
+}

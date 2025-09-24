@@ -3,6 +3,7 @@ import './ContactUs.scss'
 
 export default function ContactUs() {
   return (
-    <div>ContactUs</div>
+    <>
+    </>
   )
 }

@@ -4,11 +4,12 @@ import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
-import GlitchMechanical from '../../components/GlitchMechanical/GlitchMechanical';
+import Glitch from '../../components/Glitch/Glitch';
 import ServiceList from '../../components/ServiceList/ServiceList'
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
 import BookService from '../../components/BookService/BookService';
+import CareHero from '../../components/CareHero/CareHero';
 
 export default function MechanicalPage() {
 
@@ -59,26 +60,27 @@ export default function MechanicalPage() {
 
     }
   ]
+
+  const header = "EXPERT MECHANICAL SERVICES FOR YOUR VEHICLE'S PERFORMANCE";
+  const subHeader = "KEEP YOUR VEHICLE RUNNING SMOOTHLY";
+  const paragraph =
+    "At Dreamworx Auto Body, we offer a comprehensive range of mechanical services to ensure your vehicle operates at its best. From routine lube services and minor maintenance to major repairs, our skilled technicians are equipped to handle all your automotive needs. We specialize in engine and gearbox repairs, AC system servicing, tire changes, brake repairs, wheel alignments, and electrical system diagnostics. Trust us to keep your vehicle running smoothly and safely on the road.";
+
   return (
     
 
     <div className='mechanical'>
     <Nav/>
 
-    <div className='mechanical__hero'>
-  <video className='mechanical__hero-video' autoPlay muted loop playsInline>
-    <source src="https://55carcare.ae/1709749782988/wp-content/uploads/2024/03/1565017_Engine_Gear_Cog_1920x1080.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <div className='overlay'></div>
-  <div className='mechanical__hero-content'>
-    <h1 className='page-hero'>Mechanical</h1>
-  </div>
-</div>
+    <CareHero 
+      videoSrc="https://55carcare.ae/1709749782988/wp-content/uploads/2024/03/1565017_Engine_Gear_Cog_1920x1080.mp4" 
+      title="Mechanical"
+    />
 
 
 
-    <GlitchMechanical/>
+
+    <Glitch {...{subHeader, header, paragraph}}></Glitch>
 
     <ServiceList services={mechanicalServices} />
 

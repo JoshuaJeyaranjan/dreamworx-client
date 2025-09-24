@@ -48,9 +48,14 @@
     color: white; 
   }
 
-  &__title,
+  &__title {
+    font-weight: 400;
+    
+  }
+
   &__paragraph {
     margin: 0;
+    font-weight: 300;
   }
 
   &__gradient {

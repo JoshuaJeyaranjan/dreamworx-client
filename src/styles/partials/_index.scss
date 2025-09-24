@@ -2,7 +2,7 @@
 // This file imports all design system components in the correct order
 
 // 1. Design Tokens (must be first)
-@forward "tokens";
+@forward "variables";
 
 // 2. Mixins and Functions
 @forward "mixins";

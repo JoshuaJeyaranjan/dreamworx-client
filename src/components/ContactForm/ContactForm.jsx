@@ -135,8 +135,8 @@ export default function ContactForm() {
           </div>
         </div>
   
-        <div className="contact-form__group">
-          <label className="contact-form__label">Message:</label>
+        <div className="contact-form__group message-group" >
+          <label className="contact-form__label ">Message:</label>
           <textarea
             className="contact-form__input message-input"
             name="message"

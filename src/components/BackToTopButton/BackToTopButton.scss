@@ -2,6 +2,7 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .back-to-top {
+
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -28,6 +29,7 @@
       visibility: visible;
       transform: translateY(0);
       z-index: 9999;
+      display: none;
     }
   
     &:hover {

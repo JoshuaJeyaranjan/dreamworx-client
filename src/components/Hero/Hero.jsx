@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import Button from "../Button/Button";
 import "./Hero.scss";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -38,22 +39,28 @@ export default function Hero() {
 
           <div className="hero__promos">
             <div className="hero__promo hero__promo--primary">
-              <span className="hero__promo-icon">🚗</span>
+              
               <span>Free Vehicle Pickup and Dropoff</span>
             </div>
             <div className="hero__promo hero__promo--secondary">
-              <span className="hero__promo-icon">🛡️</span>
+              
               <span>Lifetime Warranty!</span>
             </div>
           </div>
 
           <div className="hero__cta">
-            <Button variant="primary" size="lg" icon="📞" iconPosition="left">
+            <Link to="/contact" className="hero__cta-link">
+<Button variant="primary" size="lg" icon="📞" iconPosition="left">
               Get Free Quote
             </Button>
-            <Button variant="outline" size="lg" icon="🔧" iconPosition="left">
+            </Link>
+            
+            <Link to="/services" className="hero__cta-link">
+              <Button variant="outline" size="lg" icon="🔧" iconPosition="left">
               View Services
             </Button>
+            </Link>
+            
           </div>
         </div>
       </div>

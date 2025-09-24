@@ -4,11 +4,12 @@ import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactInfo from '../../components/ContactInfo/ContactInfo';
-import GlitchCare from '../../components/GlitchCare/GlitchCare';
+import Glitch from '../../components/Glitch/Glitch';
 import ServiceList from '../../components/ServiceList/ServiceList';
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton'
 import FloatingActionButton from '../../components/FloatingActionButton/FloatingActionButton'
 import BookService from '../../components/BookService/BookService';
+import CareHero from '../../components/CareHero/CareHero';
 
 export default function CarePage() {
 
@@ -51,24 +52,23 @@ export default function CarePage() {
     },
   ]
 
+  const header = 'WITH OUR COMPREHENSIVE CAR CARE SERVICES';
+  const subHeader = 'ELEVATE YOUR VEHICLE MAINTENANCE';
+  const paragraph = 'Experience top-tier car care with our extensive services. From eco-friendly washes to advanced paint protection films, we ensure your vehicle looks its best. Our offerings include expert polishing, ceramic coatings, window tinting, paintless dent repair, leather treatment, and vibrant vehicle wrapping. Explore unique accessories like Alligator for a personalized touch. Trust us to keep your car in pristine condition with precision and care.'; 
+
   return (
     <div className='care'>
       <Nav/>
 
+      <CareHero 
+        videoSrc="https:\/\/55carcare.ae\/1709749782988\/wp-content\/uploads\/2024\/03\/2436732_Detailing_Service_Vehicle_1920x1080.mp4" 
+        title="Car Care"
+      />
 
-      <div className='care__hero'>
-        
-        <video className='care__hero-video' autoPlay muted loop playsInline>
-          <source src="https:\/\/55carcare.ae\/1709749782988\/wp-content\/uploads\/2024\/03\/2436732_Detailing_Service_Vehicle_1920x1080.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className='overlay'></div>
-        <div className='care__hero-content'>
-          <h1 className='page-hero'>Car Care</h1>
-        </div>
-      </div>
+      
 
-      <GlitchCare/>
+
+      <Glitch {...{subHeader, header, paragraph}}></Glitch>
 
       <ServiceList services={carCareServices}/>
 

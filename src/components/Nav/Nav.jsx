@@ -41,21 +41,32 @@ export default function Nav() {
           <span className="nav__brand-text">DreamWorx</span>
         </Link>
 
-        <div className="nav__mobile-toggle" onClick={toggleMenu}>
-          <span
-            className={`nav__hamburger ${
-              isMenuOpen ? "nav__hamburger--active" : ""
-            }`}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
+        <button
+          className="nav__hamburger"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
 
         <div className={`nav__menu ${isMenuOpen ? "nav__menu--open" : ""}`}>
           <NavLink to="/" className="nav__link" onClick={closeMenu}>
             <span>Home</span>
+          </NavLink>
+
+          <NavLink to="/about" className="nav__link" onClick={closeMenu}>
+            <span>About Us</span>
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className="nav__link nav__link--cta"
+            onClick={closeMenu}
+          >
+            <span>Contact</span>
           </NavLink>
 
           <div className="nav__services">
@@ -81,7 +92,7 @@ export default function Nav() {
               className={`nav__submenu ${isSubmenuVisible ? "visible" : ""}`}
             >
               <NavLink to="/care" className="nav__sub-link" onClick={closeMenu}>
-                <span className="nav__sub-icon">🚗</span>
+                
                 <span>Car Care</span>
               </NavLink>
               <NavLink
@@ -89,7 +100,7 @@ export default function Nav() {
                 className="nav__sub-link"
                 onClick={closeMenu}
               >
-                <span className="nav__sub-icon">🎨</span>
+                
                 <span>Customization</span>
               </NavLink>
               <NavLink
@@ -97,7 +108,7 @@ export default function Nav() {
                 className="nav__sub-link"
                 onClick={closeMenu}
               >
-                <span className="nav__sub-icon">🔧</span>
+                
                 <span>Mechanical</span>
               </NavLink>
               <NavLink
@@ -105,23 +116,11 @@ export default function Nav() {
                 className="nav__sub-link"
                 onClick={closeMenu}
               >
-                <span className="nav__sub-icon">🔨</span>
+                
                 <span>Body Work</span>
               </NavLink>
             </div>
           </div>
-
-          <NavLink to="/about" className="nav__link" onClick={closeMenu}>
-            <span>About Us</span>
-          </NavLink>
-
-          <NavLink
-            to="/contact"
-            className="nav__link nav__link--cta"
-            onClick={closeMenu}
-          >
-            <span>Contact</span>
-          </NavLink>
         </div>
       </div>
     </nav>
