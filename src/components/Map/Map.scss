@@ -1,0 +1,29 @@
+
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+.map {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 450px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  margin: 1rem 0 2rem;
+
+  @include mobile {
+    height: 300px;
+  }
+
+  &__info-window {
+    h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    p {
+      margin: 0;
+      font-size: 0.875rem;
+    }
+  }
+}

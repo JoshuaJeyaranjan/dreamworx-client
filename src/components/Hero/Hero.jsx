@@ -40,7 +40,7 @@ export default function Hero() {
           <div className="hero__promos">
             <div className="hero__promo hero__promo--primary">
               
-              <span>Free Vehicle Pickup and Dropoff</span>
+              <span>Free Pickup & Dropoff</span>
             </div>
             <div className="hero__promo hero__promo--secondary">
               
@@ -50,13 +50,13 @@ export default function Hero() {
 
           <div className="hero__cta">
             <Link to="/contact" className="hero__cta-link">
-<Button variant="primary" size="lg" icon="📞" iconPosition="left">
+              <Button variant="primary" size="lg" iconPosition="left">
               Get Free Quote
             </Button>
             </Link>
             
             <Link to="/services" className="hero__cta-link">
-              <Button variant="outline" size="lg" icon="🔧" iconPosition="left">
+              <Button variant="outline" size="lg"  iconPosition="left">
               View Services
             </Button>
             </Link>

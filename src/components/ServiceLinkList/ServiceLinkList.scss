@@ -1,13 +1,12 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
 
-.service-link-list{
-    
+.service-link-list{    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
+    margin: 1rem;
 }

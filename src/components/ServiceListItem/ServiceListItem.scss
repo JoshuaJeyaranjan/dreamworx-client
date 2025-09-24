@@ -2,22 +2,25 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .service-list-item {
+  position: relative; // needed for pseudo-element
   background-color: $primary-dark; // force background from the start
   padding: $unit-4;
   margin: $unit-3 0;
+  margin-bottom: 0rem;
   border-radius: $unit-2;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 15px rgba($primary-orange, 0.3);
   max-width: 66vw;
   text-align: center;
-  // removed background from transition so it doesn’t “flash”
+  overflow: hidden; // ensure shimmer stays inside
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 8px 30px rgba($primary-orange, 0.3);
     background-color: rgba($primary-dark, 0.95); // subtle hover change
   }
 
+  // Fade-in animation
   &.animate-service {
     animation: fade-in 0.6s ease-out forwards;
     will-change: opacity, transform; // GPU hint, prevents flicker
@@ -27,13 +30,46 @@
     from {
       opacity: 0;
       transform: translateY(20px);
-      // keep background consistent, don’t touch it here
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
+
+  // Shimmer effect
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    pointer-events: none;
+    transition: none;
+  }
+
+  &:hover::before {
+    animation: shimmer 1.2s linear ;
+  }
+
+
+// Keyframes for shimmer
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
 
   @include tablet {
     max-width: 33vw;
@@ -44,7 +80,14 @@
     margin: 0 0 $unit-2 0;
     font-size: 1.75rem;
     font-weight: 200;
-    color: $primary-orange;
+        background: linear-gradient(
+      135deg,
+      $primary-orange,
+      $secondary-orange,
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
@@ -58,7 +101,12 @@
       display: block;
       width: 50px;
       height: 3px;
-      background: $primary-orange;
+      
+        background: linear-gradient(
+      135deg,
+      $primary-orange,
+      $secondary-orange,
+    );
       margin: $unit-1 auto 0;
       border-radius: $unit-1;
     }

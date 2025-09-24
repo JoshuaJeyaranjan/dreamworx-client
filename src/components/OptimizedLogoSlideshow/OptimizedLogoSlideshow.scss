@@ -4,7 +4,7 @@
 .optimized-logo-slideshow {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(135deg, $secondary-light 0%, $secondary-mid 100%);
+  background: inherit;
   padding: 2rem 0;
   position: relative;
 
@@ -21,12 +21,12 @@
 
   &::before {
     left: 0;
-    background: linear-gradient(to right, $secondary-light, transparent);
+    
   }
 
   &::after {
     right: 0;
-    background: linear-gradient(to left, $secondary-light, transparent);
+    
   }
 
   &__wrapper {
@@ -117,5 +117,55 @@
     &::after {
       width: 30px;
     }
+  }
+}
+.optimized-logo-slideshow {
+  width: 100vw; // full viewport width
+  overflow: hidden; // hides logos outside the viewport
+  padding: 2rem 0;
+  background: transparent;
+  position: relative;
+
+  &__wrapper {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: nowrap;
+transform: translateX(0); // start fully visible
+    animation: scroll-left var(--scroll-speed, 15s) linear infinite;
+  }
+
+  &__logo-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 120px;
+    padding: .2rem;
+
+    @include mobile {
+      height: 50px;
+      width: 100px;
+    }
+  }
+
+  &__logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  // pause on hover
+  &:hover &__wrapper {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0); // start fully visible
+  }
+  100% {
+    transform: translateX(-50%); // scroll by half wrapper width (duplicated logos)
   }
 }

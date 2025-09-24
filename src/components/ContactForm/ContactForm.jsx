@@ -126,7 +126,7 @@ export default function ContactForm() {
             <input
               className="contact-form__input"
               type="tel"
-              placeholder="Your Phone #"
+              placeholder="Your Phone Number"
               name="phone"
               value={formData.phone}
               onChange={handleChange}

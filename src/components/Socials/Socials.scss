@@ -28,54 +28,82 @@
   }
 
   &__links {
-    display: flex;
-    flex-wrap: wrap; // ✅ wrap inside too
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+   display: grid;
+  grid-template-columns: repeat(6, 52px); // 3 columns
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 
-    
-    @include mobile {
-      gap: 1rem; // tighter spacing on small screens
-    }
+  @include mobile {
+    grid-template-columns: repeat(3, 44px); // 2 columns on small screens
+    gap: 1rem;
+  }
   }
 
-  &__link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, $primary-orange, $secondary-orange);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+&__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $primary-orange, $secondary-orange);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden; // clip the shimmer
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    @include mobile {
-      width: 44px; // ✅ shrink on small screens
-      height: 44px;
-    }
+  @include mobile {
+    width: 44px;
+    height: 44px;
+  }
 
-    &:hover,
-    &:focus {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, $primary-orange, white);
-      border-color: var(--social-color, $primary-orange);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  // Shimmer pseudo-element
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; // start offscreen
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    transition: none;
+  }
 
-      .socials__icon {
-        transform: scale(1.1);
-        filter: brightness(1.2);
-      }
+  &:hover::before,
+  &:focus::before {
+    animation: shimmer 1s linear infinite;
+  }
 
-      .socials__tooltip {
-        opacity: 0;
-        transform: translateY(-45px) scale(1);
-      }
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, $primary-orange, white);
+    border-color: var(--social-color, $primary-orange);
+    box-shadow: 0 8px 30px rgba($primary-orange, 0.3);
+
+    .socials__icon {
+      transform: scale(1.1);
+      filter: brightness(1.2);
     }
   }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
 
   &__icon {
     width: 24px;

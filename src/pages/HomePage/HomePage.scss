@@ -41,32 +41,11 @@
 
 // Homepage specific sections
 .homepage {
-  &__carousel {
-    padding: 4rem 0;
-    background: linear-gradient(
-      135deg,
-      $secondary-light 0%,
-      $secondary-mid 100%
-    );
 
-    @include mobile {
-      padding: 2rem 0;
-    }
-  }
-
-  &__carousel-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-
-    @include mobile {
-      padding: 0 1rem;
-    }
-  }
 
   &__brands {
     padding: 3rem 0;
-    background: $secondary-light;
+    background: linear-gradient(135deg, $primary-dark 0%, $primary-orange 100%);
     position: relative;
     overflow: hidden;
 
@@ -99,8 +78,9 @@
 
   &__brands-title {
     font-size: 2rem;
-    font-weight: $bold-weight;
-    color: $primary-dark;
+    font-weight: 200;
+    ;
+    color: $primary-light;
     margin-bottom: 2rem;
     position: relative;
 
@@ -112,7 +92,7 @@
       transform: translateX(-50%);
       width: 60px;
       height: 3px;
-      background: linear-gradient(90deg, $primary-orange, #ff6b35);
+      background: linear-gradient(90deg, $primary-orange, $secondary-orange);
       border-radius: 2px;
     }
 
@@ -121,7 +101,13 @@
     }
   }
 
-  &__brands-slideshow {
+    &__brands-slideshow {
     margin-top: 2rem;
-  }
+    width: 100vw; // full viewport width
+    position: relative;
+
+    .optimized-logo-slideshow {
+      width: 100%; // make the inner slideshow full width
+    }
+    }
 }

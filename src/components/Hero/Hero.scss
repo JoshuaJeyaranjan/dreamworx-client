@@ -155,16 +155,25 @@
     }
 
     &--primary {
-      background: rgba($brand-primary, 0.2);
-      color: $brand-primary;
-      border: $border-2 solid rgba($brand-primary, 0.3);
+          background: linear-gradient(
+      135deg,
+      $primary-orange,
+      $secondary-orange
+    );
+      color: $secondary-dark;
+      
       animation: fadeInUp $duration-300 $ease-out 800ms forwards;
     }
 
     &--secondary {
-      background: rgba($brand-secondary, 0.2);
-      color: $brand-secondary;
-      border: $border-2 solid rgba($brand-secondary, 0.3);
+              background: linear-gradient(
+      135deg,
+      $secondary-orange,
+      $primary-orange
+      
+    );
+      color: $secondary-dark;
+      
       animation: fadeInUp $duration-300 $ease-out 1000ms forwards;
     }
 
@@ -174,10 +183,7 @@
     }
   }
 
-  &__promo-icon {
-    font-size: $font-size-2xl;
-    filter: drop-shadow(0 2px 4px rgba($neutral-900, 0.3));
-  }
+
 
   &__cta {
     @include flex-column;
@@ -187,11 +193,13 @@
     transform: translateY($space-5);
     animation: fadeInUp $duration-500 $ease-out 1200ms forwards;
     justify-self: center;
+    
 
     @include md {
       flex-direction: row;
       gap: $space-6;
     }
+
   }
 
   &__scroll-indicator {
@@ -281,3 +289,4 @@
     transform: translateY(-5px);
   }
 }
+

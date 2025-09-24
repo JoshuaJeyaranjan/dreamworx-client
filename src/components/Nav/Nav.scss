@@ -190,7 +190,7 @@
       background: linear-gradient(
         135deg,
         $primary-orange,
-        $secondary-orange,
+        $primary-dark,
       );
       color: $neutral-0;
       font-weight: $font-weight-medium;
@@ -199,12 +199,12 @@
       &:hover {
         background: linear-gradient(
           135deg,
-          $brand-primary-light,
-          $brand-primary
+          $secondary-orange,
+          $primary-orange
         );
         @include hover-lift;
         box-shadow: $shadow-lg;
-        color: $neutral-0;
+        color: $neutral-900;
       }
     }
 

@@ -95,14 +95,15 @@ export default function HomePage() {
       <section className="homepage__brands">
         <div className="homepage__brands-content">
           <h2 className="homepage__brands-title">Trusted by Leading Brands</h2>
-          <OptimizedLogoSlideshow
+
+        </div>
+                  <OptimizedLogoSlideshow
             logos={brandLogos}
             speed={30}
             direction="left"
             pauseOnHover={true}
             className="homepage__brands-slideshow"
           />
-        </div>
       </section>
 
       <ContactForm />

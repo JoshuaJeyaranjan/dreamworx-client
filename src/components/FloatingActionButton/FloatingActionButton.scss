@@ -3,7 +3,7 @@
 
 .fab {
   position: fixed;
-  bottom: 6rem;
+  bottom: 3rem;
   right: 2rem;
   z-index: 1000;
   display: flex;
@@ -17,8 +17,9 @@
   }
 
   &__menu {
-    position: relative;
     cursor: pointer;
+    position: relative;
+    z-index: 2; // keep above actions
   }
 
   &__main-button {
@@ -30,9 +31,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 20px rgba(213, 94, 21, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
       transform: scale(1.1);
@@ -47,26 +46,25 @@
   &__main-icon {
     font-size: 1.5rem;
     color: white;
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 1;
   }
 
   &__actions {
-    display: none;
-    flex-direction: column;
+    position: absolute; // position above main button
+    bottom: 70px; // spacing above the button
+    right: 0;
+    display: flex;
+    flex-direction: column-reverse; // so first link appears on top
     gap: 0.75rem;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none; // avoid interaction when closed
   }
 
   &--open {
     .fab__actions {
-      display: flex;
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+      pointer-events: auto;
+      .fab__action {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .fab__main-button {
@@ -74,7 +72,6 @@
     }
   }
 
-  // FAB Actions now styled like Socials links
   &__action {
     width: 50px;
     height: 50px;
@@ -87,32 +84,45 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: slideInUp 0.3s ease var(--delay, 0s) both;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px); // initial position
+
+    // Shimmer effect
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-20deg);
+      pointer-events: none;
+    }
+
+    &:hover::before,
+    &:focus::before {
+      animation: shimmer 1s linear infinite;
+    }
 
     &:hover,
     &:focus {
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-
-      .fab__action-icon {
-        transform: scale(1.1);
-        filter: brightness(1.2);
-        color: white;
-      }
-
-      .fab__tooltip--action {
-        opacity: 1;
-        transform: translateY(-45px) scale(1);
-      }
+      box-shadow: 0 8px 30px rgba($primary-orange, 0.3);
     }
   }
 
   &__action-icon {
     width: 24px;
     height: 24px;
-    transition: all 0.3s ease;
     filter: grayscale(1) brightness(1.2);
+    transition: all 0.3s ease;
   }
 
   &__tooltip--action {
@@ -126,65 +136,17 @@
     border-radius: 6px;
     font-size: 0.75rem;
     font-weight: $mid-weight;
-    white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: all 0.25s ease;
-    z-index: 10;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: -4px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      border-bottom: 4px solid rgba(0, 0, 0, 0.85);
-    }
   }
 }
 
-// Keyframes for slide-in
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+@keyframes shimmer {
+  0% {
+    left: -100%;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  100% {
+    left: 100%;
   }
-}
-
-// Responsive adjustments
-@include mobile {
-  .fab {
-    &__main-button {
-      width: 55px;
-      height: 55px;
-    }
-
-    &__action {
-      width: 45px;
-      height: 45px;
-    }
-
-    &__action-icon {
-      width: 20px;
-      height: 20px;
-    }
-
-    &__tooltip--action {
-      font-size: 0.7rem;
-      padding: 0.4rem 0.6rem;
-    }
-  }
-}
-
-// Focus styles
-.fab__main-button:focus,
-.fab__action:focus {
-  outline: 2px solid $primary-orange;
-  outline-offset: 2px;
 }

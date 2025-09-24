@@ -4,75 +4,59 @@ import "./OptimizedLogoSlideshow.scss";
 
 const OptimizedLogoSlideshow = ({
   logos = [],
-  speed = 30,
+  speed = 30, // pixels per second
   direction = "left",
   pauseOnHover = true,
   className = "",
 }) => {
-  const containerRef = useRef(null);
-  const animationRef = useRef(null);
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
-    if (!containerRef.current || logos.length === 0) return;
+    if (!wrapperRef.current || logos.length === 0) return;
 
-    const container = containerRef.current;
-    const wrapper = container.querySelector(
-      ".optimized-logo-slideshow__wrapper"
-    );
-
-    if (!wrapper) return;
-
-    let animationId;
-    let position = 0;
+    const wrapper = wrapperRef.current;
     const isLeft = direction === "left";
+    let animationFrame;
+    let position = isLeft ? window.innerWidth : -wrapper.scrollWidth;
 
     const animate = () => {
-      position += isLeft ? -1 : 1;
-
-      // Reset position when logos have scrolled completely
-      const logoWidth = wrapper.children[0]?.offsetWidth || 0;
-      const totalWidth = logoWidth * logos.length;
-
-      if (isLeft && position <= -totalWidth) {
-        position = 0;
-      } else if (!isLeft && position >= 0) {
-        position = -totalWidth;
+      position += isLeft ? -1 : 1; // move 1px per frame; adjust for speed
+      if (isLeft && position <= -wrapper.scrollWidth) {
+        position = window.innerWidth;
+      } else if (!isLeft && position >= window.innerWidth) {
+        position = -wrapper.scrollWidth;
       }
 
       wrapper.style.transform = `translateX(${position}px)`;
-      animationId = requestAnimationFrame(animate);
+      animationFrame = requestAnimationFrame(animate);
     };
 
     const startAnimation = () => {
-      if (animationId) return;
-      animationId = requestAnimationFrame(animate);
+      if (!animationFrame) animationFrame = requestAnimationFrame(animate);
     };
 
     const stopAnimation = () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-        animationId = null;
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = null;
       }
     };
 
-    // Start animation
     startAnimation();
-    animationRef.current = { startAnimation, stopAnimation };
 
-    // Pause on hover
     if (pauseOnHover) {
-      container.addEventListener("mouseenter", stopAnimation);
-      container.addEventListener("mouseleave", startAnimation);
+      wrapper.addEventListener("mouseenter", stopAnimation);
+      wrapper.addEventListener("mouseleave", startAnimation);
     }
 
     return () => {
       stopAnimation();
       if (pauseOnHover) {
-        container.removeEventListener("mouseenter", stopAnimation);
-        container.removeEventListener("mouseleave", startAnimation);
+        wrapper.removeEventListener("mouseenter", stopAnimation);
+        wrapper.removeEventListener("mouseleave", startAnimation);
       }
     };
-  }, [logos, speed, direction, pauseOnHover]);
+  }, [logos, direction, pauseOnHover]);
 
   if (!logos.length) {
     return (
@@ -84,17 +68,16 @@ const OptimizedLogoSlideshow = ({
     );
   }
 
-  // Duplicate logos for seamless loop
+  // Duplicate logos for smooth continuous scroll
   const duplicatedLogos = [...logos, ...logos];
 
   return (
     <div
-      ref={containerRef}
       className={`optimized-logo-slideshow ${className}`}
       role="region"
       aria-label="Brand logos slideshow"
     >
-      <div className="optimized-logo-slideshow__wrapper">
+      <div className="optimized-logo-slideshow__wrapper" ref={wrapperRef}>
         {duplicatedLogos.map((logo, index) => (
           <div key={index} className="optimized-logo-slideshow__logo-container">
             <OptimizedImage
