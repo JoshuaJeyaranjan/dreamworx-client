@@ -1,23 +1,11 @@
 @use "../../styles/partials/index" as *;
 
-
-// =============================================================================
-// HERO COMPONENT
-// =============================================================================
-
-
-// =============================================================================
-// HERO COMPONENT
-// =============================================================================
-
 .hero {
   position: relative;
   min-height: 100vh;
   @include flex-center;
   overflow: hidden;
   background: linear-gradient(135deg, $neutral-800 0%, $neutral-900 100%);
-
-
 
   &__background {
     position: absolute;
@@ -43,12 +31,12 @@
     height: 100%;
     background: linear-gradient(
       135deg,
-    rgba($secondary-dark, 0.4) 0%,
-    rgba($secondary-dark, 0.6) 20%,
-    rgba($secondary-dark, 0.75) 40%,
-    rgba($secondary-dark, 0.85) 60%,
-    rgba($secondary-dark, 0.7) 80%,
-    rgba($primary-dark, 0.5) 100%
+      rgba($secondary-dark, 0.4) 0%,
+      rgba($secondary-dark, 0.6) 20%,
+      rgba($secondary-dark, 0.75) 40%,
+      rgba($secondary-dark, 0.85) 60%,
+      rgba($secondary-dark, 0.7) 80%,
+      rgba($primary-dark, 0.5) 100%
     );
     z-index: 2;
   }
@@ -109,11 +97,7 @@
     transform: translateY($space-5);
     animation: fadeInUp $duration-500 $ease-out 600ms forwards;
     text-shadow: 0 4px 20px rgba($brand-primary, 0.3);
-    background: linear-gradient(
-      135deg,
-      $primary-orange,
-      $secondary-orange,
-    );
+    background: linear-gradient(135deg, $primary-orange, $secondary-orange);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -155,25 +139,16 @@
     }
 
     &--primary {
-          background: linear-gradient(
-      135deg,
-      $primary-orange,
-      $secondary-orange
-    );
+      background: linear-gradient(135deg, $primary-orange, $secondary-orange);
       color: $secondary-dark;
-      
+
       animation: fadeInUp $duration-300 $ease-out 800ms forwards;
     }
 
     &--secondary {
-              background: linear-gradient(
-      135deg,
-      $secondary-orange,
-      $primary-orange
-      
-    );
+      background: linear-gradient(135deg, $secondary-orange, $primary-orange);
       color: $secondary-dark;
-      
+
       animation: fadeInUp $duration-300 $ease-out 1000ms forwards;
     }
 
@@ -183,8 +158,6 @@
     }
   }
 
-
-
   &__cta {
     @include flex-column;
     gap: $space-4;
@@ -193,13 +166,11 @@
     transform: translateY($space-5);
     animation: fadeInUp $duration-500 $ease-out 1200ms forwards;
     justify-self: center;
-    
 
     @include md {
       flex-direction: row;
       gap: $space-6;
     }
-
   }
 
   &__scroll-indicator {
@@ -247,10 +218,6 @@
   }
 }
 
-// =============================================================================
-// ANIMATIONS
-// =============================================================================
-
 @keyframes slideInLeft {
   to {
     opacity: 1;
@@ -279,7 +246,11 @@
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
@@ -289,4 +260,3 @@
     transform: translateY(-5px);
   }
 }
-

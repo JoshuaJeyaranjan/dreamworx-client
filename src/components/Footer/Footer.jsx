@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.scss";
 import { Link } from "react-router-dom";
 import Socials from "../Socials/Socials";
@@ -7,9 +6,8 @@ import Map from "../Map/Map";
 export default function Footer() {
   return (
     <footer className="footer">
-
       <div className="footer__container">
-        <Map/>
+        <Map />
         <div className="footer__content">
           <div className="footer__brand">
             <img
@@ -47,7 +45,7 @@ export default function Footer() {
                     Body Work
                   </Link>
                 </li>
-                      <li>
+                <li>
                   <Link to="/services" className="footer__link">
                     All Services
                   </Link>
@@ -68,25 +66,15 @@ export default function Footer() {
                     Contact Us
                   </Link>
                 </li>
-          
               </ul>
             </div>
 
             <div className="footer__section">
               <h4 className="footer__section-title">More Info</h4>
               <div className="footer__contact">
-                <p className="footer__contact-item">
-                  
-                  Greater Toronto Area, ON
-                </p>
-                <p className="footer__contact-item">
-                  
-                  Call for Free Quote
-                </p>
-                <p className="footer__contact-item">
-                  
-                  Free Pickup & Dropoff
-                </p>
+                <p className="footer__contact-item">Greater Toronto Area, ON</p>
+                <p className="footer__contact-item">Call for Free Quote</p>
+                <p className="footer__contact-item">Free Pickup & Dropoff</p>
               </div>
             </div>
           </div>
@@ -98,7 +86,8 @@ export default function Footer() {
           </div>
           <div className="footer__copyright">
             <p className="footer__text">
-              © 2024 DreamWorx Auto Body. All rights reserved.
+              © {new Date().getFullYear()} DreamWorx Auto Body. All rights
+              reserved.
             </p>
             <p className="footer__text">
               Crafted with ❤️ for automotive excellence

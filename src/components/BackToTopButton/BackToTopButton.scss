@@ -1,43 +1,45 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
 .back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: $primary-orange;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(50px);
+  transition:
+    opacity 0.3s,
+    transform 0.3s,
+    visibility 0.3s;
 
-    position: fixed;
-    bottom: 30px;
+  @include tablet {
     right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: $primary-orange;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(50px);
-    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
-
-    @include tablet {
-      right: 30px;
-    }
-  
-    &.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      z-index: 9999;
-      display: none;
-    }
-  
-    &:hover {
-      background-color: $secondary-orange;
-    }
-  
-    &__icon {
-      width: 30px; /* Adjust size as needed */
-      height: 30px; /* Adjust size as needed */
-    }
   }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    z-index: 9999;
+    display: none;
+  }
+
+  &:hover {
+    background-color: $secondary-orange;
+  }
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+  }
+}

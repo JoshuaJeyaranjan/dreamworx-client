@@ -1,5 +1,5 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
 .care-hero {
   position: relative;
@@ -33,18 +33,18 @@
     background: linear-gradient(
       135deg,
       rgba($secondary-dark, 0.4) 0%,
-    rgba($secondary-dark, 0.6) 20%,
-    rgba($secondary-dark, 0.75) 40%,
-    rgba($secondary-dark, 0.85) 60%,
-    rgba($secondary-dark, 0.7) 80%,
-    rgba($primary-dark, 0.5) 100%
+      rgba($secondary-dark, 0.6) 20%,
+      rgba($secondary-dark, 0.75) 40%,
+      rgba($secondary-dark, 0.85) 60%,
+      rgba($secondary-dark, 0.7) 80%,
+      rgba($primary-dark, 0.5) 100%
     );
     pointer-events: none;
   }
 
   &__content {
     position: relative;
-    z-index: 2; // above overlay
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,8 +59,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
-
 
     @include mobile {
       font-size: 3rem;

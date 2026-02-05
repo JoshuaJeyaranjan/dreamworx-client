@@ -1,8 +1,8 @@
-import React from "react";
 import "./BookService.scss";
 
-const whatsappNumber = "+14378767666"; // Your WhatsApp number with country code
-const preWrittenMessage = "Hello Dreamworx, I would like to inquire about booking a service.";
+const whatsappNumber = "+14378767666";
+const preWrittenMessage =
+  "Hello Dreamworx, I would like to inquire about booking a service.";
 
 export default function BookService() {
   const handleWhatsAppClick = () => {

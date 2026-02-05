@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./OptimizedImage.scss";
 
 const OptimizedImage = ({
@@ -31,7 +31,7 @@ const OptimizedImage = ({
       {
         threshold: 0.1,
         rootMargin: "50px",
-      }
+      },
     );
 
     if (imgRef.current) {
@@ -51,7 +51,6 @@ const OptimizedImage = ({
     onError?.();
   };
 
-  // Generate WebP src if supported
   const getOptimizedSrc = (originalSrc) => {
     if (typeof window !== "undefined" && window.Modernizr?.webp) {
       return originalSrc.replace(/\.(jpg|jpeg|png)$/i, ".webp");

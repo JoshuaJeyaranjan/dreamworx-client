@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
 import "./ContactForm.scss";
 
@@ -27,7 +27,7 @@ export default function ContactForm() {
 
         if (formTop < windowHeight) {
           formRef.current.classList.add("slide-in");
-          window.removeEventListener("scroll", handleScroll); // Remove listener after animation triggers
+          window.removeEventListener("scroll", handleScroll);
         }
       }
     };
@@ -66,10 +66,10 @@ export default function ContactForm() {
 
     emailjs
       .send(
-        "service_8hfywxa", // Replace with your service ID
-        "template_990ozcw", // Replace with your template ID
+        "service_8hfywxa",
+        "template_990ozcw",
         formData,
-        "PKnZJZ-ZPIAy6_auu" // Replace with your public API key
+        "PKnZJZ-ZPIAy6_auu",
       )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
@@ -94,7 +94,7 @@ export default function ContactForm() {
   return (
     <div className="contact">
       <h3 className="contact__header">Contact Us</h3>
-  
+
       <form className="contact-form" onSubmit={handleSubmit} ref={formRef}>
         <div className="contact-form__group-row">
           <div className="contact-form__group">
@@ -134,8 +134,8 @@ export default function ContactForm() {
             />
           </div>
         </div>
-  
-        <div className="contact-form__group message-group" >
+
+        <div className="contact-form__group message-group">
           <label className="contact-form__label ">Message:</label>
           <textarea
             className="contact-form__input message-input"
@@ -146,12 +146,12 @@ export default function ContactForm() {
             required
           ></textarea>
         </div>
-  
+
         <button className="contact-form__submit" type="submit">
           Submit
         </button>
       </form>
-  
+
       {formStatus.message && (
         <div
           className={`contact-form__status ${

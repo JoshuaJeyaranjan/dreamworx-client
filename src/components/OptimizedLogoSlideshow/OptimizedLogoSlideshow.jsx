@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import "./OptimizedLogoSlideshow.scss";
 
 const OptimizedLogoSlideshow = ({
   logos = [],
-  speed = 30, // pixels per second
+  speed = 30,
   direction = "left",
   pauseOnHover = true,
   className = "",
@@ -20,7 +20,7 @@ const OptimizedLogoSlideshow = ({
     let position = isLeft ? window.innerWidth : -wrapper.scrollWidth;
 
     const animate = () => {
-      position += isLeft ? -1 : 1; // move 1px per frame; adjust for speed
+      position += isLeft ? -1 : 1;
       if (isLeft && position <= -wrapper.scrollWidth) {
         position = window.innerWidth;
       } else if (!isLeft && position >= window.innerWidth) {
@@ -68,7 +68,6 @@ const OptimizedLogoSlideshow = ({
     );
   }
 
-  // Duplicate logos for smooth continuous scroll
   const duplicatedLogos = [...logos, ...logos];
 
   return (

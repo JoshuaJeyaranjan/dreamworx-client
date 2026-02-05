@@ -8,12 +8,10 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI
     return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    // Log error details
     console.error("ErrorBoundary caught an error:", error, errorInfo);
 
     this.setState({
@@ -21,9 +19,7 @@ class ErrorBoundary extends React.Component {
       errorInfo: errorInfo,
     });
 
-    // You can also log the error to an error reporting service here
     if (process.env.NODE_ENV === "production") {
-      // Log to error reporting service
       console.error("Production error:", error, errorInfo);
     }
   }

@@ -1,12 +1,11 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 .glitch {
   position: relative;
   background: linear-gradient(135deg, #000000 0%, #323232 100%);
   margin-bottom: 0;
   overflow: hidden;
 
-  // Top gradient line
   &::before {
     content: "";
     position: absolute;
@@ -23,7 +22,6 @@
     z-index: 1;
   }
 
-  // Bottom gradient line
   &::after {
     content: "";
     position: absolute;
@@ -42,7 +40,7 @@
 
   &__text-container {
     position: relative;
-    z-index: 2; // ensures content sits above the borders
+    z-index: 2;
     color: white;
     display: flex;
     flex-direction: column;
@@ -53,11 +51,7 @@
   }
 
   &__sub-header {
-        background: linear-gradient(
-      135deg,
-      $primary-orange,
-      $secondary-orange,
-    );
+    background: linear-gradient(135deg, $primary-orange, $secondary-orange);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -80,7 +74,6 @@
     color: aliceblue;
     font-size: 4rem;
     font-weight: 200;
-    ;
     text-align: center;
     overflow: hidden;
 

@@ -4,20 +4,18 @@ import { Suspense, lazy } from "react";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 import ScrollToTop from "./utils/ScrolltoTop";
 
-// Lazy load pages for better performance
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage/AboutPage"));
 const BodyWorkPage = lazy(() => import("./pages/BodyWorkPage/BodyWorkPage"));
 const CarePage = lazy(() => import("./pages/CarePage/CarePage"));
 const ContactPage = lazy(() => import("./pages/ContactPage/ContactPage"));
 const CustomizePage = lazy(() => import("./pages/CustomizePage/CustomizePage"));
-const MechanicalPage = lazy(() =>
-  import("./pages/MechanicalPage/MechanicalPage")
+const MechanicalPage = lazy(
+  () => import("./pages/MechanicalPage/MechanicalPage"),
 );
 const ServicesPage = lazy(() => import("./pages/ServicesPage/ServicesPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
-// Loading component for Suspense
 const PageLoader = () => (
   <div className="page-loader">
     <div className="page-loader__content">
@@ -45,7 +43,6 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-          
         </Suspense>
       </BrowserRouter>
     </ErrorBoundary>

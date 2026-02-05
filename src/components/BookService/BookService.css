@@ -5,9 +5,9 @@
   cursor: pointer;
 }
 .book-service__icon {
-  width: 30px; /* Adjust size as needed */
-  height: 30px; /* Adjust size as needed */
-  margin-right: 10px; /* Space between icon and button */
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
 .book-service__button {
   background-color: white;
@@ -15,12 +15,14 @@
   color: black;
   padding: 10px 20px;
   border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 .book-service__button:hover {
-  background-color: #d55e15; /* Change background color on hover */
-  color: white; /* Change text color on hover */
-}/*# sourceMappingURL=BookService.css.map */
+  background-color: #d55e15;
+  color: white;
+}

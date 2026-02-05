@@ -1,5 +1,10 @@
-import React, { useState } from "react";
-import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api";
+import { useState } from "react";
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
 import "./Map.scss";
 
 const containerStyle = {
@@ -12,14 +17,11 @@ const center = {
   lng: -79.19514672043643,
 };
 
-// Dark mode styling
 const darkModeStyle = [
-  // Base geometry
   { elementType: "geometry", stylers: [{ color: "#1e2a38" }] },
   { elementType: "labels.text.fill", stylers: [{ color: "#e0e0e0" }] },
   { elementType: "labels.text.stroke", stylers: [{ color: "#1e2a38" }] },
 
-  // Roads
   {
     featureType: "road",
     elementType: "geometry",
@@ -36,7 +38,6 @@ const darkModeStyle = [
     stylers: [{ color: "#ffffff" }],
   },
 
-  // Highways
   {
     featureType: "road.highway",
     elementType: "geometry",
@@ -48,7 +49,6 @@ const darkModeStyle = [
     stylers: [{ color: "#ffffff" }],
   },
 
-  // Water
   {
     featureType: "water",
     elementType: "geometry",
@@ -60,7 +60,6 @@ const darkModeStyle = [
     stylers: [{ color: "#a0c4ff" }],
   },
 
-  // Parks
   {
     featureType: "poi.park",
     elementType: "geometry",
@@ -72,14 +71,12 @@ const darkModeStyle = [
     stylers: [{ color: "#7cb342" }],
   },
 
-  // Transit / bus stops
   {
     featureType: "transit",
     elementType: "geometry",
     stylers: [{ color: "#2c3e50" }],
   },
 
-  // Administrative boundaries
   {
     featureType: "administrative",
     elementType: "geometry",
@@ -97,11 +94,9 @@ export default function Map() {
   const [markerAnimation, setMarkerAnimation] = useState(null);
 
   const handleMarkerLoad = (marker) => {
-    // Safely use the API after it has loaded
     if (window.google) {
       setMarkerAnimation(window.google.maps.Animation.BOUNCE);
 
-      // Stop bouncing after 2 seconds
       setTimeout(() => setMarkerAnimation(null), 2000);
     }
   };
@@ -122,12 +117,15 @@ export default function Map() {
         >
           <Marker
             position={center}
-            onLoad={handleMarkerLoad} // <-- safe bounce
+            onLoad={handleMarkerLoad}
             animation={markerAnimation}
             onClick={() => setIsInfoOpen(true)}
           />
           {isInfoOpen && (
-            <InfoWindow position={center} onCloseClick={() => setIsInfoOpen(false)}>
+            <InfoWindow
+              position={center}
+              onCloseClick={() => setIsInfoOpen(false)}
+            >
               <div className="map__info-window">
                 <h3>DreamWorx Auto Body</h3>
                 <p>87 Thornmount Dr #5, Toronto, ON</p>

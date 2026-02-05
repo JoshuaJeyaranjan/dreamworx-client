@@ -1,13 +1,10 @@
-@use 'variables' as *;
-
-
+@use "variables" as *;
 
 @mixin mobile {
   @media screen and (max-width: $mobile-breakpoint) {
     @content;
   }
 }
-
 
 @mixin tablet {
   @media screen and (min-width: $tablet-breakpoint) {
@@ -19,7 +16,6 @@
     @content;
   }
 }
-
 
 @mixin xs {
   @media (min-width: $breakpoint-xs) {
@@ -57,7 +53,6 @@
   }
 }
 
-// Mobile-first approach
 @mixin mobile-only {
   @media (max-width: #{$breakpoint-md - 1px}) {
     @content;
@@ -75,10 +70,6 @@
     @content;
   }
 }
-
-// =============================================================================
-// LAYOUT UTILITIES
-// =============================================================================
 
 @mixin container {
   width: 100%;
@@ -124,10 +115,6 @@
   transform: translate(-50%, -50%);
 }
 
-// =============================================================================
-// TYPOGRAPHY UTILITIES
-// =============================================================================
-
 @mixin text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -153,10 +140,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-// =============================================================================
-// VISUAL EFFECTS
-// =============================================================================
-
 @mixin glassmorphism($opacity: 0.1, $blur: 10px) {
   background: rgba(255, 255, 255, $opacity);
   backdrop-filter: blur($blur);
@@ -181,7 +164,9 @@
 }
 
 @mixin hover-lift($lift: 4px) {
-  transition: transform $transition-default, box-shadow $transition-default;
+  transition:
+    transform $transition-default,
+    box-shadow $transition-default;
 
   &:hover {
     transform: translateY(-#{$lift});
@@ -198,10 +183,6 @@
     outline-offset: 2px;
   }
 }
-
-// =============================================================================
-// ANIMATIONS
-// =============================================================================
 
 @mixin fade-in($duration: $duration-300) {
   opacity: 0;
@@ -232,10 +213,6 @@
   animation: scaleIn $duration $ease-out $delay forwards;
 }
 
-// =============================================================================
-// COMPONENT PATTERNS
-// =============================================================================
-
 @mixin button-base {
   display: inline-flex;
   align-items: center;
@@ -248,6 +225,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: $transition-all;
+  -webkit-user-select: none;
   user-select: none;
   white-space: nowrap;
 
@@ -294,10 +272,6 @@
     cursor: not-allowed;
   }
 }
-
-// =============================================================================
-// KEYFRAME ANIMATIONS
-// =============================================================================
 
 @keyframes fadeIn {
   from {

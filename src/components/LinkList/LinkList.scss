@@ -1,11 +1,11 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
-.link-list{
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: none;
+.link-list {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: none;
 }

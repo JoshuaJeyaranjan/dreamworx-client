@@ -1,18 +1,21 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import "./ServiceListItem.scss";
 
 export default function ServiceListItem({ title, paragraph }) {
   const serviceRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          serviceRef.current.classList.add("animate-service");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.25 }); // Adjust threshold as needed
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            serviceRef.current.classList.add("animate-service");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 },
+    );
 
     observer.observe(serviceRef.current);
 

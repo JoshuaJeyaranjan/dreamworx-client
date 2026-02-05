@@ -1,14 +1,14 @@
-import React from "react";
 import "./InTouch.scss";
 
 const whatsappNumber = "+14378767666";
-const preWrittenMessage = "Hello Dreamworx, I would like to get in touch with you.";
+const preWrittenMessage =
+  "Hello Dreamworx, I would like to get in touch with you.";
 
 export default function InTouch() {
   const handleWhatsAppClick = (e) => {
     e.preventDefault();
     const whatsappUrl = `https://wa.me/${whatsappNumber.replace("+", "")}?text=${encodeURIComponent(
-      preWrittenMessage
+      preWrittenMessage,
     )}`;
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
@@ -43,15 +43,10 @@ export default function InTouch() {
 
   return (
     <section className="in-touch">
-
-
       <address className="in-touch__list">
         {contacts.map(({ id, icon, alt, title, value, link, onClick }) => (
           <div key={id} className="in-touch__item">
-            
-
             <div className="in-touch__links">
-            
               <a
                 className="in-touch__link"
                 href={link}
@@ -59,7 +54,7 @@ export default function InTouch() {
                 rel="noopener noreferrer"
                 onClick={onClick}
               >
-              <img className="in-touch__icon" src={icon} alt={alt} />
+                <img className="in-touch__icon" src={icon} alt={alt} />
               </a>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Nav.scss";
 import { NavLink, Link } from "react-router-dom";
 
@@ -92,7 +92,6 @@ export default function Nav() {
               className={`nav__submenu ${isSubmenuVisible ? "visible" : ""}`}
             >
               <NavLink to="/care" className="nav__sub-link" onClick={closeMenu}>
-                
                 <span>Car Care</span>
               </NavLink>
               <NavLink
@@ -100,7 +99,6 @@ export default function Nav() {
                 className="nav__sub-link"
                 onClick={closeMenu}
               >
-                
                 <span>Customization</span>
               </NavLink>
               <NavLink
@@ -108,7 +106,6 @@ export default function Nav() {
                 className="nav__sub-link"
                 onClick={closeMenu}
               >
-                
                 <span>Mechanical</span>
               </NavLink>
               <NavLink
@@ -116,7 +113,6 @@ export default function Nav() {
                 className="nav__sub-link"
                 onClick={closeMenu}
               >
-                
                 <span>Body Work</span>
               </NavLink>
             </div>

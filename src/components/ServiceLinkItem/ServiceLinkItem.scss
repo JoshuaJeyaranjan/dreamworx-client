@@ -1,5 +1,5 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
 .service-link-item {
   display: block;
@@ -9,7 +9,9 @@
   color: white;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
   border-radius: 4px;
 
   &__background {
@@ -29,7 +31,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
     transition: background-color 0.3s ease-in-out;
   }
@@ -45,12 +47,11 @@
     align-items: center;
     text-align: center;
     z-index: 2;
-    color: white; 
+    color: white;
   }
 
   &__title {
     font-weight: 400;
-    
   }
 
   &__paragraph {
@@ -64,7 +65,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba($secondary-orange, 0.5), rgba($primary-orange, 0.5)); // More transparent gradient
+    background: linear-gradient(
+      to right,
+      rgba($secondary-orange, 0.5),
+      rgba($primary-orange, 0.5)
+    );
     z-index: 1;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
@@ -75,9 +80,9 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
     .service-link-item__overlay {
-      background-color: rgba(0, 0, 0, 0.3); 
+      background-color: rgba(0, 0, 0, 0.3);
     }
-    
+
     .service-link-item__gradient {
       transform: translateX(0);
       transition: transform 0.3s ease-in-out;

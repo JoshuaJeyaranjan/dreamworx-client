@@ -1,10 +1,3 @@
-#!/usr/bin/env node
-
-/**
- * Image optimization script
- * This script helps optimize images for better performance
- * Run with: node scripts/optimize-images.js
- */
 
 import fs from "fs";
 import path from "path";
@@ -13,7 +6,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Create a simple placeholder image
+
 const createPlaceholderImage = () => {
   const placeholderSvg = `
 <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +24,7 @@ const createPlaceholderImage = () => {
   console.log("✅ Created placeholder image");
 };
 
-// Analyze image directory
+
 const analyzeImages = () => {
   const imagesDir = path.join(__dirname, "../public/assets/images");
 
@@ -73,7 +66,7 @@ const analyzeImages = () => {
   return { totalSize, largeFiles, imageFiles };
 };
 
-// Generate optimization recommendations
+
 const generateRecommendations = (analysis) => {
   console.log("\n💡 Optimization Recommendations:");
   console.log("1. Convert images to WebP format for better compression");
@@ -91,7 +84,7 @@ const generateRecommendations = (analysis) => {
   }
 };
 
-// Create image optimization config
+
 const createOptimizationConfig = () => {
   const config = {
     imageOptimization: {
@@ -124,7 +117,7 @@ const createOptimizationConfig = () => {
   console.log("✅ Created image optimization config");
 };
 
-// Main execution
+
 const main = () => {
   console.log("🚀 Starting image optimization analysis...\n");
 

@@ -1,7 +1,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-// Loading spinner for Suspense fallback
 .loading-spinner {
   display: flex;
   align-items: center;
@@ -39,10 +38,7 @@
   }
 }
 
-// Homepage specific sections
 .homepage {
-
-
   &__brands {
     padding: 3rem 0;
     background: linear-gradient(135deg, $primary-dark 0%, $primary-orange 100%);
@@ -79,7 +75,6 @@
   &__brands-title {
     font-size: 2rem;
     font-weight: 200;
-    ;
     color: $primary-light;
     margin-bottom: 2rem;
     position: relative;
@@ -101,13 +96,13 @@
     }
   }
 
-    &__brands-slideshow {
+  &__brands-slideshow {
     margin-top: 2rem;
-    width: 100vw; // full viewport width
+    width: 100vw;
     position: relative;
 
     .optimized-logo-slideshow {
-      width: 100%; // make the inner slideshow full width
+      width: 100%;
     }
-    }
+  }
 }

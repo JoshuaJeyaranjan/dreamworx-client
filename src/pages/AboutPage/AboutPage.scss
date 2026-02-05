@@ -1,5 +1,5 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
 .nav {
   margin: 0;
@@ -18,8 +18,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 0; // Ensure no margin
-    padding: 0; // Ensure no padding
+    margin: 0;
+    padding: 0;
 
     @media (orientation: landscape) {
       height: 80vh;
@@ -43,13 +43,13 @@
 
     @media (orientation: landscape) {
       &-video {
-        top: 66%; // Adjust this value to position the video lower
+        top: 66%;
       }
     }
 
     @media (orientation: portrait) {
       &-video {
-        top: 50%; // Adjust this value to position the video lower
+        top: 50%;
         height: 69vw;
         left: 39%;
       }
@@ -68,10 +68,11 @@
   flex-direction: column;
   gap: 2rem;
   text-align: center;
-  margin: 0; // Ensure no margin
-  padding: 2rem; // Ensure no padding
+  margin: 0;
+  padding: 2rem;
 
-  @media (orientation: landscape) {}
+  @media (orientation: landscape) {
+  }
 
   &__text-container {
     display: flex;
@@ -95,14 +96,14 @@
 
 .journey {
   text-align: center;
-  margin: 0; // Ensure no margin
-  padding: 0; // Ensure no padding
+  margin: 0;
+  padding: 0;
 
   &__header {
     color: $primary-orange;
     font-size: 4rem;
     padding: 1rem;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     margin-left: 1rem;
 
     @include mobile {

@@ -1,5 +1,5 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
 .book-service {
   display: flex;
@@ -14,7 +14,9 @@
     width: 1.5rem;
     height: 1.5rem;
     flex-shrink: 0;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
   }
 
   &__button {
@@ -22,7 +24,7 @@
     border: none;
     color: $secondary-dark;
     padding: 0.75rem 1.5rem;
-    border-radius: 9999px; // pill shape
+    border-radius: 9999px;
     font-weight: 200;
     font-size: 1rem;
     letter-spacing: 0.5px;
@@ -32,8 +34,10 @@
     gap: 0.5rem;
     cursor: pointer;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease,
-                background 0.4s ease;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.4s ease;
 
     &:hover {
       transform: translateY(-2px);

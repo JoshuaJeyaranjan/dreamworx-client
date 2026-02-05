@@ -1,5 +1,4 @@
-import React from 'react';
-import './CareHero.scss';
+import "./CareHero.scss";
 
 export default function CareHero({ videoSrc, title }) {
   return (
@@ -12,7 +11,7 @@ export default function CareHero({ videoSrc, title }) {
         muted
         loop
         playsInline
-        preload='auto'
+        preload="auto"
       >
         Your browser does not support the video tag.
       </video>

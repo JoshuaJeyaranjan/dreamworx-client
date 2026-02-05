@@ -1,17 +1,15 @@
-import React from "react";
 import "./Socials.scss";
 
 export const handleWhatsAppClick = (e) => {
   e.preventDefault();
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(
     "+",
-    ""
+    "",
   )}?text=${encodeURIComponent(preWrittenMessage)}`;
   window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 };
 
 export const links = [
-  // Contacts
   {
     id: "call",
     type: "contact",
@@ -41,7 +39,6 @@ export const links = [
     url: "mailto:dreamworxautobody@gmail.com",
   },
 
-  // Socials
   {
     id: "instagram",
     type: "social",
@@ -76,13 +73,10 @@ export default function Socials() {
     <div className="socials">
       <div className="socials__links">
         {links.map(({ id, type, icon, alt, title, url, color, onClick }) => {
-          const Tag = type === "contact" ? "div" : "span"; // just in case you want semantic wrappers
+          const Tag = type === "contact" ? "div" : "span";
 
           return (
-            <Tag
-              key={id}
-              className={`socials__item socials__item--${type}`}
-            >
+            <Tag key={id} className={`socials__item socials__item--${type}`}>
               <a
                 className="socials__link"
                 href={url}
@@ -99,7 +93,7 @@ export default function Socials() {
                 <img
                   className="socials__icon"
                   src={icon}
-                  alt={type === "social" ? "" : alt} // socials decorative, contacts meaningful
+                  alt={type === "social" ? "" : alt}
                   aria-hidden={type === "social" ? "true" : "false"}
                   loading="lazy"
                 />

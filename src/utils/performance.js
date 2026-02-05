@@ -1,10 +1,6 @@
-// Performance monitoring and optimization utilities
-
-// Web Vitals monitoring
 export const measureWebVitals = () => {
   if (typeof window === "undefined") return;
 
-  // Measure Core Web Vitals
   const measureCLS = () => {
     let clsValue = 0;
     let clsEntries = [];
@@ -78,7 +74,6 @@ export const measureWebVitals = () => {
   };
 };
 
-// Image optimization utilities
 export const preloadCriticalImages = (imageUrls) => {
   if (typeof window === "undefined") return;
 
@@ -91,7 +86,6 @@ export const preloadCriticalImages = (imageUrls) => {
   });
 };
 
-// Lazy loading intersection observer
 export const createLazyLoadObserver = (callback, options = {}) => {
   if (typeof window === "undefined") return null;
 
@@ -105,7 +99,6 @@ export const createLazyLoadObserver = (callback, options = {}) => {
   return new IntersectionObserver(callback, defaultOptions);
 };
 
-// Debounce utility for performance
 export const debounce = (func, wait, immediate = false) => {
   let timeout;
   return function executedFunction(...args) {
@@ -120,7 +113,6 @@ export const debounce = (func, wait, immediate = false) => {
   };
 };
 
-// Throttle utility for performance
 export const throttle = (func, limit) => {
   let inThrottle;
   return function executedFunction(...args) {
@@ -132,11 +124,9 @@ export const throttle = (func, limit) => {
   };
 };
 
-// Resource hints for performance
 export const addResourceHints = () => {
   if (typeof window === "undefined") return;
 
-  // DNS prefetch for external domains
   const dnsPrefetchDomains = ["fonts.googleapis.com", "fonts.gstatic.com"];
 
   dnsPrefetchDomains.forEach((domain) => {
@@ -146,7 +136,6 @@ export const addResourceHints = () => {
     document.head.appendChild(link);
   });
 
-  // Preconnect to critical origins
   const preconnectOrigins = [
     "https://fonts.googleapis.com",
     "https://fonts.gstatic.com",
@@ -161,7 +150,6 @@ export const addResourceHints = () => {
   });
 };
 
-// Bundle analyzer helper
 export const logBundleInfo = () => {
   if (process.env.NODE_ENV === "development") {
     console.log("🚀 Performance optimizations loaded");

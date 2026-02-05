@@ -1,10 +1,8 @@
-import React from "react";
 import "./AboutPage.scss";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactInfo from "../../components/ContactInfo/ContactInfo";
-import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
 import BackToTopButton from "../../components/BackToTopButton/BackToTopButton";
 import FloatingActionButton from "../../components/FloatingActionButton/FloatingActionButton";
 import Glitch from "../../components/Glitch/Glitch";

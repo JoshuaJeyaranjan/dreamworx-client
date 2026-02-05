@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
 import "./HomePage.scss";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
@@ -11,11 +11,8 @@ import BackToTopButton from "../../components/BackToTopButton/BackToTopButton";
 import FloatingActionButton from "../../components/FloatingActionButton/FloatingActionButton";
 import ServiceLinkList from "../../components/ServiceLinkList/ServiceLinkList";
 
-// Lazy load heavy components
 const Glitch = lazy(() => import("../../components/Glitch/Glitch"));
 
-
-// Brand logos for slideshow
 const brandLogos = [
   "/assets/images/alfa-logo.png",
   "/assets/images/acura-logo.png",
@@ -66,7 +63,6 @@ const subHeader = "Discover our Expert Services";
 const paragraph =
   "At Dreamworx Auto Body, we redefine automotive care with precision and passion. From top-teir car care and customization to expert mechanical and body shop services, we cater to your vehicle's every need. Choose excellence, choose Dreamworx Auto Body.";
 
-// Loading component for Suspense
 const LoadingSpinner = () => (
   <div className="loading-spinner">
     <div className="loading-spinner__content">
@@ -89,21 +85,19 @@ export default function HomePage() {
 
       <ServiceLinkList />
 
-
       <ChooseUs />
 
       <section className="homepage__brands">
         <div className="homepage__brands-content">
           <h2 className="homepage__brands-title">Trusted by Leading Brands</h2>
-
         </div>
-                  <OptimizedLogoSlideshow
-            logos={brandLogos}
-            speed={30}
-            direction="left"
-            pauseOnHover={true}
-            className="homepage__brands-slideshow"
-          />
+        <OptimizedLogoSlideshow
+          logos={brandLogos}
+          speed={30}
+          direction="left"
+          pauseOnHover={true}
+          className="homepage__brands-slideshow"
+        />
       </section>
 
       <ContactForm />

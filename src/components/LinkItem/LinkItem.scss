@@ -1,47 +1,45 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
-.link-item{
+.link-item {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  color: white;
+  background-color: $primary-dark;
+  border: 1px solid $primary-orange;
+  border-radius: 4px;
+  padding: 1rem 0;
+  margin: 1rem;
+  align-items: center;
+  width: 33vw;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &__text-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+  }
+
+  &__title {
     text-decoration: none;
-    color: white;
     background-color: $primary-dark;
-    border: 1px solid $primary-orange;
-    border-radius: 4px;
-    padding: 1rem 0;
+  }
+
+  &__paragraph {
+    text-decoration: none;
+    background-color: $primary-dark;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  &__image {
+    color: $primary-orange;
+    background-color: $primary-dark;
+    max-width: 100px;
     margin: 1rem;
-    align-items: center;
-    width: 33vw;
-    transition: transform 0.3s ease;
-
-    &:hover{
-        transform: scale(1.1);
-    }
-
-    &__text-container{
-        display: flex;
-        flex-direction: column;
-        
-        
-    }
-
-    &__title{
-        text-decoration: none;
-        background-color: $primary-dark;
-    }
-
-    &__paragraph{
-        text-decoration: none;
-        background-color: $primary-dark;
-        margin-right: 1rem;
-        margin-top: .5rem;
-    }
-
-    &__image{
-        color: $primary-orange;
-        background-color: $primary-dark;
-        max-width: 100px;
-        margin: 1rem ;
-    }
+  }
 }

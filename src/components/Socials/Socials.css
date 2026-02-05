@@ -76,7 +76,7 @@
   width: 24px;
   height: 24px;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   filter: grayscale(1) brightness(1.2);
   transition: all 0.3s ease;
   position: relative;
@@ -137,4 +137,4 @@
 .footer .socials__icon {
   width: 20px;
   height: 20px;
-}/*# sourceMappingURL=Socials.css.map */
+}

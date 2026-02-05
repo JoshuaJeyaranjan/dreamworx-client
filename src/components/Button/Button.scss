@@ -1,15 +1,10 @@
 @use "../../styles/partials/index" as *;
 
-// =============================================================================
-// BUTTON COMPONENT
-// =============================================================================
-
 .btn {
   @include button-base;
   position: relative;
   overflow: hidden;
 
-  // Shimmer effect
   &::before {
     content: "";
     position: absolute;
@@ -32,7 +27,6 @@
 
   @include focus-ring;
 
-  // Size variants
   &--sm {
     padding: $space-2 $space-4;
     font-size: $font-size-sm;
@@ -51,7 +45,6 @@
     min-height: 52px;
   }
 
-  // Color variants
   &--primary {
     background: linear-gradient(135deg, $brand-primary, $brand-primary-light);
     color: $neutral-0;
@@ -128,7 +121,6 @@
     }
   }
 
-  // Loading state
   &--loading {
     cursor: not-allowed;
     color: transparent;
@@ -138,7 +130,6 @@
     }
   }
 
-  // Icon variants
   &--icon-only {
     aspect-ratio: 1;
     padding: $space-3;
@@ -149,7 +140,6 @@
   }
 }
 
-// Button sub-elements
 .btn__spinner {
   @include absolute-center;
   width: 20px;
@@ -180,7 +170,6 @@
   }
 }
 
-// Responsive adjustments
 @include mobile-only {
   .btn {
     &--sm {

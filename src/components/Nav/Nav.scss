@@ -1,10 +1,5 @@
 @use "../../styles/partials/index" as *;
 
-
-// =============================================================================
-// NAVIGATION COMPONENT
-// =============================================================================
-
 .nav {
   position: fixed;
   top: 0;
@@ -12,7 +7,7 @@
   right: 0;
   background: black;
   z-index: $z-index-fixed;
- 
+
   border-bottom: $border-1 solid rgba($neutral-0, 0.1);
   transition: $transition-all;
 
@@ -25,7 +20,6 @@
     @include container;
     @include flex-between;
     height: 70px;
-
 
     @include mobile-only {
       height: 60px;
@@ -60,11 +54,7 @@
   &__brand-text {
     font-size: $font-size-2xl;
     font-weight: 200;
-    background: linear-gradient(
-      135deg,
-      $primary-orange,
-      $secondary-orange,
-    );
+    background: linear-gradient(135deg, $primary-orange, $secondary-orange);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -73,7 +63,7 @@
     }
   }
 
-&__hamburger {
+  &__hamburger {
     display: none;
     flex-direction: column;
     justify-content: space-around;
@@ -84,15 +74,11 @@
     cursor: pointer;
     padding: 0;
     z-index: 998;
-    
+
     span {
       width: 2rem;
       height: 3px;
-           background: linear-gradient(
-        135deg,
-        $primary-orange,
-        $secondary-orange,
-      );
+      background: linear-gradient(135deg, $primary-orange, $secondary-orange);
       border-radius: 10px;
       transition: all 0.3s linear;
       transform-origin: 1px;
@@ -100,12 +86,21 @@
     }
 
     &[aria-expanded="true"] {
-      span:first-child { transform: rotate(45deg); }
-      span:nth-child(2) { opacity: 0; transform: translateX(20px); }
-      span:last-child  { transform: rotate(-45deg); }
+      span:first-child {
+        transform: rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      span:last-child {
+        transform: rotate(-45deg);
+      }
     }
 
-    @media (max-width: $mobile-breakpoint) { display: flex; }
+    @media (max-width: $mobile-breakpoint) {
+      display: flex;
+    }
   }
   &__menu {
     @include flex-center;
@@ -125,7 +120,7 @@
       gap: $space-4;
       transform: translateY(-100%);
       opacity: 0;
-   
+
       visibility: hidden;
       transition: $transition-all;
       border-top: $border-1 solid rgba($neutral-0, 0.1);
@@ -186,22 +181,13 @@
     }
 
     &--cta {
-      
-      background: linear-gradient(
-        135deg,
-        $primary-orange,
-        $primary-dark,
-      );
+      background: linear-gradient(135deg, $primary-orange, $primary-dark);
       color: $neutral-0;
       font-weight: $font-weight-medium;
       box-shadow: 0 4px 15px rgba(213, 94, 21, 0.3);
 
       &:hover {
-        background: linear-gradient(
-          135deg,
-          $secondary-orange,
-          $primary-orange
-        );
+        background: linear-gradient(135deg, $secondary-orange, $primary-orange);
         @include hover-lift;
         box-shadow: $shadow-lg;
         color: $neutral-900;
@@ -325,17 +311,9 @@
   }
 }
 
-// =============================================================================
-// SMOOTH SCROLL BEHAVIOR
-// =============================================================================
-
 html {
   scroll-behavior: smooth;
 }
-
-// =============================================================================
-// FOCUS STYLES FOR ACCESSIBILITY
-// =============================================================================
 
 .nav__link:focus,
 .nav__sub-link:focus,

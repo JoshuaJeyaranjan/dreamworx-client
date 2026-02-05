@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import Button from "../Button/Button";
 import "./Hero.scss";
@@ -8,7 +8,6 @@ export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Trigger entrance animation after component mounts
     const timer = setTimeout(() => setIsLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
@@ -39,11 +38,9 @@ export default function Hero() {
 
           <div className="hero__promos">
             <div className="hero__promo hero__promo--primary">
-              
               <span>Free Pickup & Dropoff</span>
             </div>
             <div className="hero__promo hero__promo--secondary">
-              
               <span>Lifetime Warranty!</span>
             </div>
           </div>
@@ -51,16 +48,15 @@ export default function Hero() {
           <div className="hero__cta">
             <Link to="/contact" className="hero__cta-link">
               <Button variant="primary" size="lg" iconPosition="left">
-              Get Free Quote
-            </Button>
+                Get Free Quote
+              </Button>
             </Link>
-            
+
             <Link to="/services" className="hero__cta-link">
-              <Button variant="outline" size="lg"  iconPosition="left">
-              View Services
-            </Button>
+              <Button variant="outline" size="lg" iconPosition="left">
+                View Services
+              </Button>
             </Link>
-            
           </div>
         </div>
       </div>

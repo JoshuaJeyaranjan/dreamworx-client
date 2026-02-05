@@ -6,7 +6,9 @@
   color: white;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
   border-radius: 4px;
 }
 .service-link-item__background {
@@ -42,7 +44,8 @@
   z-index: 2;
   color: white;
 }
-.service-link-item__title, .service-link-item__paragraph {
+.service-link-item__title,
+.service-link-item__paragraph {
   margin: 0;
 }
 .service-link-item__gradient {
@@ -51,7 +54,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(248, 234, 198, 0.5), rgba(213, 94, 21, 0.5));
+  background: linear-gradient(
+    to right,
+    rgba(248, 234, 198, 0.5),
+    rgba(213, 94, 21, 0.5)
+  );
   z-index: 1;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
@@ -70,4 +77,4 @@
 .service-link-item:not(:hover) .service-link-item__gradient {
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
-}/*# sourceMappingURL=ServiceLinkItem.css.map */
+}

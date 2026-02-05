@@ -1,41 +1,40 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
 .care {
-    &__hero {
-      position: relative;
-      height: 60vh;
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
+  &__hero {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
 
-      &-video {
-        position: absolute;
-        top: 49%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 70%;
-        width: auto;
-        height: auto;
-        z-index: -1;
-        transform: translate(-50%, -50%);
-      }
-  
-      &-content {
-        justify-self: center;
-        align-self: center;
-        position: relative;
-        z-index: 1;
-        bottom: 30%;
-        
-      }
+    &-video {
+      position: absolute;
+      top: 49%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 70%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
     }
 
-                  &__overlay {
+    &-content {
+      justify-self: center;
+      align-self: center;
+      position: relative;
+      z-index: 1;
+      bottom: 30%;
+    }
+  }
+
+  &__overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -44,13 +43,12 @@
     background: linear-gradient(
       135deg,
       rgba($secondary-orange, 0.5) 0%,
-      rgba($neutral-900, .9) 25%,
-      rgba($neutral-900, .9) 50%,
-      rgba($neutral-900, .9) 75%,
+      rgba($neutral-900, 0.9) 25%,
+      rgba($neutral-900, 0.9) 50%,
+      rgba($neutral-900, 0.9) 75%,
       rgba($primary-orange, 0.9) 100%
     );
     z-index: 1;
-  ;
   }
   &__title {
     font-size: 3rem;
@@ -66,7 +64,5 @@
     @include md {
       font-size: 4rem;
     }
-  }    
-
-
   }
+}

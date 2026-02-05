@@ -156,7 +156,8 @@
 .fab__tooltip--main {
   right: 80px;
 }
-.fab__menu:hover .fab__tooltip--main, .fab__action:hover .fab__tooltip--action {
+.fab__menu:hover .fab__tooltip--main,
+.fab__action:hover .fab__tooltip--action {
   opacity: 1;
   visibility: visible;
 }
@@ -195,4 +196,4 @@
 .fab__action:focus {
   outline: 2px solid #d55e15;
   outline-offset: 2px;
-}/*# sourceMappingURL=FloatingActionButton.css.map */
+}

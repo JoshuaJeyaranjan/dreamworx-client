@@ -1,5 +1,5 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
 .services {
   &__hero {
@@ -21,20 +21,19 @@
       min-height: 70%;
       width: auto;
       height: auto;
-      z-index: -1; // Ensure this is lower than the submenu
+      z-index: -1;
       transform: translate(-50%, -50%);
     }
 
     &-content {
       position: relative;
-      z-index: 1; // Ensure content is above the video
+      z-index: 1;
       bottom: 30%;
-      
     }
   }
 }
 
-.page-hero{
+.page-hero {
   font-size: 4rem;
   color: $primary-orange;
 

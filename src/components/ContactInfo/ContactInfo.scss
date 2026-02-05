@@ -1,40 +1,40 @@
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
 .contact-info {
-    
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 1rem;
-    align-items: center;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 1rem;
+  align-items: center;
 
-    &::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    $primary-orange,
-    transparent
-  );
-}
-  
-    @include tablet {
-      flex-direction: column-reverse;
-      justify-content: center;
-    }
-  
-    &.slide-up {
-      transform: translateY(0); // Slide up to position
-      opacity: 1; // Fade in
-      transition: transform 1s ease-out, opacity 1s ease-out; // Smooth transition
-    }
-  
-    transform: translateY(100%); // Start off-screen
-    opacity: 0; // Start transparent
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $primary-orange,
+      transparent
+    );
   }
-  
+
+  @include tablet {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  &.slide-up {
+    transform: translateY(0);
+    opacity: 1;
+    transition:
+      transform 1s ease-out,
+      opacity 1s ease-out;
+  }
+
+  transform: translateY(100%);
+  opacity: 0;
+}
